@@ -2,7 +2,7 @@
 [![Maven Central](https://img.shields.io/maven-central/v/com.github.dcendents/android-maven-gradle-plugin.svg)](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22android-maven-gradle-plugin%22)
 [![](https://jitpack.io/v/BrotherV/ToolsLibrary.svg)](https://jitpack.io/#BrotherV/ToolsLibrary)
 # Tools Library
-**An extended library from different widget such as Layouts, Spinner and TextView which have more features than original version**
+**An extended library from different widgets such as Layouts, Spinner and TextView which have more features than original version**
 ### New Features in v0.1
 
 #### ExtendSpinner
