@@ -6,7 +6,7 @@
 ### New Features in v0.1
 
 #### ExtendSpinner
-You can add what ever you want only in xml file without writing any JAVA code. By defining ExtendedSpinner in xmle you can easily have a fully supported rtl/ltr spinner with too many options.
+You can add what ever you want only in xml file without writing any JAVA code. By defining ExtendedSpinner in xml you can easily have a fully supported rtl/ltr spinner with too many options.
 
 ```xml
 <com.bvtech.toolslibrary.Widget.ExtendSpinner
