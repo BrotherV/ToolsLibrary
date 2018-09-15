@@ -1,0 +1,83 @@
+<resources>
+    <string name="app_name">Widget Test</string>
+
+    <string name="app_hello">Hello World!</string>
+
+    <string-array name="test_str">
+        <item>Persian</item>
+        <item>English</item>
+    </string-array>
+
+    <string-array name="test_entryValue">
+        <item>fa</item>
+        <item>en</item>
+    </string-array>
+
+    <string-array name="test_img">
+        <item>ir_flag</item>
+        <item>uk_flag</item>
+    </string-array>
+
+    <string-array name="countries">
+        <item>Australia</item>
+        <item>Austria</item>
+        <item>Brazil</item>
+        <item>Canada</item>
+        <item>Chile</item>
+        <item>China</item>
+        <item>Croatia</item>
+        <item>Czech Republic</item>
+        <item>Denmark</item>
+        <item>Estonia</item>
+        <item>Finland</item>
+        <item>France</item>
+        <item>Germany</item>
+        <item>Greece</item>
+        <item>Hungary</item>
+        <item>Iceland</item>
+        <item>India</item>
+        <item>Ireland</item>
+        <item>Italy</item>
+        <item>Latvia</item>
+        <item>Lithuania</item>
+        <item>Netherlands</item>
+        <item>New Zealand</item>
+        <item>Norway</item>
+        <item>Sweden</item>
+        <item>Switzerland</item>
+        <item>Ukraine</item>
+        <item>United States</item>
+    </string-array>
+
+    <string-array name="country_codes">
+        <item>au</item>
+        <item>at</item>
+        <item>br</item>
+        <item>ca</item>
+        <item>cl</item>
+        <item>cn</item>
+        <item>hr</item>
+        <item>cz</item>
+        <item>dk</item>
+        <item>ee</item>
+        <item>fi</item>
+        <item>fr</item>
+        <item>de</item>
+        <item>gr</item>
+        <item>hu</item>
+        <item>is</item>
+        <item>in</item>
+        <item>ie</item>
+        <item>it</item>
+        <item>lv</item>
+        <item>lt</item>
+        <item>nl</item>
+        <item>nz</item>
+        <item>no</item>
+        <item>se</item>
+        <item>ch</item>
+        <item>ua</item>
+        <item>us</item>
+    </string-array>
+
+</resources>

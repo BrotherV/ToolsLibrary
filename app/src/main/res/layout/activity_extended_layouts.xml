@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.bvtech.toolslibrary.Layouts.ExtendCoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layoutDirection="ltr"
+    tools:ignore="RtlHardcoded">
+
+    <com.bvtech.toolslibrary.FloatViews.FloatLinearLayout
+        android:id="@+id/laySwitch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:padding="8dp">
+
+        <android.support.v7.widget.SwitchCompat
+            android:id="@+id/switchTest"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Off"
+            />
+
+    </com.bvtech.toolslibrary.FloatViews.FloatLinearLayout>
+
+    <com.bvtech.toolslibrary.Layouts.ExtendFrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:gravity="center">
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/floatingActionButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|right"
+            android:layout_margin="16dp"
+            android:clickable="true"
+            app:srcCompat="@drawable/ic_launcher_foreground"/>
+
+        <com.bvtech.toolslibrary.Widget.ExtendTextView
+            android:id="@+id/txtTouch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            app:ltrTypeFace="font_en"
+            app:rtlTypeFace="traffic"/>
+
+    </com.bvtech.toolslibrary.Layouts.ExtendFrameLayout>
+
+    <com.bvtech.toolslibrary.Layouts.ExtendLinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:orientation="vertical">
+
+        <com.bvtech.toolslibrary.Widget.ExtendTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:text="@string/app_hello"
+            android:textSize="22sp"
+            app:ltrTypeFace="font_en"
+            app:rtlTypeFace="traffic"/>
+
+        <android.support.design.widget.FloatingActionButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:clickable="true"
+            app:fabSize="mini"
+            app:srcCompat="@drawable/ic_launcher_foreground"/>
+
+        <android.support.design.widget.FloatingActionButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:clickable="true"
+            app:fabSize="mini"
+            app:srcCompat="@drawable/ic_launcher_foreground"/>
+
+        <android.support.design.widget.FloatingActionButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:clickable="true"
+            app:fabSize="mini"
+            app:srcCompat="@drawable/ic_launcher_foreground"/>
+
+
+    </com.bvtech.toolslibrary.Layouts.ExtendLinearLayout>
+
+</com.bvtech.toolslibrary.Layouts.ExtendCoordinatorLayout>

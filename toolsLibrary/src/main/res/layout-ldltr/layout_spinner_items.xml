@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layCustomSpinner"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="left|center_vertical"
+    android:orientation="horizontal"
+    android:padding="4dp"
+    tools:ignore="RtlHardcoded">
+
+    <ImageView
+        android:id="@+id/imgSpinner"
+        android:layout_width="28dp"
+        android:layout_height="28dp"/>
+    <!--Make sure image is present in Drawable folder-->
+
+    <TextView
+        android:id="@+id/txtCustomSpinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="4dp"/>
+
+</LinearLayout>

@@ -1,0 +1,42 @@
+<resources>
+    <string name="app_name">Widget Test</string>
+
+    <string name="app_hello">سلام دنیا!</string>
+
+    <string-array name="test_str">
+        <item>فارسی</item>
+        <item>انگلیسی</item>
+    </string-array>
+
+    <string-array name="countries">
+        <item>استرالیا</item>
+        <item>اتریش</item>
+        <item>برزیل</item>
+        <item>کانادا</item>
+        <item>شیلی</item>
+        <item>چین</item>
+        <item>کرواسی</item>
+        <item>جمهوری چک</item>
+        <item>دانمارک</item>
+        <item>استونی</item>
+        <item>فنلاند</item>
+        <item>فرانسه</item>
+        <item>آلمان</item>
+        <item>یونان</item>
+        <item>مجارستان</item>
+        <item>ایسلند</item>
+        <item>هند</item>
+        <item>ایرلند</item>
+        <item>ایتالیا</item>
+        <item>لیتوانی</item>
+        <item>لتونی</item>
+        <item>هلند</item>
+        <item>نیوزلند</item>
+        <item>نروژ</item>
+        <item>سوئد</item>
+        <item>سوییس</item>
+        <item>اوکراین</item>
+        <item>آمریکا</item>
+    </string-array>
+
+</resources>

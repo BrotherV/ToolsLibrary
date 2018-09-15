@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="WidgetAttributes" >
+        <attr name="backgroundColor" format="reference"/>
+        <attr name="strokeColor" format="reference"/>
+        <attr name="strokeSize" format="dimension"/>
+        <attr name="cornerRadius" format="dimension"/>
+        <attr name="shapeType" format="integer">
+            <enum name="rectangle" value="0xA01" />
+            <enum name="oval" value="0xA02" />
+        </attr>
+        <attr name="dropDownIcon" format="integer">
+            <enum name="simple" value="0xA03" />
+            <enum name="cornerIcon" value="0xA04" />
+        </attr>
+        <attr name="textColor" format="reference"/>
+        <attr name="textSize" format="dimension"/>
+        <attr name="imageSize" format="dimension"/>
+        <attr name="entries" />
+        <attr name="entryValues" />
+        <attr name="imageEntries" />
+        <attr name="rtlTypeFace" format="string"/>
+        <attr name="ltrTypeFace" format="string"/>
+        <attr name="fontType" format="reference"/>
+    </declare-styleable>
+</resources>
