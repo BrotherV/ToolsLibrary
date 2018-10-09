@@ -187,7 +187,7 @@ public class HoloButton extends android.support.v7.widget.AppCompatImageView imp
 
 		if (canDrawCircle && !longClick) {
 			if (!firstRun) {
-				callStartListener();
+				handleClickListener();
 				firstRun = true;
 			}
 			if (circleRaduis[circleRaduis.length - 1] < (0.75 * radius)) {
@@ -379,29 +379,27 @@ public class HoloButton extends android.support.v7.widget.AppCompatImageView imp
 	 *
 	 */
 	public void callLongClickListener() {
-
-		new Handler().postDelayed(new Runnable() {
+		new Handler().post(new Runnable() {
 			@Override
 			public void run() {
 				if (longClickListener != null) {
 					longClickListener.onLongClick(HoloButton.this);
 				}
 			}
-		}, DRAW_OFFSET);
+		});
 	}
 
 	/**
 	 *
 	 */
-	public void callStartListener() {
-
-		new Handler().postDelayed(new Runnable() {
+	public void handleClickListener() {
+		new Handler().post(new Runnable() {
 			@Override
 			public void run() {
 				if (clickStartlistener != null) {
 					clickStartlistener.onClick(HoloButton.this);
 				}
 			}
-		}, DRAW_OFFSET);
+		});
 	}
 }
