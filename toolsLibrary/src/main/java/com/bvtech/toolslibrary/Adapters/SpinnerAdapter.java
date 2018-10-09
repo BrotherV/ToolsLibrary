@@ -2,7 +2,6 @@ package com.bvtech.toolslibrary.Adapters;
 
 import android.content.Context;
 import android.graphics.Typeface;
-import android.support.constraint.ConstraintLayout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -77,14 +76,14 @@ public class SpinnerAdapter extends ArrayAdapter<StructSpinner> {
             l1.setBackgroundColor(mBackgroundColor);
         }
 
-        TextView title = (TextView) view.findViewById(R.id.txtCustomSpinner);
+        TextView title = (TextView) view.findViewById(R.id.bvTechToolsLibraryTextCustomSpinner);
         if(title != null){
             title.setText(tempValues.name);
             title.setTextColor(mTextColor);
             title.setTypeface(font);
         }
 
-        ImageView img = (ImageView) view.findViewById(R.id.imgSpinner);
+        ImageView img = (ImageView) view.findViewById(R.id.bvTechToolsLibraryImgSpinner);
         if(img != null){
             if(tempValues.imgRes == 0){
                 img.setVisibility(View.GONE);

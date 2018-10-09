@@ -7,6 +7,7 @@ import android.support.v7.widget.SwitchCompat;
 import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bvtech.toolslibrary.FloatViews.FloatLinearLayout;
 import com.bvtech.toolslibrary.Layouts.ExtendCoordinatorLayout;

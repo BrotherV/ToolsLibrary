@@ -13,9 +13,7 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.Spinner;
 
 import com.bvtech.toolslibrary.Adapters.SpinnerAdapter;
@@ -223,9 +221,9 @@ public class ExtendSpinner extends ConstraintLayout {
 	 *
 	 */
 	private void setViews(Context context, View view){
-		lay = view.findViewById(R.id.spinnerLayout);
-		spinner = view.findViewById(R.id.spinner);
-		img = view.findViewById(R.id.spinnerButton);
+		lay = view.findViewById(R.id.bvTechToolsLibrarySpinnerLayout);
+		spinner = view.findViewById(R.id.bvTechToolsLibrarySpinner);
+		img = view.findViewById(R.id.bvTechToolsLibrarySpinnerButton);
 		img.setVisibility(INVISIBLE);
 
 		if(mIcon == ICON_SIMPLE){

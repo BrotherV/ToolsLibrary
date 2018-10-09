@@ -12,13 +12,13 @@
     tools:ignore="RtlHardcoded">
 
     <ImageView
-        android:id="@+id/imgSpinner"
+        android:id="@+id/bvTechToolsLibraryImgSpinner"
         android:layout_width="28dp"
         android:layout_height="28dp"/>
     <!--Make sure image is present in Drawable folder-->
 
     <TextView
-        android:id="@+id/txtCustomSpinner"
+        android:id="@+id/bvTechToolsLibraryTextCustomSpinner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="4dp"/>
