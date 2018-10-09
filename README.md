@@ -3,7 +3,7 @@
 [![](https://jitpack.io/v/BrotherV/ToolsLibrary.svg)](https://jitpack.io/#BrotherV/ToolsLibrary)
 # Tools Library
 **An extended library from different widgets such as Layouts, Spinner and TextView which have more features than original version**
-### New Features in v0.1
+### Features in v0.4
 
 #### ExtendSpinner
 You can add what ever you want only in xml file without writing any JAVA code. By defining ExtendedSpinner in xml you can easily have a fully supported rtl/ltr spinner with too many options.
@@ -169,18 +169,18 @@ if you want to hide/show a few widgets just like FloatActionButton when moving R
 
 Step 1. Add it in your root build.gradle at the end of repositories:
 ```Groovy
-allprojects {
-		repositories {
-			...
-			maven { url 'https://jitpack.io' }
-		}
+allprojects{
+	repositories{
+		...
+		maven { url 'https://jitpack.io' }
 	}
+}
 ```
 Step 2. Add the dependency
 ```Groovy
-dependencies {
-	        implementation 'com.github.BrotherV:ToolsLibrary:0.2'
-	}
+dependencies{
+	     implementation 'com.github.BrotherV:ToolsLibrary:0.4'
+}
 ```
 
 ## License
