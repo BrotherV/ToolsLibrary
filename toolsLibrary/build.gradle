@@ -3,13 +3,13 @@ apply plugin: 'com.github.dcendents.android-maven'
 
 buildscript {
     group = 'com.github.BrotherV'
-    version = 1
+    version = 3
     repositories {
         mavenCentral()
     }
 
     dependencies {
-        classpath 'com.github.dcendents:android-maven-gradle-plugin:2.0'
+        classpath 'com.github.dcendents:android-maven-gradle-plugin:2.1'
     }
 }
 
