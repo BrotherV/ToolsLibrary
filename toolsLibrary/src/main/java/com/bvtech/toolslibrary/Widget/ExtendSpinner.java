@@ -182,14 +182,23 @@ public class ExtendSpinner extends ConstraintLayout {
 			String ltrFont = ta.getString(R.styleable.WidgetAttributes_ltrTypeFace);
 			String rtlFont = ta.getString(R.styleable.WidgetAttributes_rtlTypeFace);
 
-			if(ltrFont != null && rtlFont != null){
+			if(ltrFont != null && isRtl){
 				try {
-					String fileDir = Utilities.isFileExistInAsset(context, "" ,(isRtl ? ltrFont : rtlFont) + ".ttf");
+					mTypeFace = Typeface.createFromAsset(context.getAssets(), ltrFont);
+					/*String fileDir = Utilities.isFileExistInAsset(context, "" ,(isRtl ? ltrFont : rtlFont) + ".ttf");
 					if(fileDir != null){
 						mTypeFace = Typeface.createFromAsset(context.getAssets(), fileDir);
 					}else{
 						mTypeFace = Typeface.DEFAULT;
-					}
+					}*/
+				}catch (Exception e){
+					e.printStackTrace();
+				}
+			}
+
+			if(rtlFont != null && !isRtl){
+				try {
+					mTypeFace = Typeface.createFromAsset(context.getAssets(), rtlFont);
 				}catch (Exception e){
 					e.printStackTrace();
 				}
@@ -262,6 +271,7 @@ public class ExtendSpinner extends ConstraintLayout {
 			@Override
 			public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 				Log.d("ItemSelectedListener", "Item Selected");
+				/*
 				if(!isSpClicked){
 					isSpClicked = true;
 				}else{
@@ -269,6 +279,10 @@ public class ExtendSpinner extends ConstraintLayout {
 					if(onItemSelectedListener != null){
 						onItemSelectedListener.onItemSelected(parent,view, position, id);
 					}
+				}
+				*/
+				if(onItemSelectedListener != null){
+					onItemSelectedListener.onItemSelected(parent,view, position, id);
 				}
 			}
 
@@ -388,5 +402,11 @@ public class ExtendSpinner extends ConstraintLayout {
 				break;
 			}
 		}
+	}
+
+	@Override
+	public boolean performClick() {
+		spinner.performClick();
+		return super.performClick();
 	}
 }
