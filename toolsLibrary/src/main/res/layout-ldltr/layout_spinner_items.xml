@@ -8,7 +8,7 @@
     android:layout_height="wrap_content"
     android:gravity="left|center_vertical"
     android:orientation="horizontal"
-    android:padding="4dp"
+    android:padding="2dp"
     tools:ignore="RtlHardcoded">
 
     <ImageView
@@ -20,7 +20,8 @@
     <TextView
         android:id="@+id/bvTechToolsLibraryTextCustomSpinner"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="4dp"/>
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        android:padding="2dp"/>
 
 </LinearLayout>
