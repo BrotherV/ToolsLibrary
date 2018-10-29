@@ -179,7 +179,7 @@ allprojects{
 Step 2. Add the dependency
 ```Groovy
 dependencies{
-	     implementation 'com.github.BrotherV:ToolsLibrary:0.42'
+	     implementation 'com.github.BrotherV:ToolsLibrary:0.43'
 }
 ```
 
