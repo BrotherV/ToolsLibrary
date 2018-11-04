@@ -426,6 +426,67 @@ public class ViewUtility {
 		}
 	}
 
+	public static void shrinkExpandAnimation(final View myView, final float shrinkPercent, final View.OnClickListener listener) {
+		if(myView != null){
+			final Animation animClickIn = scaleAnimationRelativeToSelf(1.0f, shrinkPercent,
+					1.0f, shrinkPercent, 0.5f, 0.5f, 80,false);
+			animClickIn.setRepeatMode(Animation.REVERSE);
+			animClickIn.setInterpolator(new AccelerateDecelerateInterpolator());
+
+			myView.setOnClickListener(new View.OnClickListener() {
+				@Override
+				public void onClick(View view) {
+					myView.startAnimation(animClickIn);
+				}
+			});
+
+			animClickIn.setAnimationListener(new Animation.AnimationListener() {
+				@Override
+				public void onAnimationStart(Animation animation) {}
+
+				@Override
+				public void onAnimationEnd(Animation animation) {
+					if (listener != null){
+						listener.onClick(myView);
+					}
+				}
+
+				@Override
+				public void onAnimationRepeat(Animation animation) {}
+			});
+		}
+	}
+
+	public static void shrinkExpandAnimation(final View myView, final float shrinkPercent, int delay, final View.OnClickListener listener) {
+		if(myView != null){
+			final Animation animClickIn = scaleAnimationRelativeToSelf(1.0f, shrinkPercent,
+					1.0f, shrinkPercent, 0.5f, 0.5f, delay,false);
+			animClickIn.setRepeatMode(Animation.REVERSE);
+			animClickIn.setInterpolator(new AccelerateDecelerateInterpolator());
+
+			myView.setOnClickListener(new View.OnClickListener() {
+				@Override
+				public void onClick(View view) {
+					myView.startAnimation(animClickIn);
+				}
+			});
+
+			animClickIn.setAnimationListener(new Animation.AnimationListener() {
+				@Override
+				public void onAnimationStart(Animation animation) {}
+
+				@Override
+				public void onAnimationEnd(Animation animation) {
+					if (listener != null){
+						listener.onClick(myView);
+					}
+				}
+
+				@Override
+				public void onAnimationRepeat(Animation animation) {}
+			});
+		}
+	}
 
 	public static void shrinkExpandAnimation(final View targetView, final View expandShrinker, final View.OnClickListener listener) {
 		if(targetView != null){
