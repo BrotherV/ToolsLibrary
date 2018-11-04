@@ -148,7 +148,7 @@ public class ExtendSpinner extends ConstraintLayout {
 
 		float textSize = ta.getDimension(R.styleable.WidgetAttributes_textSize, 0);
 		if (textSize != 0) {
-			mTextSize = textSize;
+			mTextSize = Utilities.pxToDp(textSize);
 		}else {
 			mTextSize = 14;
 		}
