@@ -3,7 +3,6 @@
 [![](https://jitpack.io/v/BrotherV/ToolsLibrary.svg)](https://jitpack.io/#BrotherV/ToolsLibrary)
 # Tools Library
 **An extended library from different widgets such as Layouts, Spinner and TextView which have more features than original version**
-### Features in v0.46
 
 #### ExtendSpinner
 You can add what ever you want only in xml file without writing any JAVA code. By defining ExtendedSpinner in xml you can easily have a fully supported rtl/ltr spinner with too many options.
