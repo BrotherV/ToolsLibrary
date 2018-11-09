@@ -18,6 +18,9 @@ import android.Manifest;
 import android.app.Activity;
 import android.app.ActivityManager;
 import android.content.ActivityNotFoundException;
+import android.content.ClipData;
+import android.content.ClipDescription;
+import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -1215,7 +1218,6 @@ public class Utilities {
 	}
 
 	public static String isFileExistInAsset(Context context, String path, String fileName) {
-
 		String [] list;
 		try {
 			list = context.getAssets().list(path);
@@ -1257,5 +1259,34 @@ public class Utilities {
 		}
 
 		return null;
+	}
+
+	public static String readTextFromClipboard(Context context) {
+		ClipboardManager clipboard = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
+		if (clipboard.hasPrimaryClip()) {
+			ClipDescription description = clipboard.getPrimaryClipDescription();
+			ClipData data = clipboard.getPrimaryClip();
+			if (data != null && description != null && description.hasMimeType(ClipDescription.MIMETYPE_TEXT_PLAIN))
+				return String.valueOf(data.getItemAt(0).getText());
+		}
+		return null;
+	}
+
+	public static void copyTextToClipboard(Context context, String text, String label) {
+		ClipboardManager clipboard = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
+		ClipData clip = ClipData.newPlainText(label, text);
+		clipboard.setPrimaryClip(clip);
+	}
+
+	public void copyFromView(View v, String label) {
+		if(v != null && v instanceof TextView){
+			TextView txtNotes = (TextView) v;
+			int startSelection = txtNotes.getSelectionStart();
+			int endSelection = txtNotes.getSelectionEnd();
+			if ((txtNotes.getText() != null) && (endSelection > startSelection )){
+				String selectedText = txtNotes.getText().toString().substring(startSelection, endSelection);
+				copyTextToClipboard(v.getContext(), selectedText, label);
+			}
+		}
 	}
 }
