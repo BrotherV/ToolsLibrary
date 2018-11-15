@@ -35,8 +35,10 @@ import android.net.Uri;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.Build;
+import android.preference.PreferenceManager;
 import android.provider.Telephony;
 import android.support.annotation.DrawableRes;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.graphics.drawable.RoundedBitmapDrawable;
@@ -1111,16 +1113,45 @@ public class Utilities {
 	/**
 	 *
 	 */
-	public static void saveData(SharedPreferences.Editor edt, Object obj, String key){
-		if(obj instanceof Boolean){
-			edt.putBoolean(key, (Boolean) obj);
-		}else if (obj instanceof  Integer){
-			edt.putInt(key, (Integer) obj);
-		}else if (obj instanceof  String){
-			edt.putString(key, (String) obj);
+	public static void saveData(Context c, String key, Object value){
+		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(c);
+		SharedPreferences.Editor edt = prefs.edit();
+		if(value instanceof Boolean){
+			edt.putBoolean(key, (Boolean) value);
+		}else if (value instanceof  Integer){
+			edt.putInt(key, (Integer) value);
+		}else if (value instanceof  String){
+			edt.putString(key, (String) value);
+		}else if (value instanceof  Long){
+			edt.putLong(key, (Long) value);
+		}else if (value instanceof Float){
+			edt.putFloat(key, (Float) value);
 		}
 		edt.commit();
 	}
+
+	public static final int OBJECT_INTEGER = 0;
+	public static final int OBJECT_LONG = 1;
+	public static final int OBJECT_FLOAT = 2;
+	public static final int OBJECT_STRING = 3;
+	public static final int OBJECT_BOOLEAN = 4;
+	public static Object readData(Context c, String key, int type){
+		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(c);
+		switch (type){
+			case OBJECT_INTEGER:
+				return prefs.getInt(key, 0);
+			case OBJECT_LONG:
+				return prefs.getLong(key, 0);
+			case OBJECT_FLOAT:
+				return prefs.getFloat(key, 0);
+			case OBJECT_STRING:
+				return prefs.getString(key, null);
+			case OBJECT_BOOLEAN:
+				return prefs.getBoolean(key, false);
+		}
+		return null;
+	}
+
 
 	/**
 	 *
