@@ -43,6 +43,7 @@ public class ExtendSpinner extends ConstraintLayout {
 	private int mShapeType;
 	private int mTextColor;
 	private int mIcon;
+	private int mIconColor;
 	private float mTextSize;
 	private float mImageSize;
 	private String[] mEntries;
@@ -137,6 +138,13 @@ public class ExtendSpinner extends ConstraintLayout {
 			mIcon = iconType;
 		}else {
 			mIcon = ICON_SIMPLE;
+		}
+
+		int iconColorResId = ta.getInt(R.styleable.ExtendSpinner_iconColor, 0);
+		if (iconColorResId != 0) {
+			mIconColor = iconColorResId;
+		}else {
+			mIconColor = DEFAULT_COLOR;
 		}
 
 		int textColorResId = ta.getResourceId(R.styleable.ExtendSpinner_textColor, 0);
@@ -276,12 +284,10 @@ public class ExtendSpinner extends ConstraintLayout {
 			}else{
 				fillSpinner(context, mEntries, mEntryValues, null, color, TRANSPARENT_COLOR, mTextSize, mImageSize, mTypeFace);
 			}
-			img.setVisibility(VISIBLE);
-			img.setColorFilter(color, PorterDuff.Mode.SRC_ATOP);
 		}
 
 		if(mShapeType != 0){
-			setBackgroundShape(mShapeType, (int) mCornerRadius, (int) mStrokeSize, mBackgroundColor, mStrokeColor);
+			setBackgroundShape(mShapeType, (int) mCornerRadius, (int) mStrokeSize, mBackgroundColor, mStrokeColor, mIconColor);
 		}
 
 		spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -377,15 +383,15 @@ public class ExtendSpinner extends ConstraintLayout {
 	/**
 	 *
 	 */
-	public void setBackgroundShape(int shapeType, int cornerRadius, int strokeSize, int backgroundColor, int borderColor) {
+	public void setBackgroundShape(int shapeType, int cornerRadius, int strokeSize, int backgroundColor, int borderColor, int iconColor) {
 		if(shapeType == RECTANGLE){
 			this.setBackgroundDrawable(ViewUtility.setShape(GradientDrawable.RECTANGLE, cornerRadius, strokeSize, backgroundColor, borderColor));
 		}else if(shapeType == OVAL){
 			this.setBackgroundDrawable(ViewUtility.setShape(GradientDrawable.OVAL, cornerRadius, strokeSize, backgroundColor, borderColor));
 		}
 		spinner.setBackgroundColor(TRANSPARENT_COLOR);
-		//img.setVisibility(VISIBLE);
-		//img.setColorFilter(borderColor, PorterDuff.Mode.SRC_ATOP);
+		img.setVisibility(VISIBLE);
+		img.setColorFilter(iconColor, PorterDuff.Mode.SRC_ATOP);
 	}
 
 	public int getCount() {

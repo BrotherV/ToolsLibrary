@@ -13,6 +13,7 @@
             <enum name="simple" value="0xA03" />
             <enum name="cornerIcon" value="0xA04" />
         </attr>
+        <attr name="iconColor" format="reference"/>
         <attr name="textColor" format="reference"/>
         <attr name="textSize" format="dimension"/>
         <attr name="imageSize" format="dimension"/>
