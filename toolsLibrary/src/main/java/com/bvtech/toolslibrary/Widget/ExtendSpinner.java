@@ -276,6 +276,8 @@ public class ExtendSpinner extends ConstraintLayout {
 			}else{
 				fillSpinner(context, mEntries, mEntryValues, null, color, TRANSPARENT_COLOR, mTextSize, mImageSize, mTypeFace);
 			}
+			img.setVisibility(VISIBLE);
+			img.setColorFilter(color, PorterDuff.Mode.SRC_ATOP);
 		}
 
 		if(mShapeType != 0){
@@ -382,8 +384,8 @@ public class ExtendSpinner extends ConstraintLayout {
 			this.setBackgroundDrawable(ViewUtility.setShape(GradientDrawable.OVAL, cornerRadius, strokeSize, backgroundColor, borderColor));
 		}
 		spinner.setBackgroundColor(TRANSPARENT_COLOR);
-		img.setVisibility(VISIBLE);
-		img.setColorFilter(borderColor, PorterDuff.Mode.SRC_ATOP);
+		//img.setVisibility(VISIBLE);
+		//img.setColorFilter(borderColor, PorterDuff.Mode.SRC_ATOP);
 	}
 
 	public int getCount() {
