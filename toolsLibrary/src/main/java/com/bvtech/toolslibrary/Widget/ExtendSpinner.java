@@ -95,111 +95,127 @@ public class ExtendSpinner extends ConstraintLayout {
 		//View view = inflate(context, R.layout.layout_spinner, this);
 		TypedArray ta;
 		if(attrs != null){
-			ta = context.obtainStyledAttributes(attrs, R.styleable.WidgetAttributes);
+			ta = context.obtainStyledAttributes(attrs, R.styleable.ExtendSpinner);
 		}else {
-			ta = context.obtainStyledAttributes(R.styleable.WidgetAttributes);
+			ta = context.obtainStyledAttributes(R.styleable.ExtendSpinner);
 		}
-		int backgroundColorResId = ta.getResourceId(R.styleable.WidgetAttributes_backgroundColor, 0);
+		int backgroundColorResId = ta.getResourceId(R.styleable.ExtendSpinner_backgroundColor, 0);
 		if (backgroundColorResId != 0) {
 			mBackgroundColor = context.getResources().getColor(backgroundColorResId);
 		}else{
 			mBackgroundColor = TRANSPARENT_COLOR;
 		}
 
-		int strokeColorResId = ta.getResourceId(R.styleable.WidgetAttributes_strokeColor, 0);
+		int strokeColorResId = ta.getResourceId(R.styleable.ExtendSpinner_strokeColor, 0);
 		if (strokeColorResId != 0) {
 			mStrokeColor = context.getResources().getColor(strokeColorResId);
 		}else{
 			mStrokeColor = DEFAULT_COLOR;
 		}
 
-		float strokeSize = ta.getDimension(R.styleable.WidgetAttributes_strokeSize, 0);
+		float strokeSize = ta.getDimension(R.styleable.ExtendSpinner_strokeSize, 0);
 		if (strokeSize != 0) {
 			mStrokeSize = strokeSize;
 		}else{
 			mStrokeSize = Utilities.dpToPx(2);
 		}
 
-		float cornerRadius = ta.getDimension(R.styleable.WidgetAttributes_cornerRadius, -1);
+		float cornerRadius = ta.getDimension(R.styleable.ExtendSpinner_cornerRadius, -1);
 		if (cornerRadius != -1) {
 			mCornerRadius = cornerRadius;
 		}else{
 			mCornerRadius = Utilities.dpToPx(2);
 		}
 
-		int shapeType = ta.getInt(R.styleable.WidgetAttributes_shapeType, 0);
+		int shapeType = ta.getInt(R.styleable.ExtendSpinner_shapeType, 0);
 		if (shapeType != 0) {
 			mShapeType = shapeType;
 		}
 
-		int iconType = ta.getInt(R.styleable.WidgetAttributes_dropDownIcon, 0);
+		int iconType = ta.getInt(R.styleable.ExtendSpinner_dropDownIcon, 0);
 		if (iconType != 0) {
 			mIcon = iconType;
 		}else {
 			mIcon = ICON_SIMPLE;
 		}
 
-		int textColorResId = ta.getResourceId(R.styleable.WidgetAttributes_textColor, 0);
+		int textColorResId = ta.getResourceId(R.styleable.ExtendSpinner_textColor, 0);
 		if (textColorResId != 0) {
 			mTextColor = context.getResources().getColor(textColorResId);
 		}else{
 			mTextColor = DEFAULT_COLOR;
 		}
 
-		float textSize = ta.getDimension(R.styleable.WidgetAttributes_textSize, 0);
+		float textSize = ta.getDimension(R.styleable.ExtendSpinner_textSize, 0);
 		if (textSize != 0) {
 			mTextSize = Utilities.pxToDp(textSize);
 		}else {
 			mTextSize = 14;
 		}
 
-		float imageSize = ta.getDimension(R.styleable.WidgetAttributes_imageSize, 0);
+		float imageSize = ta.getDimension(R.styleable.ExtendSpinner_imageSize, 0);
 		if (imageSize != 0) {
 			mImageSize = imageSize;
 		}else {
 			mImageSize = Utilities.dpToPx(28);
 		}
 
-		int entriesResId = ta.getResourceId(R.styleable.WidgetAttributes_entries, 0);
+		int entriesResId = ta.getResourceId(R.styleable.ExtendSpinner_entries, 0);
 		if (entriesResId != 0) {
 			mEntries = context.getResources().getStringArray(entriesResId);
 		}
 
-		int entryValuesResId = ta.getResourceId(R.styleable.WidgetAttributes_entryValues, 0);
+		int entryValuesResId = ta.getResourceId(R.styleable.ExtendSpinner_entryValues, 0);
 		if (entryValuesResId != 0) {
 			mEntryValues = context.getResources().getStringArray(entryValuesResId);
 		}
 
-		int imageEntriesResId = ta.getResourceId(R.styleable.WidgetAttributes_imageEntries, 0);
+		int imageEntriesResId = ta.getResourceId(R.styleable.ExtendSpinner_imageEntries, 0);
 		if (imageEntriesResId != 0) {
 			mImageEntries = context.getResources().getStringArray(imageEntriesResId);
 		}
 
-		int fontResId = ta.getResourceId(R.styleable.WidgetAttributes_fontType, 0);
+		int fontResId = ta.getResourceId(R.styleable.ExtendSpinner_fontType, 0);
 		if(fontResId != 0 && Utilities.hasOreoApi()){
 			mTypeFace = context.getResources().getFont(fontResId);
 		}else{
-			String ltrFont = ta.getString(R.styleable.WidgetAttributes_ltrTypeFace);
-			String rtlFont = ta.getString(R.styleable.WidgetAttributes_rtlTypeFace);
+			String ltrFont = ta.getString(R.styleable.ExtendSpinner_ltrTypeFace);
+			String rtlFont = ta.getString(R.styleable.ExtendSpinner_rtlTypeFace);
 
-			if(ltrFont != null && isRtl){
+			if(ltrFont != null && !isRtl){
 				try {
-					mTypeFace = Typeface.createFromAsset(context.getAssets(), ltrFont);
-					/*String fileDir = Utilities.isFileExistInAsset(context, "" ,(isRtl ? ltrFont : rtlFont) + ".ttf");
+					String fileDir = Utilities.isFileExistInAsset(context, "" ,ltrFont + ".ttf");
 					if(fileDir != null){
 						mTypeFace = Typeface.createFromAsset(context.getAssets(), fileDir);
 					}else{
-						mTypeFace = Typeface.DEFAULT;
-					}*/
+						try {
+							mTypeFace = Typeface.createFromAsset(context.getAssets(), ltrFont);
+						}catch (Exception e){
+							mTypeFace = Typeface.DEFAULT;
+							e.printStackTrace();
+						}
+					}
 				}catch (Exception e){
+					mTypeFace = Typeface.DEFAULT;
 					e.printStackTrace();
 				}
 			}
 
-			if(rtlFont != null && !isRtl){
+			if(rtlFont != null && isRtl){
 				try {
-					mTypeFace = Typeface.createFromAsset(context.getAssets(), rtlFont);
+					String fileDir = Utilities.isFileExistInAsset(context, "" ,rtlFont + ".ttf");
+					if(fileDir != null){
+						mTypeFace = Typeface.createFromAsset(context.getAssets(), fileDir);
+					}else{
+						try {
+							mTypeFace = Typeface.createFromAsset(context.getAssets(), rtlFont);
+						}catch (Exception e){
+							mTypeFace = Typeface.DEFAULT;
+							e.printStackTrace();
+						}
+					}
 				}catch (Exception e){
+					mTypeFace = Typeface.DEFAULT;
 					e.printStackTrace();
 				}
 			}
@@ -238,7 +254,7 @@ public class ExtendSpinner extends ConstraintLayout {
 		if(mIcon == ICON_SIMPLE){
 			img.setImageResource(R.drawable.arrow_drop_down);
 		}else if(mIcon == ICON_CORNER){
-			img.setImageResource(isRtl ? R.drawable.arrow_drop_down2 : R.drawable.arrow_drop_down3);
+			img.setImageResource(isRtl ? R.drawable.arrow_drop_down3 : R.drawable.arrow_drop_down2);
 		}
 		spinner.setClickable(false);
 

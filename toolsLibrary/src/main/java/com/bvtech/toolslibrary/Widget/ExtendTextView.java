@@ -34,27 +34,50 @@ public class ExtendTextView extends android.support.v7.widget.AppCompatTextView 
         TypedArray ta;
         boolean isRtl = context.getResources().getBoolean(R.bool.is_right_to_left);
         if(attrs != null){
-            ta = context.obtainStyledAttributes(attrs, R.styleable.WidgetAttributes);
+            ta = context.obtainStyledAttributes(attrs, R.styleable.ExtendSpinner);
         }else {
-            ta = context.obtainStyledAttributes(R.styleable.WidgetAttributes);
+            ta = context.obtainStyledAttributes(R.styleable.ExtendSpinner);
         }
 
-        int fontResId = ta.getResourceId(R.styleable.WidgetAttributes_fontType, 0);
+        int fontResId = ta.getResourceId(R.styleable.ExtendSpinner_fontType, 0);
         if(fontResId != 0 && Utilities.hasOreoApi()){
             setTypeface(context.getResources().getFont(fontResId));
         }else{
-            String ltrFont = ta.getString(R.styleable.WidgetAttributes_ltrTypeFace);
-            String rtlFont = ta.getString(R.styleable.WidgetAttributes_rtlTypeFace);
+            String ltrFont = ta.getString(R.styleable.ExtendSpinner_ltrTypeFace);
+            String rtlFont = ta.getString(R.styleable.ExtendSpinner_rtlTypeFace);
 
-            if(ltrFont != null && rtlFont != null){
+            if(ltrFont != null && !isRtl){
                 try {
-                    String fileDir = Utilities.isFileExistInAsset(context, "" ,(isRtl ? ltrFont : rtlFont) + ".ttf");
+                    String fileDir = Utilities.isFileExistInAsset(context, "" ,ltrFont + ".ttf");
                     if(fileDir != null){
                         setTypeface(Typeface.createFromAsset(context.getAssets(), fileDir));
                     }else{
-                        setTypeface(Typeface.DEFAULT);
+                        try {
+                            setTypeface(Typeface.createFromAsset(context.getAssets(), ltrFont));
+                        }catch (Exception e){
+                            setTypeface(Typeface.DEFAULT);
+                            e.printStackTrace();
+                        }
                     }
                 }catch (Exception e){
+                    setTypeface(Typeface.DEFAULT);
+                    e.printStackTrace();
+                }
+            }else if(rtlFont != null && isRtl){
+                try {
+                    String fileDir = Utilities.isFileExistInAsset(context, "" ,rtlFont + ".ttf");
+                    if(fileDir != null){
+                        setTypeface(Typeface.createFromAsset(context.getAssets(), fileDir));
+                    }else{
+                        try {
+                            setTypeface(Typeface.createFromAsset(context.getAssets(), rtlFont));
+                        }catch (Exception e){
+                            setTypeface(Typeface.DEFAULT);
+                            e.printStackTrace();
+                        }
+                    }
+                }catch (Exception e){
+                    setTypeface(Typeface.DEFAULT);
                     e.printStackTrace();
                 }
             }
