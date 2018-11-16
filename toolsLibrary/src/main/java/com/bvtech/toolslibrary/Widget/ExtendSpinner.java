@@ -142,7 +142,7 @@ public class ExtendSpinner extends ConstraintLayout {
 
 		int iconColorResId = ta.getInt(R.styleable.ExtendSpinner_iconColor, 0);
 		if (iconColorResId != 0) {
-			mIconColor = iconColorResId;
+			mIconColor = mContext.getResources().getColor(iconColorResId);
 		}else {
 			mIconColor = DEFAULT_COLOR;
 		}
