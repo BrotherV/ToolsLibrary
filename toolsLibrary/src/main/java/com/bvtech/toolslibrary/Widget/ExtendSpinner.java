@@ -1,14 +1,17 @@
 package com.bvtech.toolslibrary.Widget;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.Typeface;
 import android.graphics.drawable.GradientDrawable;
+import android.support.annotation.ColorInt;
 import android.support.constraint.ConstraintLayout;
 import android.util.AttributeSet;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -94,6 +97,10 @@ public class ExtendSpinner extends ConstraintLayout {
 		LayoutInflater mInflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		View view = mInflater.inflate(R.layout.layout_spinner, this, true);
 		//View view = inflate(context, R.layout.layout_spinner, this);
+		TypedValue typedValue = new TypedValue();
+		Resources.Theme theme = context.getTheme();
+		theme.resolveAttribute(R.attr.colorPrimary, typedValue, true);
+
 		TypedArray ta;
 		if(attrs != null){
 			ta = context.obtainStyledAttributes(attrs, R.styleable.ExtendSpinner);
@@ -111,7 +118,7 @@ public class ExtendSpinner extends ConstraintLayout {
 		if (strokeColorResId != 0) {
 			mStrokeColor = context.getResources().getColor(strokeColorResId);
 		}else{
-			mStrokeColor = DEFAULT_COLOR;
+			mStrokeColor = typedValue.data;
 		}
 
 		float strokeSize = ta.getDimension(R.styleable.ExtendSpinner_strokeSize, 0);
@@ -144,14 +151,14 @@ public class ExtendSpinner extends ConstraintLayout {
 		if (iconColorResId != 0) {
 			mIconColor = context.getResources().getColor(iconColorResId);
 		}else {
-			mIconColor = DEFAULT_COLOR;
+			mIconColor = typedValue.data;
 		}
 
 		int textColorResId = ta.getResourceId(R.styleable.ExtendSpinner_textColor, 0);
 		if (textColorResId != 0) {
 			mTextColor = context.getResources().getColor(textColorResId);
 		}else{
-			mTextColor = DEFAULT_COLOR;
+			mTextColor = typedValue.data;
 		}
 
 		float textSize = ta.getDimension(R.styleable.ExtendSpinner_textSize, 0);
