@@ -147,6 +147,5 @@ public class ExtendTextView extends android.support.v7.widget.AppCompatTextView 
         }else if(shapeType == OVAL){
             this.setBackgroundDrawable(ViewUtility.setShape(GradientDrawable.OVAL, cornerRadius, strokeSize, backgroundColor, borderColor));
         }
-        ExtendTextView.this.setBackgroundColor(Color.TRANSPARENT);
     }
 }
