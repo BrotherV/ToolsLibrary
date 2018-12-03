@@ -34,6 +34,8 @@ public class ExtendSpinner extends ConstraintLayout {
 	public static final int OVAL = 0xA02;
 	public static final int ICON_SIMPLE = 0xA03;
 	public static final int ICON_CORNER = 0xA04;
+	public static final int LTR = 1;
+	public static final int RTL = 2;
 	public static final int TRANSPARENT_COLOR = Color.TRANSPARENT;
 	public static final int WHITE_COLOR = Color.WHITE;
 	public static final int DEFAULT_COLOR = Color.GRAY;
@@ -145,6 +147,13 @@ public class ExtendSpinner extends ConstraintLayout {
 			mIcon = iconType;
 		}else {
 			mIcon = ICON_SIMPLE;
+		}
+
+		int layoutDirection = ta.getInt(R.styleable.ExtendSpinner_layoutDirection, 0);
+		if (layoutDirection == LTR) {
+			isRtl = false;
+		}else if (layoutDirection == RTL){
+			isRtl = true;
 		}
 
 		int iconColorResId = ta.getResourceId(R.styleable.ExtendSpinner_iconColor, 0);
