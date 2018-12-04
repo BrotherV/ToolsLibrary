@@ -9,7 +9,9 @@ import android.graphics.drawable.GradientDrawable;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.KeyEvent;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 
 import com.bvtech.toolslibrary.R;
 import com.bvtech.toolslibrary.Utility.Utilities;
@@ -20,17 +22,31 @@ public class ExtendEditText extends android.support.v7.widget.AppCompatEditText 
 	public static final int RECTANGLE = 0xA01;
 	public static final int OVAL = 0xA02;
 
+	private Context context;
 	private int mBackgroundColor;
 	private int mStrokeColor;
 	private float mStrokeSize;
 	private float mCornerRadius;
 	private int mShapeType;
 
-	public interface OnKeyboardDownListener {
-		public void onKeyDown(View v);
+	@Override
+	public boolean onTouchEvent(MotionEvent event) {
+		if(event.getAction() == MotionEvent.ACTION_DOWN){
+			if (listener != null) {
+				listener.onKeyUp(ExtendEditText.this);
+			}
+			InputMethodManager inputMethodManager = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
+			inputMethodManager.showSoftInput(ExtendEditText.this, InputMethodManager.SHOW_IMPLICIT);
+		}
+		return true;
 	}
 
-	private OnKeyboardDownListener listener;
+	public interface OnKeyboardEventListener {
+		void onKeyDown(View v);
+		void onKeyUp(View v);
+	}
+
+	private OnKeyboardEventListener listener;
 
 	public ExtendEditText(Context context, AttributeSet attrs, int defStyleAttr) {
 		super(context, attrs, defStyleAttr);
@@ -59,7 +75,7 @@ public class ExtendEditText extends android.support.v7.widget.AppCompatEditText 
 		return super.onKeyPreIme(keyCode, event);
 	}
 
-	public void setOnKeyboardDownListener(OnKeyboardDownListener l) {
+	public void setOnKeyboardEventListener(OnKeyboardEventListener l) {
 		listener = l;
 	}
 
@@ -70,6 +86,7 @@ public class ExtendEditText extends android.support.v7.widget.AppCompatEditText 
 	}
 
 	private void init(Context context, AttributeSet attrs) {
+		this.context = context;
 		TypedArray ta;
 		boolean isRtl = context.getResources().getBoolean(R.bool.is_right_to_left);
 
