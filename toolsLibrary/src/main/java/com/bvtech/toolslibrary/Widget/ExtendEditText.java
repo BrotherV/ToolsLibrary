@@ -6,6 +6,8 @@ import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.graphics.drawable.GradientDrawable;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.KeyEvent;
@@ -46,7 +48,44 @@ public class ExtendEditText extends android.support.v7.widget.AppCompatEditText 
 		void onKeyUp(View v);
 	}
 
+	public interface OnTextChangeListener{
+        void onTextChanged(View view, String str);
+        void afterTextChanged(View view, Editable editable);
+    }
+
 	private OnKeyboardEventListener listener;
+	private OnTextChangeListener onTextChangeListener;
+	private TextWatcher textWatcher;
+
+    @Override
+    public boolean onKeyPreIme(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK
+                && event.getAction() == KeyEvent.ACTION_UP) {
+            if (listener != null) {
+                listener.onKeyDown(ExtendEditText.this);
+            }
+            //return true; // So it is not propagated.
+        }
+        return super.onKeyPreIme(keyCode, event);
+    }
+
+    public void setOnKeyboardEventListener(OnKeyboardEventListener l) {
+        listener = l;
+    }
+
+    public void setOnTextChangeListener(OnTextChangeListener l) {
+        onTextChangeListener = l;
+    }
+
+    public void addTextChangedListener(TextWatcher l) {
+        textWatcher = l;
+    }
+
+    public void performOnKeyboardDownListener() {
+        if (listener != null) {
+            listener.onKeyDown(ExtendEditText.this);
+        }
+    }
 
 	public ExtendEditText(Context context, AttributeSet attrs, int defStyleAttr) {
 		super(context, attrs, defStyleAttr);
@@ -61,28 +100,6 @@ public class ExtendEditText extends android.support.v7.widget.AppCompatEditText 
 	public ExtendEditText(Context context) {
 		super(context);
 		init(context, null);
-	}
-
-	@Override
-	public boolean onKeyPreIme(int keyCode, KeyEvent event) {
-		if (keyCode == KeyEvent.KEYCODE_BACK
-				&& event.getAction() == KeyEvent.ACTION_UP) {
-			if (listener != null) {
-				listener.onKeyDown(ExtendEditText.this);
-			}
-			//return true; // So it is not propagated.
-		}
-		return super.onKeyPreIme(keyCode, event);
-	}
-
-	public void setOnKeyboardEventListener(OnKeyboardEventListener l) {
-		listener = l;
-	}
-
-	public void performOnKeyboardDownListener() {
-		if (listener != null) {
-			listener.onKeyDown(ExtendEditText.this);
-		}
 	}
 
 	private void init(Context context, AttributeSet attrs) {
@@ -180,6 +197,35 @@ public class ExtendEditText extends android.support.v7.widget.AppCompatEditText 
 		if(mShapeType != 0){
 			setBackgroundShape(mShapeType, (int) mCornerRadius, (int) mStrokeSize, mBackgroundColor, mStrokeColor);
 		}
+
+		ExtendEditText.this.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                if(textWatcher != null){
+                    textWatcher.beforeTextChanged(charSequence, i, i1, i2);
+                }
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                if(textWatcher != null){
+                    textWatcher.onTextChanged(charSequence, i, i1, i2);
+                }
+                if(onTextChangeListener != null){
+                    onTextChangeListener.onTextChanged(ExtendEditText.this, charSequence.toString());
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                if(textWatcher != null){
+                    textWatcher.afterTextChanged(editable);
+                }
+                if(onTextChangeListener != null){
+                    onTextChangeListener.afterTextChanged(ExtendEditText.this, editable);
+                }
+            }
+        });
 	}
 
 	public void setBackgroundShape(int shapeType, int cornerRadius, int strokeSize, int backgroundColor, int borderColor) {
