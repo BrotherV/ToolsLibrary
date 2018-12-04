@@ -21,6 +21,15 @@ import com.bvtech.toolslibrary.Utility.ViewUtility;
 
 public class ExtendEditText extends android.support.v7.widget.AppCompatEditText {
 
+    public interface OnKeyboardEventListener {
+        void onKeyDown(View v);
+        void onKeyUp(View v);
+    }
+
+    public interface OnTextChangeListener{
+        void onTextChanged(View view, String str);
+    }
+
 	public static final int RECTANGLE = 0xA01;
 	public static final int OVAL = 0xA02;
 
@@ -31,61 +40,8 @@ public class ExtendEditText extends android.support.v7.widget.AppCompatEditText 
 	private float mCornerRadius;
 	private int mShapeType;
 
-	@Override
-	public boolean onTouchEvent(MotionEvent event) {
-		if(event.getAction() == MotionEvent.ACTION_DOWN){
-			if (listener != null) {
-				listener.onKeyUp(ExtendEditText.this);
-			}
-			InputMethodManager inputMethodManager = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
-			inputMethodManager.showSoftInput(ExtendEditText.this, InputMethodManager.SHOW_IMPLICIT);
-		}
-		return true;
-	}
-
-	public interface OnKeyboardEventListener {
-		void onKeyDown(View v);
-		void onKeyUp(View v);
-	}
-
-	public interface OnTextChangeListener{
-        void onTextChanged(View view, String str);
-        void afterTextChanged(View view, Editable editable);
-    }
-
 	private OnKeyboardEventListener listener;
 	private OnTextChangeListener onTextChangeListener;
-	private TextWatcher textWatcher;
-
-    @Override
-    public boolean onKeyPreIme(int keyCode, KeyEvent event) {
-        if (keyCode == KeyEvent.KEYCODE_BACK
-                && event.getAction() == KeyEvent.ACTION_UP) {
-            if (listener != null) {
-                listener.onKeyDown(ExtendEditText.this);
-            }
-            //return true; // So it is not propagated.
-        }
-        return super.onKeyPreIme(keyCode, event);
-    }
-
-    public void setOnKeyboardEventListener(OnKeyboardEventListener l) {
-        listener = l;
-    }
-
-    public void setOnTextChangeListener(OnTextChangeListener l) {
-        onTextChangeListener = l;
-    }
-
-    public void addTextChangedListener(TextWatcher l) {
-        textWatcher = l;
-    }
-
-    public void performOnKeyboardDownListener() {
-        if (listener != null) {
-            listener.onKeyDown(ExtendEditText.this);
-        }
-    }
 
 	public ExtendEditText(Context context, AttributeSet attrs, int defStyleAttr) {
 		super(context, attrs, defStyleAttr);
@@ -197,35 +153,6 @@ public class ExtendEditText extends android.support.v7.widget.AppCompatEditText 
 		if(mShapeType != 0){
 			setBackgroundShape(mShapeType, (int) mCornerRadius, (int) mStrokeSize, mBackgroundColor, mStrokeColor);
 		}
-
-		ExtendEditText.this.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                if(textWatcher != null){
-                    textWatcher.beforeTextChanged(charSequence, i, i1, i2);
-                }
-            }
-
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                if(textWatcher != null){
-                    textWatcher.onTextChanged(charSequence, i, i1, i2);
-                }
-                if(onTextChangeListener != null){
-                    onTextChangeListener.onTextChanged(ExtendEditText.this, charSequence.toString());
-                }
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {
-                if(textWatcher != null){
-                    textWatcher.afterTextChanged(editable);
-                }
-                if(onTextChangeListener != null){
-                    onTextChangeListener.afterTextChanged(ExtendEditText.this, editable);
-                }
-            }
-        });
 	}
 
 	public void setBackgroundShape(int shapeType, int cornerRadius, int strokeSize, int backgroundColor, int borderColor) {
@@ -235,4 +162,51 @@ public class ExtendEditText extends android.support.v7.widget.AppCompatEditText 
 			this.setBackgroundDrawable(ViewUtility.setShape(GradientDrawable.OVAL, cornerRadius, strokeSize, backgroundColor, borderColor));
 		}
 	}
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        if(event.getAction() == MotionEvent.ACTION_DOWN){
+            if (listener != null) {
+                listener.onKeyUp(ExtendEditText.this);
+            }
+            InputMethodManager inputMethodManager = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
+            inputMethodManager.showSoftInput(ExtendEditText.this, InputMethodManager.SHOW_IMPLICIT);
+        }
+        return true;
+    }
+
+
+    @Override
+    protected void onTextChanged(CharSequence text, int start, int lengthBefore, int lengthAfter) {
+        super.onTextChanged(text, start, lengthBefore, lengthAfter);
+        if(onTextChangeListener != null){
+            onTextChangeListener.onTextChanged(ExtendEditText.this, text.toString());
+        }
+    }
+
+    @Override
+    public boolean onKeyPreIme(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK
+                && event.getAction() == KeyEvent.ACTION_UP) {
+            if (listener != null) {
+                listener.onKeyDown(ExtendEditText.this);
+            }
+            //return true; // So it is not propagated.
+        }
+        return super.onKeyPreIme(keyCode, event);
+    }
+
+    public void setOnKeyboardEventListener(OnKeyboardEventListener l) {
+        listener = l;
+    }
+
+    public void setOnTextChangeListener(OnTextChangeListener l) {
+        onTextChangeListener = l;
+    }
+
+    public void performOnKeyboardDownListener() {
+        if (listener != null) {
+            listener.onKeyDown(ExtendEditText.this);
+        }
+    }
 }
