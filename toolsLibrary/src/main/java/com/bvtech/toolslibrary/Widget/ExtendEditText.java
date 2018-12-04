@@ -6,14 +6,11 @@ import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.graphics.drawable.GradientDrawable;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.inputmethod.InputMethodManager;
 
 import com.bvtech.toolslibrary.R;
 import com.bvtech.toolslibrary.Utility.Utilities;
@@ -169,12 +166,9 @@ public class ExtendEditText extends android.support.v7.widget.AppCompatEditText 
             if (listener != null) {
                 listener.onKeyUp(ExtendEditText.this);
             }
-            InputMethodManager inputMethodManager = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
-            inputMethodManager.showSoftInput(ExtendEditText.this, InputMethodManager.SHOW_IMPLICIT);
         }
-        return true;
+        return super.onTouchEvent(event);
     }
-
 
     @Override
     protected void onTextChanged(CharSequence text, int start, int lengthBefore, int lengthAfter) {
