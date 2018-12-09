@@ -322,7 +322,7 @@ public class ExtendSpinner extends ConstraintLayout {
 				}
 				*/
 				if(onItemSelectedListener != null){
-					onItemSelectedListener.onItemSelected(parent,view, position, id);
+					onItemSelectedListener.onItemSelected(parent,ExtendSpinner.this, position, id);
 				}
 			}
 
