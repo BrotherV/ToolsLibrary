@@ -825,6 +825,39 @@ public class Utilities {
 
 	/**
 	 *
+	 */
+	public static Bitmap scaleBitmapDown(Bitmap bitmap, float imageSize,boolean filter) {
+		int size = Math.min(bitmap.getWidth(), bitmap.getHeight());
+		if(size > imageSize){
+			size = (int) imageSize;
+		}else{
+			size = (int) dpToPx(56);
+		}
+
+		Bitmap newBitmap = Bitmap.createScaledBitmap(bitmap, size, size, filter);
+		return newBitmap;
+	}
+
+    /**
+     *
+     */
+	public static Bitmap scaleBitmapDown(String path, float imageSize, boolean filter) {
+		BitmapFactory.Options option = new BitmapFactory.Options();
+		option.inPreferredConfig = Bitmap.Config.ARGB_8888;
+		Bitmap bitmap = BitmapFactory.decodeFile(path, option);
+		int size = Math.min(bitmap.getWidth(), bitmap.getHeight());
+		if(size > imageSize){
+			size = (int) imageSize;
+		}else{
+			size = (int) dpToPx(56);
+		}
+
+		Bitmap newBitmap = Bitmap.createScaledBitmap(bitmap, size, size, filter);
+		return newBitmap;
+	}
+
+	/**
+	 *
 	 * @param context
 	 * @return
 	 */
