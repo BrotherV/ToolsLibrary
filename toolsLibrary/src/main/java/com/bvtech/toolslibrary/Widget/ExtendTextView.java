@@ -23,6 +23,8 @@ public class ExtendTextView extends android.support.v7.widget.AppCompatTextView 
 
     public static final int RECTANGLE = 0xA01;
     public static final int OVAL = 0xA02;
+    public static final int LTR = 1;
+    public static final int RTL = 2;
 
     private int mBackgroundColor;
     private int mStrokeColor;
@@ -92,6 +94,13 @@ public class ExtendTextView extends android.support.v7.widget.AppCompatTextView 
             mShapeType = shapeType;
         }
 
+        int layoutDirection = ta.getInt(R.styleable.ExtendSpinner_layoutDirection, 0);
+        if (layoutDirection == LTR) {
+            isRtl = false;
+        }else if (layoutDirection == RTL){
+            isRtl = true;
+        }
+        
         int fontResId = ta.getResourceId(R.styleable.ExtendSpinner_fontType, 0);
         if(fontResId != 0 && Utilities.hasOreoApi()){
             setTypeface(context.getResources().getFont(fontResId));
