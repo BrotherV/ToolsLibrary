@@ -61,7 +61,7 @@ public class ExtendSpinner extends ConstraintLayout {
 	private int mFontId;
 	private boolean isRtl;
 	private SpinnerAdapter spinnerAdapter;
-	private AdapterView.OnItemSelectedListener onItemSelectedListener;
+	public AdapterView.OnItemSelectedListener onItemSelectedListener;
 	private LinearLayout lay;
 	private Spinner spinner;
 	private ImageView img;
