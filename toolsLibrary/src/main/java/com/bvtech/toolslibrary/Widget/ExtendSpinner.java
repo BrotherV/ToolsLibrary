@@ -55,7 +55,6 @@ public class ExtendSpinner extends ConstraintLayout {
 	private String[] mEntryValues;
 	private String[] mImageEntries;
 	private int[] mImageIdEntries;
-	private int selectedItemPosition;
 	private boolean isSpClicked;
 	private Typeface mTypeFace;
 	private int mFontId;
@@ -322,7 +321,6 @@ public class ExtendSpinner extends ConstraintLayout {
 					}
 				}
 				*/
-				selectedItemPosition = position;
 				if(onItemSelectedListener != null){
 					onItemSelectedListener.onItemSelected(parent,ExtendSpinner.this, position, id);
 				}
@@ -434,7 +432,7 @@ public class ExtendSpinner extends ConstraintLayout {
 	}
 
 	public int getSelectedItemPosition(){
-		return selectedItemPosition;
+		return spinner.getSelectedItemPosition();
 	}
 
 	public void setSelection(int position){
