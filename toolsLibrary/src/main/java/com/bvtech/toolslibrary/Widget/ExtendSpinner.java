@@ -17,6 +17,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
 
 import com.bvtech.toolslibrary.Adapters.SpinnerAdapter;
@@ -61,7 +62,7 @@ public class ExtendSpinner extends ConstraintLayout {
 	private boolean isRtl;
 	private SpinnerAdapter spinnerAdapter;
 	private AdapterView.OnItemSelectedListener onItemSelectedListener;
-	private ConstraintLayout lay;
+	private LinearLayout lay;
 	private Spinner spinner;
 	private ImageView img;
 
@@ -352,6 +353,8 @@ public class ExtendSpinner extends ConstraintLayout {
 	 *
 	 */
 	public void fillSpinner(Context mContext, String[] mArray, String[] mEntryValues, int[] imageArray, int tColor, int bColor, float tSize, float imgSize,  Typeface tf){
+		this.mEntries = mArray;
+		this.mEntryValues = mEntryValues;
 		spinnerAdapter = WidgetHelper.getAdapter(mContext, mArray, mEntryValues, imageArray, tColor, bColor, tSize,  imgSize,  tf);
 		spinner.setAdapter(spinnerAdapter);
 	}
@@ -360,6 +363,8 @@ public class ExtendSpinner extends ConstraintLayout {
 	 *
 	 */
 	public void fillSpinner(Context mContext, String[] mArray, int[] imageArray){
+		this.mEntries = mArray;
+		this.mEntryValues = mEntryValues;
 		spinnerAdapter = WidgetHelper.getAdapter(mContext, mArray, imageArray, mTextColor, mBackgroundColor, mTextSize,  mImageSize,  mTypeFace);
 		spinner.setAdapter(spinnerAdapter);
 	}
@@ -368,6 +373,8 @@ public class ExtendSpinner extends ConstraintLayout {
 	 *
 	 */
 	public void fillSpinner(String[] mArray, String[] mEntryValues, int[] imageArray){
+		this.mEntries = mArray;
+		this.mEntryValues = mEntryValues;
 		spinnerAdapter = WidgetHelper.getAdapter(mContext, mArray, mEntryValues, imageArray, mTextColor, mBackgroundColor, mTextSize,  mImageSize,  mTypeFace);
 		spinner.setAdapter(spinnerAdapter);
 	}
@@ -376,6 +383,8 @@ public class ExtendSpinner extends ConstraintLayout {
 	 *
 	 */
 	public void fillSpinner(String[] mArray, int[] imageArray){
+		this.mEntries = mArray;
+		this.mEntryValues = mEntryValues;
 		spinnerAdapter = WidgetHelper.getAdapter(mContext, mArray, imageArray, mTextColor, mBackgroundColor, mTextSize,  mImageSize,  mTypeFace);
 		spinner.setAdapter(spinnerAdapter);
 	}
@@ -384,6 +393,8 @@ public class ExtendSpinner extends ConstraintLayout {
 	 *
 	 */
 	public void fillSpinner(String[] mArray, String[] mEntryValues){
+		this.mEntries = mArray;
+		this.mEntryValues = mEntryValues;
 		spinnerAdapter = WidgetHelper.getAdapter(mContext, mArray, mEntryValues, null, mTextColor, mBackgroundColor, mTextSize,  mImageSize,  mTypeFace);
 		spinner.setAdapter(spinnerAdapter);
 	}
@@ -392,6 +403,8 @@ public class ExtendSpinner extends ConstraintLayout {
 	 *
 	 */
 	public void fillSpinner(String[] mArray){
+		this.mEntries = mArray;
+		this.mEntryValues = mEntryValues;
 		spinnerAdapter = WidgetHelper.getAdapter(mContext, mArray, null, mTextColor, mBackgroundColor, mTextSize,  mImageSize,  mTypeFace);
 		spinner.setAdapter(spinnerAdapter);
 	}
