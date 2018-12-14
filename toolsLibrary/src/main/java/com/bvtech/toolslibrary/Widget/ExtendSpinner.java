@@ -29,7 +29,7 @@ import com.bvtech.toolslibrary.Utility.ViewUtility;
  * Created by Mohsen on 9/10/2018.
  */
 
-public class ExtendSpinner extends ConstraintLayout {
+public class ExtendSpinner extends LinearLayout {
 
 	public static final int RECTANGLE = 0xA01;
 	public static final int OVAL = 0xA02;
@@ -114,7 +114,7 @@ public class ExtendSpinner extends ConstraintLayout {
 		if (backgroundColorResId != 0) {
 			mBackgroundColor = context.getResources().getColor(backgroundColorResId);
 		}else{
-			mBackgroundColor = TRANSPARENT_COLOR;
+			mBackgroundColor = WHITE_COLOR;
 		}
 
 		int strokeColorResId = ta.getResourceId(R.styleable.ExtendSpinner_strokeColor, 0);
@@ -303,10 +303,9 @@ public class ExtendSpinner extends ConstraintLayout {
 			}
 		}
 
-		if(mShapeType != 0){
-			setBackgroundShape(mShapeType, (int) mCornerRadius, (int) mStrokeSize, mBackgroundColor, mStrokeColor, mIconColor);
-		}
-
+        if(mShapeType != 0){
+            setBackgroundDrawable(mShapeType, (int) mCornerRadius, (int) mStrokeSize, mBackgroundColor, mStrokeColor, mIconColor);
+        }
 		spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 
 			@Override
@@ -341,7 +340,9 @@ public class ExtendSpinner extends ConstraintLayout {
 			public boolean onTouch(View view, MotionEvent motionEvent) {
 				switch (motionEvent.getAction()){
 					case MotionEvent.ACTION_UP:
-						ViewUtility.shrinkExpandAnimation(img);
+						if(mShapeType != 0){
+							ViewUtility.shrinkExpandAnimation(img);
+						}
 						break;
 				}
 				return false;
@@ -364,8 +365,7 @@ public class ExtendSpinner extends ConstraintLayout {
 	 */
 	public void fillSpinner(Context mContext, String[] mArray, int[] imageArray){
 		this.mEntries = mArray;
-		this.mEntryValues = mEntryValues;
-		spinnerAdapter = WidgetHelper.getAdapter(mContext, mArray, imageArray, mTextColor, mBackgroundColor, mTextSize,  mImageSize,  mTypeFace);
+		spinnerAdapter = WidgetHelper.getAdapter(mContext, mArray, imageArray, mTextColor, TRANSPARENT_COLOR, mTextSize,  mImageSize,  mTypeFace);
 		spinner.setAdapter(spinnerAdapter);
 	}
 
@@ -375,7 +375,7 @@ public class ExtendSpinner extends ConstraintLayout {
 	public void fillSpinner(String[] mArray, String[] mEntryValues, int[] imageArray){
 		this.mEntries = mArray;
 		this.mEntryValues = mEntryValues;
-		spinnerAdapter = WidgetHelper.getAdapter(mContext, mArray, mEntryValues, imageArray, mTextColor, mBackgroundColor, mTextSize,  mImageSize,  mTypeFace);
+		spinnerAdapter = WidgetHelper.getAdapter(mContext, mArray, mEntryValues, imageArray, mTextColor, TRANSPARENT_COLOR, mTextSize,  mImageSize,  mTypeFace);
 		spinner.setAdapter(spinnerAdapter);
 	}
 
@@ -384,8 +384,7 @@ public class ExtendSpinner extends ConstraintLayout {
 	 */
 	public void fillSpinner(String[] mArray, int[] imageArray){
 		this.mEntries = mArray;
-		this.mEntryValues = mEntryValues;
-		spinnerAdapter = WidgetHelper.getAdapter(mContext, mArray, imageArray, mTextColor, mBackgroundColor, mTextSize,  mImageSize,  mTypeFace);
+		spinnerAdapter = WidgetHelper.getAdapter(mContext, mArray, imageArray, mTextColor, TRANSPARENT_COLOR, mTextSize,  mImageSize,  mTypeFace);
 		spinner.setAdapter(spinnerAdapter);
 	}
 
@@ -395,7 +394,7 @@ public class ExtendSpinner extends ConstraintLayout {
 	public void fillSpinner(String[] mArray, String[] mEntryValues){
 		this.mEntries = mArray;
 		this.mEntryValues = mEntryValues;
-		spinnerAdapter = WidgetHelper.getAdapter(mContext, mArray, mEntryValues, null, mTextColor, mBackgroundColor, mTextSize,  mImageSize,  mTypeFace);
+		spinnerAdapter = WidgetHelper.getAdapter(mContext, mArray, mEntryValues, null, mTextColor, TRANSPARENT_COLOR, mTextSize,  mImageSize,  mTypeFace);
 		spinner.setAdapter(spinnerAdapter);
 	}
 
@@ -404,19 +403,18 @@ public class ExtendSpinner extends ConstraintLayout {
 	 */
 	public void fillSpinner(String[] mArray){
 		this.mEntries = mArray;
-		this.mEntryValues = mEntryValues;
-		spinnerAdapter = WidgetHelper.getAdapter(mContext, mArray, null, mTextColor, mBackgroundColor, mTextSize,  mImageSize,  mTypeFace);
+		spinnerAdapter = WidgetHelper.getAdapter(mContext, mArray, null, mTextColor, TRANSPARENT_COLOR, mTextSize,  mImageSize,  mTypeFace);
 		spinner.setAdapter(spinnerAdapter);
 	}
 
 	/**
 	 *
 	 */
-	public void setBackgroundShape(int shapeType, int cornerRadius, int strokeSize, int backgroundColor, int borderColor, int iconColor) {
+	public void setBackgroundDrawable(int shapeType, int cornerRadius, int strokeSize, int backgroundColor, int borderColor, int iconColor) {
 		if(shapeType == RECTANGLE){
 			this.setBackgroundDrawable(ViewUtility.setShape(GradientDrawable.RECTANGLE, cornerRadius, strokeSize, backgroundColor, borderColor));
 		}else if(shapeType == OVAL){
-			this.setBackgroundDrawable(ViewUtility.setShape(GradientDrawable.OVAL, cornerRadius, strokeSize, backgroundColor, borderColor));
+            this.setBackgroundDrawable(ViewUtility.setShape(GradientDrawable.OVAL, cornerRadius, strokeSize, backgroundColor, borderColor));
 		}
 		spinner.setBackgroundColor(TRANSPARENT_COLOR);
 		img.setVisibility(VISIBLE);
@@ -448,8 +446,20 @@ public class ExtendSpinner extends ConstraintLayout {
 		return spinner.getSelectedItemPosition();
 	}
 
+	public void setSelection(int position, boolean b){
+	    try {
+            spinner.setSelection(position,b);
+        }catch (Exception e){
+	        e.printStackTrace();
+        }
+	}
+
 	public void setSelection(int position){
-		spinner.setSelection(position,false);
+        try {
+            spinner.setSelection(position,false);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
 	}
 
 	public void setSelectionWithEntries(String entry){
