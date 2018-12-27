@@ -25,7 +25,7 @@ public class ExtendToast extends Toast {
 
 	public static ExtendToast makeText(Context context, String msg, int resId, int lengthLong) {
 		ExtendToast extendToast = new ExtendToast(context);
-		View view = LayoutInflater.from(context).inflate(R.layout.layout_toast, null);
+		View view = LayoutInflater.from(context).inflate(R.layout.tools_library_layout_toast, null);
 		TextView mMessageView = (TextView) view.findViewById(R.id.bvTechToolsLibraryTextToast);
 		ImageView mImageView = (ImageView) view.findViewById(R.id.bvTechToolsLibraryImgToastImage);
 		mImageView.setImageResource(resId);
@@ -37,7 +37,7 @@ public class ExtendToast extends Toast {
 
 	public static ExtendToast makeText(Context context, String msg, int resId, int bc, int tc, int ic, int lengthLong) {
 		ExtendToast extendToast = new ExtendToast(context);
-		View view = LayoutInflater.from(context).inflate(R.layout.layout_toast, null);
+		View view = LayoutInflater.from(context).inflate(R.layout.tools_library_layout_toast, null);
 		TextView mMessageView = (TextView) view.findViewById(R.id.bvTechToolsLibraryTextToast);
 		ImageView mImageView = (ImageView) view.findViewById(R.id.bvTechToolsLibraryImgToastImage);
 		CardView cardView = view.findViewById(R.id.bvTechToolsLibraryCardViewToast);
@@ -53,7 +53,7 @@ public class ExtendToast extends Toast {
 
 	public static ExtendToast makeText(Context context, String msg, int resId, int bc, int tc, int ic, Typeface tf, int lengthLong) {
 		ExtendToast extendToast = new ExtendToast(context);
-		View view = LayoutInflater.from(context).inflate(R.layout.layout_toast, null);
+		View view = LayoutInflater.from(context).inflate(R.layout.tools_library_layout_toast, null);
 		TextView mMessageView = (TextView) view.findViewById(R.id.bvTechToolsLibraryTextToast);
 		ImageView mImageView = (ImageView) view.findViewById(R.id.bvTechToolsLibraryImgToastImage);
 		CardView cardView = view.findViewById(R.id.bvTechToolsLibraryCardViewToast);
@@ -70,7 +70,7 @@ public class ExtendToast extends Toast {
 
 	public static ExtendToast makeText(Context context, String msg, int resId, int bc, int tc, int ic) {
 		ExtendToast extendToast = new ExtendToast(context);
-		View view = LayoutInflater.from(context).inflate(R.layout.layout_toast, null);
+		View view = LayoutInflater.from(context).inflate(R.layout.tools_library_layout_toast, null);
 		TextView mMessageView = (TextView) view.findViewById(R.id.bvTechToolsLibraryTextToast);
 		ImageView mImageView = (ImageView) view.findViewById(R.id.bvTechToolsLibraryImgToastImage);
 		CardView cardView = view.findViewById(R.id.bvTechToolsLibraryCardViewToast);
@@ -86,7 +86,7 @@ public class ExtendToast extends Toast {
 
 	public static ExtendToast makeText(Context context, String msg, int resId, int bc, int tc, int ic, Typeface tf) {
 		ExtendToast extendToast = new ExtendToast(context);
-		View view = LayoutInflater.from(context).inflate(R.layout.layout_toast, null);
+		View view = LayoutInflater.from(context).inflate(R.layout.tools_library_layout_toast, null);
 		TextView mMessageView = (TextView) view.findViewById(R.id.bvTechToolsLibraryTextToast);
 		ImageView mImageView = (ImageView) view.findViewById(R.id.bvTechToolsLibraryImgToastImage);
 		CardView cardView = view.findViewById(R.id.bvTechToolsLibraryCardViewToast);
@@ -103,11 +103,11 @@ public class ExtendToast extends Toast {
 
 	public static ExtendToast toastWarning(Context context, String msg, Typeface tf) {
 		ExtendToast extendToast = new ExtendToast(context);
-		View view = LayoutInflater.from(context).inflate(R.layout.layout_toast, null);
+		View view = LayoutInflater.from(context).inflate(R.layout.tools_library_layout_toast, null);
 		TextView mMessageView = (TextView) view.findViewById(R.id.bvTechToolsLibraryTextToast);
 		ImageView mImageView = (ImageView) view.findViewById(R.id.bvTechToolsLibraryImgToastImage);
 		CardView cardView = view.findViewById(R.id.bvTechToolsLibraryCardViewToast);
-		mImageView.setImageResource(R.drawable.notification_warning);
+		mImageView.setImageResource(R.drawable.tools_library_notification_warning);
 		mMessageView.setText(msg);
 		cardView.setCardBackgroundColor(context.getResources().getColor(R.color.colorYellow2Dark));
 		mImageView.setColorFilter(Color.WHITE, PorterDuff.Mode.SRC_ATOP);
@@ -120,11 +120,11 @@ public class ExtendToast extends Toast {
 
 	public static ExtendToast toastWarning(Context context, String msg) {
 		ExtendToast extendToast = new ExtendToast(context);
-		View view = LayoutInflater.from(context).inflate(R.layout.layout_toast, null);
+		View view = LayoutInflater.from(context).inflate(R.layout.tools_library_layout_toast, null);
 		TextView mMessageView = (TextView) view.findViewById(R.id.bvTechToolsLibraryTextToast);
 		ImageView mImageView = (ImageView) view.findViewById(R.id.bvTechToolsLibraryImgToastImage);
 		CardView cardView = view.findViewById(R.id.bvTechToolsLibraryCardViewToast);
-		mImageView.setImageResource(R.drawable.notification_warning);
+		mImageView.setImageResource(R.drawable.tools_library_notification_warning);
 		mMessageView.setText(msg);
 		cardView.setCardBackgroundColor(context.getResources().getColor(R.color.colorYellow2Dark));
 		mImageView.setColorFilter(Color.WHITE, PorterDuff.Mode.SRC_ATOP);
@@ -136,11 +136,11 @@ public class ExtendToast extends Toast {
 
 	public static ExtendToast toastWarning(Context context, String msg, Typeface tf, int gravity) {
 		ExtendToast extendToast = new ExtendToast(context);
-		View view = LayoutInflater.from(context).inflate(R.layout.layout_toast, null);
+		View view = LayoutInflater.from(context).inflate(R.layout.tools_library_layout_toast, null);
 		TextView mMessageView = (TextView) view.findViewById(R.id.bvTechToolsLibraryTextToast);
 		ImageView mImageView = (ImageView) view.findViewById(R.id.bvTechToolsLibraryImgToastImage);
 		CardView cardView = view.findViewById(R.id.bvTechToolsLibraryCardViewToast);
-		mImageView.setImageResource(R.drawable.notification_warning);
+		mImageView.setImageResource(R.drawable.tools_library_notification_warning);
 		mMessageView.setText(msg);
 		cardView.setCardBackgroundColor(context.getResources().getColor(R.color.colorYellow2Dark));
 		mImageView.setColorFilter(Color.WHITE, PorterDuff.Mode.SRC_ATOP);
@@ -154,11 +154,11 @@ public class ExtendToast extends Toast {
 
 	public static ExtendToast toastWarning(Context context, String msg, int gravity) {
 		ExtendToast extendToast = new ExtendToast(context);
-		View view = LayoutInflater.from(context).inflate(R.layout.layout_toast, null);
+		View view = LayoutInflater.from(context).inflate(R.layout.tools_library_layout_toast, null);
 		TextView mMessageView = (TextView) view.findViewById(R.id.bvTechToolsLibraryTextToast);
 		ImageView mImageView = (ImageView) view.findViewById(R.id.bvTechToolsLibraryImgToastImage);
 		CardView cardView = view.findViewById(R.id.bvTechToolsLibraryCardViewToast);
-		mImageView.setImageResource(R.drawable.notification_warning);
+		mImageView.setImageResource(R.drawable.tools_library_notification_warning);
 		mMessageView.setText(msg);
 		cardView.setCardBackgroundColor(context.getResources().getColor(R.color.colorYellow2Dark));
 		mImageView.setColorFilter(Color.WHITE, PorterDuff.Mode.SRC_ATOP);
@@ -171,11 +171,11 @@ public class ExtendToast extends Toast {
 
 	public static ExtendToast toastError(Context context, String msg, Typeface tf) {
 		ExtendToast extendToast = new ExtendToast(context);
-		View view = LayoutInflater.from(context).inflate(R.layout.layout_toast, null);
+		View view = LayoutInflater.from(context).inflate(R.layout.tools_library_layout_toast, null);
 		TextView mMessageView = (TextView) view.findViewById(R.id.bvTechToolsLibraryTextToast);
 		ImageView mImageView = (ImageView) view.findViewById(R.id.bvTechToolsLibraryImgToastImage);
 		CardView cardView = view.findViewById(R.id.bvTechToolsLibraryCardViewToast);
-		mImageView.setImageResource(R.drawable.notification_error);
+		mImageView.setImageResource(R.drawable.tools_library_notification_error);
 		mMessageView.setText(msg);
 		cardView.setCardBackgroundColor(context.getResources().getColor(R.color.colorRed));
 		mImageView.setColorFilter(Color.WHITE, PorterDuff.Mode.SRC_ATOP);
@@ -188,11 +188,11 @@ public class ExtendToast extends Toast {
 
 	public static ExtendToast toastError(Context context, String msg) {
 		ExtendToast extendToast = new ExtendToast(context);
-		View view = LayoutInflater.from(context).inflate(R.layout.layout_toast, null);
+		View view = LayoutInflater.from(context).inflate(R.layout.tools_library_layout_toast, null);
 		TextView mMessageView = (TextView) view.findViewById(R.id.bvTechToolsLibraryTextToast);
 		ImageView mImageView = (ImageView) view.findViewById(R.id.bvTechToolsLibraryImgToastImage);
 		CardView cardView = view.findViewById(R.id.bvTechToolsLibraryCardViewToast);
-		mImageView.setImageResource(R.drawable.notification_error);
+		mImageView.setImageResource(R.drawable.tools_library_notification_error);
 		mMessageView.setText(msg);
 		cardView.setCardBackgroundColor(context.getResources().getColor(R.color.colorRed));
 		mImageView.setColorFilter(Color.WHITE, PorterDuff.Mode.SRC_ATOP);
@@ -204,11 +204,11 @@ public class ExtendToast extends Toast {
 
 	public static ExtendToast toastError(Context context, String msg, Typeface tf, int gravity) {
 		ExtendToast extendToast = new ExtendToast(context);
-		View view = LayoutInflater.from(context).inflate(R.layout.layout_toast, null);
+		View view = LayoutInflater.from(context).inflate(R.layout.tools_library_layout_toast, null);
 		TextView mMessageView = (TextView) view.findViewById(R.id.bvTechToolsLibraryTextToast);
 		ImageView mImageView = (ImageView) view.findViewById(R.id.bvTechToolsLibraryImgToastImage);
 		CardView cardView = view.findViewById(R.id.bvTechToolsLibraryCardViewToast);
-		mImageView.setImageResource(R.drawable.notification_error);
+		mImageView.setImageResource(R.drawable.tools_library_notification_error);
 		mMessageView.setText(msg);
 		cardView.setCardBackgroundColor(context.getResources().getColor(R.color.colorRed));
 		mImageView.setColorFilter(Color.WHITE, PorterDuff.Mode.SRC_ATOP);
@@ -222,11 +222,11 @@ public class ExtendToast extends Toast {
 
 	public static ExtendToast toastError(Context context, String msg, int gravity) {
 		ExtendToast extendToast = new ExtendToast(context);
-		View view = LayoutInflater.from(context).inflate(R.layout.layout_toast, null);
+		View view = LayoutInflater.from(context).inflate(R.layout.tools_library_layout_toast, null);
 		TextView mMessageView = (TextView) view.findViewById(R.id.bvTechToolsLibraryTextToast);
 		ImageView mImageView = (ImageView) view.findViewById(R.id.bvTechToolsLibraryImgToastImage);
 		CardView cardView = view.findViewById(R.id.bvTechToolsLibraryCardViewToast);
-		mImageView.setImageResource(R.drawable.notification_error);
+		mImageView.setImageResource(R.drawable.tools_library_notification_error);
 		mMessageView.setText(msg);
 		cardView.setCardBackgroundColor(context.getResources().getColor(R.color.colorRed));
 		mImageView.setColorFilter(Color.WHITE, PorterDuff.Mode.SRC_ATOP);
@@ -239,11 +239,11 @@ public class ExtendToast extends Toast {
 
 	public static ExtendToast toastDone(Context context, String msg, Typeface tf) {
 		ExtendToast extendToast = new ExtendToast(context);
-		View view = LayoutInflater.from(context).inflate(R.layout.layout_toast, null);
+		View view = LayoutInflater.from(context).inflate(R.layout.tools_library_layout_toast, null);
 		TextView mMessageView = (TextView) view.findViewById(R.id.bvTechToolsLibraryTextToast);
 		ImageView mImageView = (ImageView) view.findViewById(R.id.bvTechToolsLibraryImgToastImage);
 		CardView cardView = view.findViewById(R.id.bvTechToolsLibraryCardViewToast);
-		mImageView.setImageResource(R.drawable.notification_done);
+		mImageView.setImageResource(R.drawable.tools_library_notification_done);
 		mMessageView.setText(msg);
 		cardView.setCardBackgroundColor(context.getResources().getColor(R.color.colorGreenDark));
 		mImageView.setColorFilter(Color.WHITE, PorterDuff.Mode.SRC_ATOP);
@@ -256,11 +256,11 @@ public class ExtendToast extends Toast {
 
 	public static ExtendToast toastDone(Context context, String msg) {
 		ExtendToast extendToast = new ExtendToast(context);
-		View view = LayoutInflater.from(context).inflate(R.layout.layout_toast, null);
+		View view = LayoutInflater.from(context).inflate(R.layout.tools_library_layout_toast, null);
 		TextView mMessageView = (TextView) view.findViewById(R.id.bvTechToolsLibraryTextToast);
 		ImageView mImageView = (ImageView) view.findViewById(R.id.bvTechToolsLibraryImgToastImage);
 		CardView cardView = view.findViewById(R.id.bvTechToolsLibraryCardViewToast);
-		mImageView.setImageResource(R.drawable.notification_done);
+		mImageView.setImageResource(R.drawable.tools_library_notification_done);
 		mMessageView.setText(msg);
 		cardView.setCardBackgroundColor(context.getResources().getColor(R.color.colorGreenDark));
 		mImageView.setColorFilter(Color.WHITE, PorterDuff.Mode.SRC_ATOP);
@@ -272,11 +272,11 @@ public class ExtendToast extends Toast {
 
 	public static ExtendToast toastDone(Context context, String msg, Typeface tf, int gravity) {
 		ExtendToast extendToast = new ExtendToast(context);
-		View view = LayoutInflater.from(context).inflate(R.layout.layout_toast, null);
+		View view = LayoutInflater.from(context).inflate(R.layout.tools_library_layout_toast, null);
 		TextView mMessageView = (TextView) view.findViewById(R.id.bvTechToolsLibraryTextToast);
 		ImageView mImageView = (ImageView) view.findViewById(R.id.bvTechToolsLibraryImgToastImage);
 		CardView cardView = view.findViewById(R.id.bvTechToolsLibraryCardViewToast);
-		mImageView.setImageResource(R.drawable.notification_done);
+		mImageView.setImageResource(R.drawable.tools_library_notification_done);
 		mMessageView.setText(msg);
 		cardView.setCardBackgroundColor(context.getResources().getColor(R.color.colorGreenDark));
 		mImageView.setColorFilter(Color.WHITE, PorterDuff.Mode.SRC_ATOP);
@@ -290,11 +290,11 @@ public class ExtendToast extends Toast {
 
 	public static ExtendToast toastDone(Context context, String msg, int gravity) {
 		ExtendToast extendToast = new ExtendToast(context);
-		View view = LayoutInflater.from(context).inflate(R.layout.layout_toast, null);
+		View view = LayoutInflater.from(context).inflate(R.layout.tools_library_layout_toast, null);
 		TextView mMessageView = (TextView) view.findViewById(R.id.bvTechToolsLibraryTextToast);
 		ImageView mImageView = (ImageView) view.findViewById(R.id.bvTechToolsLibraryImgToastImage);
 		CardView cardView = view.findViewById(R.id.bvTechToolsLibraryCardViewToast);
-		mImageView.setImageResource(R.drawable.notification_done);
+		mImageView.setImageResource(R.drawable.tools_library_notification_done);
 		mMessageView.setText(msg);
 		cardView.setCardBackgroundColor(context.getResources().getColor(R.color.colorGreenDark));
 		mImageView.setColorFilter(Color.WHITE, PorterDuff.Mode.SRC_ATOP);
@@ -307,11 +307,11 @@ public class ExtendToast extends Toast {
 
 	public static ExtendToast toastNotify(Context context, String msg, Typeface tf) {
 		ExtendToast extendToast = new ExtendToast(context);
-		View view = LayoutInflater.from(context).inflate(R.layout.layout_toast, null);
+		View view = LayoutInflater.from(context).inflate(R.layout.tools_library_layout_toast, null);
 		TextView mMessageView = (TextView) view.findViewById(R.id.bvTechToolsLibraryTextToast);
 		ImageView mImageView = (ImageView) view.findViewById(R.id.bvTechToolsLibraryImgToastImage);
 		CardView cardView = view.findViewById(R.id.bvTechToolsLibraryCardViewToast);
-		mImageView.setImageResource(R.drawable.notification_warning);
+		mImageView.setImageResource(R.drawable.tools_library_notification_warning);
 		mMessageView.setText(msg);
 		cardView.setCardBackgroundColor(context.getResources().getColor(R.color.colorBlue));
 		mImageView.setColorFilter(Color.WHITE, PorterDuff.Mode.SRC_ATOP);
@@ -324,11 +324,11 @@ public class ExtendToast extends Toast {
 
 	public static ExtendToast toastNotify(Context context, String msg) {
 		ExtendToast extendToast = new ExtendToast(context);
-		View view = LayoutInflater.from(context).inflate(R.layout.layout_toast, null);
+		View view = LayoutInflater.from(context).inflate(R.layout.tools_library_layout_toast, null);
 		TextView mMessageView = (TextView) view.findViewById(R.id.bvTechToolsLibraryTextToast);
 		ImageView mImageView = (ImageView) view.findViewById(R.id.bvTechToolsLibraryImgToastImage);
 		CardView cardView = view.findViewById(R.id.bvTechToolsLibraryCardViewToast);
-		mImageView.setImageResource(R.drawable.notification_warning);
+		mImageView.setImageResource(R.drawable.tools_library_notification_warning);
 		mMessageView.setText(msg);
 		cardView.setCardBackgroundColor(context.getResources().getColor(R.color.colorBlue));
 		mImageView.setColorFilter(Color.WHITE, PorterDuff.Mode.SRC_ATOP);
@@ -340,11 +340,11 @@ public class ExtendToast extends Toast {
 
 	public static ExtendToast toastNotify(Context context, String msg, Typeface tf, int gravity) {
 		ExtendToast extendToast = new ExtendToast(context);
-		View view = LayoutInflater.from(context).inflate(R.layout.layout_toast, null);
+		View view = LayoutInflater.from(context).inflate(R.layout.tools_library_layout_toast, null);
 		TextView mMessageView = (TextView) view.findViewById(R.id.bvTechToolsLibraryTextToast);
 		ImageView mImageView = (ImageView) view.findViewById(R.id.bvTechToolsLibraryImgToastImage);
 		CardView cardView = view.findViewById(R.id.bvTechToolsLibraryCardViewToast);
-		mImageView.setImageResource(R.drawable.notification_warning);
+		mImageView.setImageResource(R.drawable.tools_library_notification_warning);
 		mMessageView.setText(msg);
 		cardView.setCardBackgroundColor(context.getResources().getColor(R.color.colorBlue));
 		mImageView.setColorFilter(Color.WHITE, PorterDuff.Mode.SRC_ATOP);
@@ -358,11 +358,11 @@ public class ExtendToast extends Toast {
 
 	public static ExtendToast toastNotify(Context context, String msg, int gravity) {
 		ExtendToast extendToast = new ExtendToast(context);
-		View view = LayoutInflater.from(context).inflate(R.layout.layout_toast, null);
+		View view = LayoutInflater.from(context).inflate(R.layout.tools_library_layout_toast, null);
 		TextView mMessageView = (TextView) view.findViewById(R.id.bvTechToolsLibraryTextToast);
 		ImageView mImageView = (ImageView) view.findViewById(R.id.bvTechToolsLibraryImgToastImage);
 		CardView cardView = view.findViewById(R.id.bvTechToolsLibraryCardViewToast);
-		mImageView.setImageResource(R.drawable.notification_warning);
+		mImageView.setImageResource(R.drawable.tools_library_notification_warning);
 		mMessageView.setText(msg);
 		cardView.setCardBackgroundColor(context.getResources().getColor(R.color.colorBlue));
 		mImageView.setColorFilter(Color.WHITE, PorterDuff.Mode.SRC_ATOP);

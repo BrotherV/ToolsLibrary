@@ -23,6 +23,6 @@
         android:layout_height="match_parent"
         android:layout_gravity="right|center_vertical"
         android:layout_marginRight="8dp"
-        android:src="@drawable/arrow_drop_down" />
+        android:src="@drawable/tools_library_arrow_drop_down" />
 
 </LinearLayout>

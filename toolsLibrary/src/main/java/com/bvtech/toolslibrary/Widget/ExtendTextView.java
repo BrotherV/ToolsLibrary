@@ -100,7 +100,7 @@ public class ExtendTextView extends android.support.v7.widget.AppCompatTextView 
         }else if (layoutDirection == RTL){
             isRtl = true;
         }
-        
+
         int fontResId = ta.getResourceId(R.styleable.ExtendSpinner_fontType, 0);
         if(fontResId != 0 && Utilities.hasOreoApi()){
             setTypeface(context.getResources().getFont(fontResId));

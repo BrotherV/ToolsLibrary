@@ -7,8 +7,6 @@ import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.Typeface;
 import android.graphics.drawable.GradientDrawable;
-import android.support.annotation.ColorInt;
-import android.support.constraint.ConstraintLayout;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.util.TypedValue;
@@ -98,8 +96,8 @@ public class ExtendSpinner extends LinearLayout {
 		mContext = context;
 		isRtl = context.getResources().getBoolean(R.bool.is_right_to_left);
 		LayoutInflater mInflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-		View view = mInflater.inflate(R.layout.layout_spinner, this, true);
-		//View view = inflate(context, R.layout.layout_spinner, this);
+		View view = mInflater.inflate(R.layout.tools_library_layout_spinner, this, true);
+		//View view = inflate(context, R.layout.tools_library_layout_spinner, this);
 		TypedValue typedValue = new TypedValue();
 		Resources.Theme theme = context.getTheme();
 		theme.resolveAttribute(R.attr.colorPrimary, typedValue, true);
@@ -277,9 +275,9 @@ public class ExtendSpinner extends LinearLayout {
 		img.setVisibility(INVISIBLE);
 
 		if(mIcon == ICON_SIMPLE){
-			img.setImageResource(R.drawable.arrow_drop_down);
+			img.setImageResource(R.drawable.tools_library_arrow_drop_down);
 		}else if(mIcon == ICON_CORNER){
-			img.setImageResource(isRtl ? R.drawable.arrow_drop_down3 : R.drawable.arrow_drop_down2);
+			img.setImageResource(isRtl ? R.drawable.tools_library_arrow_drop_down3 : R.drawable.tools_library_arrow_drop_down2);
 		}
 		spinner.setClickable(false);
 

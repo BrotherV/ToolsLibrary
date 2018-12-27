@@ -16,28 +16,28 @@ import java.util.ArrayList;
 public class WidgetHelper {
 
 	public static SpinnerAdapter getAdapter(Context mContext, ArrayList<StructSpinner> array, int tColor, int bColor, float tSize, float imgSize,  Typeface tf){
-		SpinnerAdapter dataAdapter = new SpinnerAdapter(mContext, R.layout.layout_spinner_items, array,
+		SpinnerAdapter dataAdapter = new SpinnerAdapter(mContext, R.layout.tools_library_layout_spinner_items, array,
 				tf,
 				tColor, bColor, tSize, imgSize);
 		return dataAdapter;
 	}
 
 	public static SpinnerAdapter getAdapter(Context mContext, String[] array, int tColor, int bColor, float tSize, float imgSize,  Typeface tf){
-		SpinnerAdapter dataAdapter = new SpinnerAdapter(mContext, R.layout.layout_spinner_items, getArray(array, null,null),
+		SpinnerAdapter dataAdapter = new SpinnerAdapter(mContext, R.layout.tools_library_layout_spinner_items, getArray(array, null,null),
 				tf,
 				tColor, bColor, tSize, imgSize);
 		return dataAdapter;
 	}
 
 	public static SpinnerAdapter getAdapter(Context mContext, String[] array, int[] imageArray, int tColor, int bColor, float tSize, float imgSize, Typeface tf){
-		SpinnerAdapter dataAdapter = new SpinnerAdapter(mContext, R.layout.layout_spinner_items, getArray(array, null,imageArray),
+		SpinnerAdapter dataAdapter = new SpinnerAdapter(mContext, R.layout.tools_library_layout_spinner_items, getArray(array, null,imageArray),
 				tf,
 				tColor, bColor, tSize, imgSize);
 		return dataAdapter;
 	}
 
 	public static SpinnerAdapter getAdapter(Context mContext, String[] array, String[] entryValues, int[] imageArray, int tColor, int bColor, float tSize, float imgSize, Typeface tf){
-		SpinnerAdapter dataAdapter = new SpinnerAdapter(mContext, R.layout.layout_spinner_items, getArray(array, entryValues,imageArray),
+		SpinnerAdapter dataAdapter = new SpinnerAdapter(mContext, R.layout.tools_library_layout_spinner_items, getArray(array, entryValues,imageArray),
 				tf,
 				tColor, bColor, tSize, imgSize);
 		return dataAdapter;
