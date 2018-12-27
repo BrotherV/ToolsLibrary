@@ -14,13 +14,15 @@
     <ImageView
         android:id="@+id/bvTechToolsLibraryImgSpinner"
         android:layout_width="28dp"
-        android:layout_height="28dp"/>
-    <!--Make sure image is present in Drawable folder-->
+        android:layout_height="28dp" />
 
     <TextView
         android:id="@+id/bvTechToolsLibraryTextCustomSpinner"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_weight="1"
         android:padding="2dp"/>
+
+    <!--Make sure image is present in Drawable folder-->
 
 </LinearLayout>

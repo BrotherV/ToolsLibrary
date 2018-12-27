@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="colorGreyDark">#444444</color>
+    <color name="colorGreyLight">#777777</color>
+    <color name="colorGrey">#b6b6b6</color>
+    <color name="colorGrey2">#cdcdcd</color>
+    <color name="colorGrey3">#ededed</color>
+    <color name="colorRed">#c71f1f</color>
+    <color name="colorRed2">#d52310</color>
+    <color name="colorRed2Light">#d63827</color>
+    <color name="colorBlue">#1f5fc7</color>
+    <color name="colorBlueDark">#1f47c7</color>
+    <color name="colorBlueHalfTrans">#551f5fc7</color>
+    <color name="colorDarkBlue">#0e31a8</color>
+    <color name="colorDarkBlue2">#113ac6</color>
+    <color name="colorSkyBlue">#1584c6</color>
+    <color name="colorSkyBlueLight">#1299e9</color>
+    <color name="colorViolet">#8128f9</color>
+    <color name="colorVioletHalfTrans">#558128f9</color>
+    <color name="colorVioletDark">#6921ca</color>
+    <color name="colorBlueLight">#3f7fd7</color>
+    <color name="colorGreen">#1cb501</color>
+    <color name="colorGreen2">#39bd3e</color>
+    <color name="colorGreen2Light">#5dba60</color>
+    <color name="colorGreenLight">#551CB501</color>
+    <color name="colorWhite">#ffffff</color>
+    <color name="colorWhiteDeg2">#eaeaea</color>
+
+    <color name="colorTransparent">#00000000</color>
+    <color name="colorPrimaryBackground">#292f33</color>
+    <color name="colorWhiteLight">#efefef</color>
+    <color name="colorTextDark">#212121</color>
+    <color name="colorTextWhite">#eeeeee</color>
+    <color name="colorTextAccent">#009688</color>
+    <color name="colorPinkDark">#aa165a</color>
+    <color name="colorPink">#da185a</color>
+    <color name="colorPinkLight">#fa286a</color>
+    <color name="colorPink2">#ffcd0a51</color>
+    <color name="colorPink3">#fe0a5a</color>
+
+    <color name="colorRedDark">#b00911</color>
+    <color name="colorGreenDark">#039411</color>
+    <color name="colorGreenDark2">#026911</color>
+
+    <color name="colorPencilA">#323335</color>
+    <color name="colorPencilAHalfTrans">#55323335</color>
+    <color name="colorPencilB">#2b2b2b</color>
+    <color name="colorPencilC">#3b3f42</color>
+    <color name="colorPencilD">#4a4b4d</color>
+    <color name="colorPencilE">#424242</color>
+
+    <color name="colorSoil">#d0ac81</color>
+    <color name="colorOrange">#ff7300</color>
+    <color name="colorYellowLight">#ffdd66</color>
+    <color name="colorYellow">#ffb900</color>
+    <color name="colorYellow2">#fcaa3d</color>
+    <color name="colorYellow2Dark">#ce8a31</color>
+    <color name="colorOrangeDark">#ff5e00</color>
+
+    <color name="colorPurple">#800080</color>
+    <color name="colorPurpleDark">#700070</color>
+    <color name="colorPurpleHalfTrans">#55800080</color>
+
+</resources>
