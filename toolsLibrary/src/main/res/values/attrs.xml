@@ -29,7 +29,7 @@
         <attr name="fontType" format="reference"/>
     </declare-styleable>
 
-    <declare-styleable name="MaterialRippleLayout">
+    <declare-styleable name="MaterialRipple">
         <attr name="mrl_rippleColor" format="color" localization="suggested" />
         <attr name="mrl_rippleDimension" format="dimension" localization="suggested" />
         <attr name="mrl_rippleOverlay" format="boolean" localization="suggested" />

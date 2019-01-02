@@ -110,22 +110,22 @@ public class MaterialRippleFrameLayout extends FrameLayout {
         setWillNotDraw(false);
         gestureDetector = new GestureDetector(context, longClickListener);
 
-        TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.MaterialRippleFrameLayout);
-        rippleColor = a.getColor(R.styleable.MaterialRippleFrameLayout_mrl_rippleColor, DEFAULT_COLOR);
+        TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.MaterialRipple);
+        rippleColor = a.getColor(R.styleable.MaterialRipple_mrl_rippleColor, DEFAULT_COLOR);
         rippleDiameter = a.getDimensionPixelSize(
-            R.styleable.MaterialRippleFrameLayout_mrl_rippleDimension,
+            R.styleable.MaterialRipple_mrl_rippleDimension,
             (int) dpToPx(getResources(), DEFAULT_DIAMETER_DP)
         );
-        rippleOverlay = a.getBoolean(R.styleable.MaterialRippleFrameLayout_mrl_rippleOverlay, DEFAULT_RIPPLE_OVERLAY);
-        rippleHover = a.getBoolean(R.styleable.MaterialRippleFrameLayout_mrl_rippleHover, DEFAULT_HOVER);
-        rippleDuration = a.getInt(R.styleable.MaterialRippleFrameLayout_mrl_rippleDuration, DEFAULT_DURATION);
-        rippleAlpha = (int) (255 * a.getFloat(R.styleable.MaterialRippleFrameLayout_mrl_rippleAlpha, DEFAULT_ALPHA));
-        rippleDelayClick = a.getBoolean(R.styleable.MaterialRippleFrameLayout_mrl_rippleDelayClick, DEFAULT_DELAY_CLICK);
-        rippleFadeDuration = a.getInteger(R.styleable.MaterialRippleFrameLayout_mrl_rippleFadeDuration, DEFAULT_FADE_DURATION);
-        rippleBackground = new ColorDrawable(a.getColor(R.styleable.MaterialRippleFrameLayout_mrl_rippleBackground, DEFAULT_BACKGROUND));
-        ripplePersistent = a.getBoolean(R.styleable.MaterialRippleFrameLayout_mrl_ripplePersistent, DEFAULT_PERSISTENT);
-        rippleInAdapter = a.getBoolean(R.styleable.MaterialRippleFrameLayout_mrl_rippleInAdapter, DEFAULT_SEARCH_ADAPTER);
-        rippleRoundedCorners = a.getDimensionPixelSize(R.styleable.MaterialRippleFrameLayout_mrl_rippleRoundedCorners, DEFAULT_ROUNDED_CORNERS);
+        rippleOverlay = a.getBoolean(R.styleable.MaterialRipple_mrl_rippleOverlay, DEFAULT_RIPPLE_OVERLAY);
+        rippleHover = a.getBoolean(R.styleable.MaterialRipple_mrl_rippleHover, DEFAULT_HOVER);
+        rippleDuration = a.getInt(R.styleable.MaterialRipple_mrl_rippleDuration, DEFAULT_DURATION);
+        rippleAlpha = (int) (255 * a.getFloat(R.styleable.MaterialRipple_mrl_rippleAlpha, DEFAULT_ALPHA));
+        rippleDelayClick = a.getBoolean(R.styleable.MaterialRipple_mrl_rippleDelayClick, DEFAULT_DELAY_CLICK);
+        rippleFadeDuration = a.getInteger(R.styleable.MaterialRipple_mrl_rippleFadeDuration, DEFAULT_FADE_DURATION);
+        rippleBackground = new ColorDrawable(a.getColor(R.styleable.MaterialRipple_mrl_rippleBackground, DEFAULT_BACKGROUND));
+        ripplePersistent = a.getBoolean(R.styleable.MaterialRipple_mrl_ripplePersistent, DEFAULT_PERSISTENT);
+        rippleInAdapter = a.getBoolean(R.styleable.MaterialRipple_mrl_rippleInAdapter, DEFAULT_SEARCH_ADAPTER);
+        rippleRoundedCorners = a.getDimensionPixelSize(R.styleable.MaterialRipple_mrl_rippleRoundedCorners, DEFAULT_ROUNDED_CORNERS);
 
         a.recycle();
 
