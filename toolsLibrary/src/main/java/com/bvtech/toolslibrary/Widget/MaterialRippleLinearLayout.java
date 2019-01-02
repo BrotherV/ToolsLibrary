@@ -143,9 +143,9 @@ public class MaterialRippleLinearLayout extends LinearLayout {
 
     @Override
     public final void addView(View child, int index, ViewGroup.LayoutParams params) {
-        if (getChildCount() > 0) {
+        /*if (getChildCount() > 0) {
             throw new IllegalStateException("MaterialRippleLayout can host only one child");
-        }
+        }*/
         //noinspection unchecked
         childView = child;
         super.addView(child, index, params);
