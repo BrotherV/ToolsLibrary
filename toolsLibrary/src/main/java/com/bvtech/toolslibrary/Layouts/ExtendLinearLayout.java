@@ -6,6 +6,7 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.widget.LinearLayout;
 
+
 /**
  * Created by Mohsen on 1/3/2018.
  */

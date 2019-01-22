@@ -1,47 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <declare-styleable name="ExtendSpinner" >
-        <attr name="backgroundColor" format="reference"/>
-        <attr name="strokeColor" format="reference"/>
-        <attr name="strokeSize" format="dimension"/>
-        <attr name="cornerRadius" format="dimension"/>
-        <attr name="shapeType" format="integer">
+        <attr name="tl_backgroundColor" format="reference"/>
+        <attr name="tl_strokeColor" format="reference"/>
+        <attr name="tl_strokeSize" format="dimension"/>
+        <attr name="tl_cornerRadius" format="dimension"/>
+        <attr name="tl_shapeType" format="integer">
             <enum name="rectangle" value="0xA01" />
             <enum name="oval" value="0xA02" />
         </attr>
-        <attr name="dropDownIcon" format="integer">
+        <attr name="tl_dropDownIcon" format="integer">
             <enum name="simple" value="0xA03" />
             <enum name="cornerIcon" value="0xA04" />
         </attr>
-        <attr name="layoutDirection" format="integer">
+        <attr name="tl_layoutDirection" format="integer">
             <enum name="ltr" value="1" />
             <enum name="rtl" value="2" />
         </attr>
-        <attr name="iconColor" format="reference"/>
-        <attr name="textColor" format="reference"/>
-        <attr name="textSize" format="dimension"/>
-        <attr name="imageSize" format="dimension"/>
-        <attr name="entries" />
-        <attr name="entryValues" />
-        <attr name="imageEntries" />
-        <attr name="rtlTypeFace" format="string"/>
-        <attr name="ltrTypeFace" format="string"/>
-        <attr name="fontType" format="reference"/>
+        <attr name="tl_iconColor" format="reference"/>
+        <attr name="tl_textColor" format="reference"/>
+        <attr name="tl_textSize" format="dimension"/>
+        <attr name="tl_imageSize" format="dimension"/>
+        <attr name="tl_entries" />
+        <attr name="tl_entryValues" />
+        <attr name="tl_imageEntries" />
+        <attr name="tl_rtlTypeFace" format="string"/>
+        <attr name="tl_ltrTypeFace" format="string"/>
+        <attr name="tl_fontType" format="reference"/>
     </declare-styleable>
 
     <declare-styleable name="MaterialRipple">
-        <attr name="mrl_rippleColor" format="color" localization="suggested" />
-        <attr name="mrl_rippleDimension" format="dimension" localization="suggested" />
-        <attr name="mrl_rippleOverlay" format="boolean" localization="suggested" />
-        <attr name="mrl_rippleAlpha" format="float" localization="suggested" />
-        <attr name="mrl_rippleDuration" format="integer" localization="suggested" />
-        <attr name="mrl_rippleFadeDuration" format="integer" localization="suggested" />
-        <attr name="mrl_rippleHover" format="boolean" localization="suggested" />
-        <attr name="mrl_rippleBackground" format="color" localization="suggested" />
-        <attr name="mrl_rippleDelayClick" format="boolean" localization="suggested" />
-        <attr name="mrl_ripplePersistent" format="boolean" localization="suggested" />
-        <attr name="mrl_rippleInAdapter" format="boolean" localization="suggested" />
-        <attr name="mrl_rippleRoundedCorners" format="dimension" localization="suggested" />
+        <attr name="tl_rippleColor" format="color" localization="suggested" />
+        <attr name="tl_rippleDimension" format="dimension" localization="suggested" />
+        <attr name="tl_rippleOverlay" format="boolean" localization="suggested" />
+        <attr name="tl_rippleAlpha" format="float" localization="suggested" />
+        <attr name="tl_rippleDuration" format="integer" localization="suggested" />
+        <attr name="tl_rippleFadeDuration" format="integer" localization="suggested" />
+        <attr name="tl_rippleHover" format="boolean" localization="suggested" />
+        <attr name="tl_rippleBackground" format="color" localization="suggested" />
+        <attr name="tl_rippleDelayClick" format="boolean" localization="suggested" />
+        <attr name="tl_ripplePersistent" format="boolean" localization="suggested" />
+        <attr name="tl_rippleInAdapter" format="boolean" localization="suggested" />
+        <attr name="tl_rippleRoundedCorners" format="dimension" localization="suggested" />
     </declare-styleable>
 
 </resources>

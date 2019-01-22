@@ -15,6 +15,7 @@ import java.util.Locale;
 import java.util.UnknownFormatConversionException;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.ActivityManager;
 import android.content.ActivityNotFoundException;
@@ -38,7 +39,6 @@ import android.os.Build;
 import android.preference.PreferenceManager;
 import android.provider.Telephony;
 import android.support.annotation.DrawableRes;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.graphics.drawable.RoundedBitmapDrawable;
@@ -595,6 +595,7 @@ public class Utilities {
 	 *
 	 * @return
 	 */
+	@SuppressLint("MissingPermission")
 	public static String getDeviceId(Context context) {
 		TelephonyManager tManager = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
 		if (ActivityCompat.checkSelfPermission(context, Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED) {
