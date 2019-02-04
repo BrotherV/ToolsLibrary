@@ -5,4 +5,10 @@
     <color name="colorAccent">#FF4081</color>
 
     <color name="colorWhite">#FFffff</color>
+    <color name="colorSoil">#d0ac81</color>
+    <color name="colorPencilB">#2b2b2b</color>
+    <color name="colorPencilC">#3b3f42</color>
+    <color name="colorPencilD">#4a4b4d</color>
+    <color name="colorPencilE">#424242</color>
+
 </resources>

@@ -11,7 +11,9 @@ import android.util.Log;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 
-public class HoloButton extends android.support.v7.widget.AppCompatImageView implements GestureDetector.OnGestureListener {
+import androidx.appcompat.widget.AppCompatImageView;
+
+public class HoloButton extends AppCompatImageView implements GestureDetector.OnGestureListener {
 
 	private static final long DRAW_OFFSET = 1;
 	private static final String CIRCLE_FILL_COLOR  = "#009688";

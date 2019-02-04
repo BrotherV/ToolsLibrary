@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <declare-styleable name="ExtendSpinner" >
+    <declare-styleable name="WidgetAttributes" >
         <attr name="tl_backgroundColor" format="reference"/>
         <attr name="tl_strokeColor" format="reference"/>
         <attr name="tl_strokeSize" format="dimension"/>
@@ -27,9 +27,7 @@
         <attr name="tl_rtlTypeFace" format="string"/>
         <attr name="tl_ltrTypeFace" format="string"/>
         <attr name="tl_fontType" format="reference"/>
-    </declare-styleable>
 
-    <declare-styleable name="MaterialRipple">
         <attr name="tl_rippleColor" format="color" localization="suggested" />
         <attr name="tl_rippleDimension" format="dimension" localization="suggested" />
         <attr name="tl_rippleOverlay" format="boolean" localization="suggested" />

@@ -1,61 +1,186 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.bvtech.toolslibrary.Layouts.ExtendConstraintLayout
+<com.bvtech.toolslibrary.Layouts.ExtendCoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/content"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ActivityMain">
+    android:background="@color/colorPencilD"
+    android:layoutDirection="ltr"
+    tools:context=".ActivityMain"
+    tools:ignore="RtlHardcoded">
 
-    <Button
-        android:id="@+id/btnExtendSpinner"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Extend Spinner"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.2"/>
+    <include layout="@layout/layout_toolbar"/>
 
-    <Button
-        android:id="@+id/btnExtendTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="Extend TextView"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnExtendSpinner"
-        app:layout_constraintVertical_bias="0.01"/>
+    <include
+        layout="@layout/layout_search_toolbar"
+        android:visibility="invisible"/>
 
-    <Button
-        android:id="@+id/btnExtendLayouts"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="Extend and Float Layouts"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnExtendTextView"
-        app:layout_constraintVertical_bias="0.01"/>
 
-    <Button
-        android:id="@+id/btnFloatLayouts"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="Float Layouts"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnExtendLayouts"
-        app:layout_constraintVertical_bias="0.01"/>
+    <com.bvtech.toolslibrary.Layouts.ExtendConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-</com.bvtech.toolslibrary.Layouts.ExtendConstraintLayout>
+        <Button
+            android:id="@+id/btnExtendSpinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Extend Spinner"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.2" />
+
+        <Button
+            android:id="@+id/btnExtendTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Extend TextView"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnExtendSpinner"
+            app:layout_constraintVertical_bias="0.01" />
+
+        <Button
+            android:id="@+id/btnExtendLayouts"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Extend and Float Layouts"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnExtendTextView"
+            app:layout_constraintVertical_bias="0.01" />
+
+        <Button
+            android:id="@+id/btnFloatLayouts"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Float Layouts"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnExtendLayouts"
+            app:layout_constraintVertical_bias="0.01" />
+
+        <com.bvtech.toolslibrary.Widget.MaterialRippleFrameLayout
+            android:id="@+id/materialRippleLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#ffff00"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnFloatLayouts"
+            app:layout_constraintVertical_bias="0.01"
+            app:tl_rippleAlpha="0.2"
+            app:tl_rippleColor="#585858"
+            app:tl_rippleDelayClick="true"
+            app:tl_rippleDuration="350"
+            app:tl_rippleFadeDuration="75"
+            app:tl_rippleHover="true"
+            app:tl_rippleOverlay="true">
+
+            <Button
+                android:id="@+id/ripple_layout_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Overlay with hover" />
+
+        </com.bvtech.toolslibrary.Widget.MaterialRippleFrameLayout>
+
+        <com.bvtech.toolslibrary.Widget.MaterialRippleLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#ffff00"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnFloatLayouts"
+            app:layout_constraintVertical_bias="0.01"
+            app:tl_rippleAlpha="0.2"
+            app:tl_rippleColor="#585858"
+            app:tl_rippleDelayClick="true"
+            app:tl_rippleDuration="350"
+            app:tl_rippleFadeDuration="75"
+            app:tl_rippleHover="true"
+            app:tl_rippleOverlay="true">
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Overlay with hover" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Overlay with hover" />
+
+        </com.bvtech.toolslibrary.Widget.MaterialRippleLinearLayout>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imgTest"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:layout_marginTop="16dp"
+            android:scaleType="fitCenter"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/materialRippleLayout2"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imgTest2"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:layout_marginTop="16dp"
+            android:scaleType="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imgTest"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <com.bvtech.toolslibrary.Widget.ExtendEditText
+            android:id="@+id/edtTest"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.758" />
+
+        <com.bvtech.toolslibrary.Widget.ExtendEditText
+            android:id="@+id/edtTest1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imgTest"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.896" />
+
+    </com.bvtech.toolslibrary.Layouts.ExtendConstraintLayout>
+
+</com.bvtech.toolslibrary.Layouts.ExtendCoordinatorLayout>

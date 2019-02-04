@@ -1,16 +1,22 @@
 package com.bvtech.widgettest;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
-import android.support.design.widget.Snackbar;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Toast;
 
 import com.bvtech.toolslibrary.Layouts.ExtendCoordinatorLayout;
 import com.bvtech.toolslibrary.Locale.LocaleManager;
 import com.bvtech.toolslibrary.Widget.ExtendSpinner;
+import com.bvtech.toolslibrary.Widget.ExtendToast;
+import com.google.android.material.snackbar.Snackbar;
 
 public class ActivityExtendedSpinner extends ActivityEnhanced{
+
+	private boolean isActivityLinched;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -19,39 +25,48 @@ public class ActivityExtendedSpinner extends ActivityEnhanced{
 
 		final ExtendCoordinatorLayout layout = findViewById(R.id.content);
 
+		String[] cn = getResources().getStringArray(R.array.countries);
+		String[] cc = getResources().getStringArray(R.array.country_codes);
+
+		final ExtendSpinner spinner3 = findViewById(R.id.extendSpinner3);
 		final ExtendSpinner spinner2 = findViewById(R.id.extendSpinner2);
-		spinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-			@Override
-			public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
-				setSnackBarWithNoActionButton(layout, "Name:" +  spinner2.getItemName(position) + "  ,Entry value:" + spinner2.getEntryValue(position));
-			}
-
-			@Override
-			public void onNothingSelected(AdapterView<?> adapterView) {
-
-			}
-		});
-
-
 		final ExtendSpinner spinner = findViewById(R.id.extendSpinner);
-		spinner.setSelectionWithEntries(LocaleManager.getContextLanguage(ActivityExtendedSpinner.this));
-		spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+
+		spinner3.fillSpinner(cn, cc);
+		AdapterView.OnItemSelectedListener listener = new AdapterView.OnItemSelectedListener() {
 			@Override
 			public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
-				LocaleManager.setNewLocale(ActivityExtendedSpinner.this, spinner.getEntryValue(position));
+				switch (view.getId()){
+					case R.id.extendSpinner2:
+						String s = "Name:" +  spinner2.getItemName(position) + "  ,Entry value:" + spinner2.getEntryValue(position)
+								+ "  ,Selected item position:" + spinner2.getSelectedItemPosition();
+						setSnackBarWithNoActionButton(layout, s);
+						ExtendToast.toastNotify(ActivityExtendedSpinner.this, s, Gravity.CENTER).show();
+						break;
+					case R.id.extendSpinner:
+						if(isActivityLinched){
+							ExtendToast.toastDone(ActivityExtendedSpinner.this, spinner.getEntryValue(position)).show();
+							LocaleManager.setNewLocale(ActivityExtendedSpinner.this, spinner.getEntryValue(position));
 
-				Intent intent = new Intent(ActivityExtendedSpinner.this, ActivityMain.class);
-				ActivityExtendedSpinner.this.startActivity(intent);
-				ActivityExtendedSpinner.this.finish();
+							Intent intent = new Intent(ActivityExtendedSpinner.this, ActivityMain.class);
+							ActivityExtendedSpinner.this.startActivity(intent);
+							ActivityExtendedSpinner.this.finishAffinity();
+						}else{
+							isActivityLinched = true;
+						}
+						break;
+				}
 			}
 
 			@Override
 			public void onNothingSelected(AdapterView<?> adapterView) {
 
 			}
-		});
+		};
 
-
+		spinner2.setOnItemSelectedListener(listener);
+		spinner.setSelectionWithEntries(LocaleManager.getContextLanguage(ActivityExtendedSpinner.this));
+		spinner.setOnItemSelectedListener(listener);
 	}
 
 	public static void setSnackBarWithNoActionButton(View view, String title){

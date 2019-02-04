@@ -104,144 +104,127 @@ public class ExtendSpinner extends LinearLayout {
 
 		TypedArray ta;
 		if(attrs != null){
-			ta = context.obtainStyledAttributes(attrs, R.styleable.ExtendSpinner);
+			ta = context.obtainStyledAttributes(attrs, R.styleable.WidgetAttributes);
 		}else {
-			ta = context.obtainStyledAttributes(R.styleable.ExtendSpinner);
+			ta = context.obtainStyledAttributes(R.styleable.WidgetAttributes);
 		}
-		int backgroundColorResId = ta.getResourceId(R.styleable.ExtendSpinner_tl_backgroundColor, 0);
+		int backgroundColorResId = ta.getResourceId(R.styleable.WidgetAttributes_tl_backgroundColor, 0);
 		if (backgroundColorResId != 0) {
 			mBackgroundColor = context.getResources().getColor(backgroundColorResId);
 		}else{
 			mBackgroundColor = WHITE_COLOR;
 		}
 
-		int strokeColorResId = ta.getResourceId(R.styleable.ExtendSpinner_tl_strokeColor, 0);
+		int strokeColorResId = ta.getResourceId(R.styleable.WidgetAttributes_tl_strokeColor, 0);
 		if (strokeColorResId != 0) {
 			mStrokeColor = context.getResources().getColor(strokeColorResId);
 		}else{
 			mStrokeColor = typedValue.data;
 		}
 
-		float strokeSize = ta.getDimension(R.styleable.ExtendSpinner_tl_strokeSize, 0);
+		float strokeSize = ta.getDimension(R.styleable.WidgetAttributes_tl_strokeSize, 0);
 		if (strokeSize != 0) {
 			mStrokeSize = strokeSize;
 		}else{
 			mStrokeSize = Utilities.dpToPx(2);
 		}
 
-		float cornerRadius = ta.getDimension(R.styleable.ExtendSpinner_tl_cornerRadius, -1);
+		float cornerRadius = ta.getDimension(R.styleable.WidgetAttributes_tl_cornerRadius, -1);
 		if (cornerRadius != -1) {
 			mCornerRadius = cornerRadius;
 		}else{
 			mCornerRadius = Utilities.dpToPx(2);
 		}
 
-		int shapeType = ta.getInt(R.styleable.ExtendSpinner_tl_shapeType, 0);
+		int shapeType = ta.getInt(R.styleable.WidgetAttributes_tl_shapeType, 0);
 		if (shapeType != 0) {
 			mShapeType = shapeType;
 		}
 
-		int iconType = ta.getInt(R.styleable.ExtendSpinner_tl_dropDownIcon, 0);
+		int iconType = ta.getInt(R.styleable.WidgetAttributes_tl_dropDownIcon, 0);
 		if (iconType != 0) {
 			mIcon = iconType;
 		}else {
 			mIcon = ICON_SIMPLE;
 		}
 
-		int layoutDirection = ta.getInt(R.styleable.ExtendSpinner_tl_layoutDirection, 0);
+		int layoutDirection = ta.getInt(R.styleable.WidgetAttributes_tl_layoutDirection, 0);
 		if (layoutDirection == LTR) {
 			isRtl = false;
 		}else if (layoutDirection == RTL){
 			isRtl = true;
 		}
 
-		int iconColorResId = ta.getResourceId(R.styleable.ExtendSpinner_tl_iconColor, 0);
+		int iconColorResId = ta.getResourceId(R.styleable.WidgetAttributes_tl_iconColor, 0);
 		if (iconColorResId != 0) {
 			mIconColor = context.getResources().getColor(iconColorResId);
 		}else {
 			mIconColor = typedValue.data;
 		}
 
-		int textColorResId = ta.getResourceId(R.styleable.ExtendSpinner_tl_textColor, 0);
+		int textColorResId = ta.getResourceId(R.styleable.WidgetAttributes_tl_textColor, 0);
 		if (textColorResId != 0) {
 			mTextColor = context.getResources().getColor(textColorResId);
 		}else{
 			mTextColor = typedValue.data;
 		}
 
-		float textSize = ta.getDimension(R.styleable.ExtendSpinner_tl_textSize, 0);
+		float textSize = ta.getDimension(R.styleable.WidgetAttributes_tl_textSize, 0);
 		if (textSize != 0) {
 			mTextSize = Utilities.pxToDp(textSize);
 		}else {
 			mTextSize = 14;
 		}
 
-		float imageSize = ta.getDimension(R.styleable.ExtendSpinner_tl_imageSize, 0);
+		float imageSize = ta.getDimension(R.styleable.WidgetAttributes_tl_imageSize, 0);
 		if (imageSize != 0) {
 			mImageSize = imageSize;
 		}else {
 			mImageSize = Utilities.dpToPx(28);
 		}
 
-		int entriesResId = ta.getResourceId(R.styleable.ExtendSpinner_tl_entries, 0);
+		int entriesResId = ta.getResourceId(R.styleable.WidgetAttributes_tl_entries, 0);
 		if (entriesResId != 0) {
 			mEntries = context.getResources().getStringArray(entriesResId);
 		}
 
-		int entryValuesResId = ta.getResourceId(R.styleable.ExtendSpinner_tl_entryValues, 0);
+		int entryValuesResId = ta.getResourceId(R.styleable.WidgetAttributes_tl_entryValues, 0);
 		if (entryValuesResId != 0) {
 			mEntryValues = context.getResources().getStringArray(entryValuesResId);
 		}
 
-		int imageEntriesResId = ta.getResourceId(R.styleable.ExtendSpinner_tl_imageEntries, 0);
+		int imageEntriesResId = ta.getResourceId(R.styleable.WidgetAttributes_tl_imageEntries, 0);
 		if (imageEntriesResId != 0) {
 			mImageEntries = context.getResources().getStringArray(imageEntriesResId);
 		}
 
-		int fontResId = ta.getResourceId(R.styleable.ExtendSpinner_tl_fontType, 0);
+		int fontResId = ta.getResourceId(R.styleable.WidgetAttributes_tl_fontType, 0);
 		if(fontResId != 0 && Utilities.hasOreoApi()){
 			mTypeFace = context.getResources().getFont(fontResId);
 		}else{
-			String ltrFont = ta.getString(R.styleable.ExtendSpinner_tl_ltrTypeFace);
-			String rtlFont = ta.getString(R.styleable.ExtendSpinner_tl_rtlTypeFace);
+			String ltrFont = ta.getString(R.styleable.WidgetAttributes_tl_ltrTypeFace);
+			String rtlFont = ta.getString(R.styleable.WidgetAttributes_tl_rtlTypeFace);
 
 			if(ltrFont != null && !isRtl){
 				try {
-					String fileDir = Utilities.isFileExistInAsset(context, "" ,ltrFont + ".ttf");
-					if(fileDir != null){
-						mTypeFace = Typeface.createFromAsset(context.getAssets(), fileDir);
-					}else{
-						try {
-							mTypeFace = Typeface.createFromAsset(context.getAssets(), ltrFont);
-						}catch (Exception e){
-							mTypeFace = Typeface.DEFAULT;
-							e.printStackTrace();
-						}
-					}
+					mTypeFace = Typeface.createFromAsset(context.getAssets(), ltrFont);
+				}catch (Exception e){
+					mTypeFace = Typeface.DEFAULT;
+					e.printStackTrace();
+				}
+			}else if(rtlFont != null && isRtl){
+				try {
+					mTypeFace = Typeface.createFromAsset(context.getAssets(), rtlFont);
 				}catch (Exception e){
 					mTypeFace = Typeface.DEFAULT;
 					e.printStackTrace();
 				}
 			}
 
-			if(rtlFont != null && isRtl){
-				try {
-					String fileDir = Utilities.isFileExistInAsset(context, "" ,rtlFont + ".ttf");
-					if(fileDir != null){
-						mTypeFace = Typeface.createFromAsset(context.getAssets(), fileDir);
-					}else{
-						try {
-							mTypeFace = Typeface.createFromAsset(context.getAssets(), rtlFont);
-						}catch (Exception e){
-							mTypeFace = Typeface.DEFAULT;
-							e.printStackTrace();
-						}
-					}
-				}catch (Exception e){
-					mTypeFace = Typeface.DEFAULT;
-					e.printStackTrace();
-				}
-			}
+			/*String fileDir = Utilities.isFileExistInAsset(context, "" ,ltrFont + ".ttf");
+			if(fileDir != null){
+				mTypeFace = Typeface.createFromAsset(context.getAssets(), fileDir);
+			}*/
 		}
 
 		if(mImageEntries != null && mImageEntries.length > 0){
@@ -320,7 +303,7 @@ public class ExtendSpinner extends LinearLayout {
 				}
 				*/
 				if(onItemSelectedListener != null){
-					onItemSelectedListener.onItemSelected(parent,ExtendSpinner.this, position, id);
+					onItemSelectedListener.onItemSelected(parent, ExtendSpinner.this, position, id);
 				}
 			}
 

@@ -35,8 +35,8 @@ ext {
     minSdkVersion = 14
     targetSdkVersion = 28
     supportLibraryVersion = "28.0.0"
-    projectVersionCode = 7
-    projectVersionName = "0.79"
+    projectVersionCode = 8
+    projectVersionName = "0.81"
 
     //Support Libraries dependencies
     supportDependencies = [

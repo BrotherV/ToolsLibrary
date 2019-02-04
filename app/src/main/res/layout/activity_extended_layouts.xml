@@ -31,7 +31,7 @@
         android:layout_gravity="bottom"
         android:gravity="center">
 
-        <android.support.design.widget.FloatingActionButton
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/floatingActionButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -45,8 +45,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            app:ltrTypeFace="font_en"
-            app:rtlTypeFace="traffic"/>
+            app:tl_ltrTypeFace="font_en"
+            app:tl_rtlTypeFace="traffic"/>
 
     </com.bvtech.toolslibrary.Layouts.ExtendFrameLayout>
 
@@ -62,10 +62,10 @@
             android:layout_marginBottom="12dp"
             android:text="@string/app_hello"
             android:textSize="22sp"
-            app:ltrTypeFace="font_en"
-            app:rtlTypeFace="traffic"/>
+            app:tl_ltrTypeFace="font_en"
+            app:tl_rtlTypeFace="traffic"/>
 
-        <android.support.design.widget.FloatingActionButton
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
@@ -73,7 +73,7 @@
             app:fabSize="mini"
             app:srcCompat="@drawable/ic_launcher_foreground"/>
 
-        <android.support.design.widget.FloatingActionButton
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
@@ -81,7 +81,7 @@
             app:fabSize="mini"
             app:srcCompat="@drawable/ic_launcher_foreground"/>
 
-        <android.support.design.widget.FloatingActionButton
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"

@@ -4,8 +4,6 @@ import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.Resources;
 import android.os.Build;
-import android.support.annotation.NonNull;
-import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.animation.AccelerateDecelerateInterpolator;
@@ -15,9 +13,9 @@ import android.widget.AbsListView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 
-import com.rey.material.app.ThemeManager;
-import com.rey.material.util.ViewUtil;
-import com.rey.material.widget.RippleManager;
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
+
 
 /**
  * Created by Mohsen on 2/21/2017.
@@ -31,9 +29,7 @@ public class FloatLinearLayout extends LinearLayout{
 	public static final float TM = 0.5f;
 	public static final float TL = 0.15f;
 
-	private RippleManager mRippleManager;
 	protected int mStyleId;
-	protected int mCurrentStyle = ThemeManager.THEME_UNDEFINED;
 	protected boolean clickable;
 	private boolean isViewIn = true;
 	private boolean isViewOut;
@@ -64,55 +60,6 @@ public class FloatLinearLayout extends LinearLayout{
 
 	protected void init(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes){
 		setDefaultAnim(UP, TH);
-		applyStyle(context, attrs, defStyleAttr, defStyleRes);
-		if(!isInEditMode())
-			mStyleId = ThemeManager.getStyleId(context, attrs, defStyleAttr, defStyleRes);
-	}
-
-	public void applyStyle(int resId){
-		ViewUtil.applyStyle(this, resId);
-		applyStyle(getContext(), null, 0, resId);
-	}
-
-	protected void applyStyle(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes){
-		getRippleManager().onCreate(this, context, attrs, defStyleAttr, defStyleRes);
-	}
-
-
-	@Override
-	protected void onDetachedFromWindow() {
-		super.onDetachedFromWindow();
-		RippleManager.cancelRipple(this);
-	}
-
-	protected RippleManager getRippleManager(){
-		if(mRippleManager == null){
-			synchronized (RippleManager.class){
-				if(mRippleManager == null)
-					mRippleManager = new RippleManager();
-			}
-		}
-
-		return mRippleManager;
-	}
-
-	@Override
-	public void setOnClickListener(OnClickListener l) {
-		if(clickable){
-			RippleManager rippleManager = getRippleManager();
-			if (l == rippleManager)
-				super.setOnClickListener(l);
-			else {
-				rippleManager.setOnClickListener(l);
-				setOnClickListener(rippleManager);
-			}
-		}
-	}
-
-	@Override
-	public boolean onTouchEvent(@NonNull MotionEvent event) {
-		boolean result = super.onTouchEvent(event);
-		return  getRippleManager().onTouchEvent(this, event) || result;
 	}
 
 	@Override

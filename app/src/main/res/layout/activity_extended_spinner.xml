@@ -6,8 +6,8 @@
     android:id="@+id/content"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
 
+    android:gravity="center"
     android:orientation="horizontal"
     tools:context=".ActivityMain">
 
@@ -21,60 +21,61 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="96dp"
-            app:backgroundColor="@color/colorPrimary"
-            app:entries="@array/test_str"
-            app:textColor="@color/colorAccent"/>
+            app:tl_backgroundColor="@color/colorPrimary"
+            app:tl_entries="@array/test_str"
+            app:tl_textColor="@color/colorAccent" />
 
         <com.bvtech.toolslibrary.Widget.ExtendSpinner
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="8dp"
-            app:entries="@array/test_str"
-            app:shapeType="rectangle"
-            app:textColor="@color/colorAccent"/>
+            app:tl_entries="@array/test_str"
+            app:tl_shapeType="rectangle"
+            app:tl_textColor="@color/colorAccent" />
 
         <com.bvtech.toolslibrary.Widget.ExtendSpinner
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="8dp"
-            app:entries="@array/test_str"
-            app:shapeType="rectangle"
-            app:strokeColor="@color/colorPrimary"
-            app:strokeSize="2dp"
-            app:cornerRadius="4dp"
-            app:textColor="@color/colorAccent"/>
+            app:tl_cornerRadius="4dp"
+            app:tl_entries="@array/test_str"
+            app:tl_shapeType="rectangle"
+            app:tl_strokeColor="@color/colorPrimary"
+            app:tl_strokeSize="2dp"
+            app:tl_textColor="@color/colorAccent" />
+
+        <com.bvtech.toolslibrary.Widget.ExtendSpinner
+            android:id="@+id/extendSpinner3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="8dp"
+            app:tl_cornerRadius="4dp"
+            app:tl_dropDownIcon="cornerIcon"
+            app:tl_entries="@array/test_str"
+            app:tl_fontType="@font/font"
+            app:tl_iconColor="@color/colorAccent"
+            app:tl_shapeType="rectangle"
+            app:tl_strokeSize="2dp"
+            app:tl_textColor="@color/colorAccent" />
 
         <com.bvtech.toolslibrary.Widget.ExtendSpinner
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="8dp"
-            app:fontType="@font/font"
-            app:entries="@array/test_str"
-            app:shapeType="rectangle"
-            app:strokeColor="@color/colorPrimary"
-            app:strokeSize="2dp"
-            app:cornerRadius="4dp"
-            app:dropDownIcon="cornerIcon"
-            app:textColor="@color/colorAccent"/>
-
-        <com.bvtech.toolslibrary.Widget.ExtendSpinner
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="8dp"
-            app:entries="@array/test_str"
-            app:imageEntries="@array/test_img"
-            app:shapeType="rectangle"
-            app:strokeColor="@color/colorPrimary"
-            app:strokeSize="2dp"
-            app:cornerRadius="4dp"
-            app:dropDownIcon="cornerIcon"
-            app:textColor="@color/colorAccent"
-            app:rtlTypeFace="zar"
-            app:ltrTypeFace="timesi"/>
+            app:tl_cornerRadius="4dp"
+            app:tl_dropDownIcon="cornerIcon"
+            app:tl_entries="@array/test_str"
+            app:tl_imageEntries="@array/test_img"
+            app:tl_ltrTypeFace="timesi"
+            app:tl_rtlTypeFace="zar"
+            app:tl_shapeType="rectangle"
+            app:tl_strokeColor="@color/colorPrimary"
+            app:tl_strokeSize="2dp"
+            app:tl_textColor="@color/colorAccent" />
 
         <com.bvtech.toolslibrary.Widget.ExtendSpinner
             android:id="@+id/extendSpinner2"
@@ -82,17 +83,17 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="8dp"
-            app:cornerRadius="0dp"
-            app:dropDownIcon="cornerIcon"
-            app:entries="@array/countries"
-            app:entryValues="@array/country_codes"
-            app:imageEntries="@array/country_codes"
-            app:ltrTypeFace="times"
-            app:rtlTypeFace="zar"
-            app:shapeType="rectangle"
-            app:strokeColor="@color/colorPrimary"
-            app:strokeSize="2dp"
-            app:textColor="@color/colorAccent"/>
+            app:tl_cornerRadius="0dp"
+            app:tl_dropDownIcon="cornerIcon"
+            app:tl_entries="@array/countries"
+            app:tl_entryValues="@array/country_codes"
+            app:tl_imageEntries="@array/country_codes"
+            app:tl_ltrTypeFace="times"
+            app:tl_rtlTypeFace="zar"
+            app:tl_shapeType="rectangle"
+            app:tl_strokeColor="@color/colorPrimary"
+            app:tl_strokeSize="2dp"
+            app:tl_textColor="@color/colorAccent" />
 
         <com.bvtech.toolslibrary.Widget.ExtendSpinner
             android:id="@+id/extendSpinner"
@@ -100,18 +101,17 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="8dp"
-            app:entries="@array/test_str"
-            app:entryValues="@array/test_entryValue"
-            app:imageEntries="@array/test_img"
-            app:shapeType="rectangle"
-            app:strokeColor="@color/colorAccent"
-            app:strokeSize="2dp"
-            app:cornerRadius="0dp"
-            app:dropDownIcon="cornerIcon"
-            app:textColor="@color/colorAccent"
-            app:rtlTypeFace="font_fa"
-            app:ltrTypeFace="font_en"
-            />
+            app:tl_cornerRadius="0dp"
+            app:tl_dropDownIcon="cornerIcon"
+            app:tl_entries="@array/test_str"
+            app:tl_entryValues="@array/test_entryValue"
+            app:tl_imageEntries="@array/test_img"
+            app:tl_ltrTypeFace="font_en"
+            app:tl_rtlTypeFace="font_fa"
+            app:tl_shapeType="rectangle"
+            app:tl_strokeColor="@color/colorAccent"
+            app:tl_strokeSize="2dp"
+            app:tl_textColor="@color/colorAccent" />
 
     </LinearLayout>
 

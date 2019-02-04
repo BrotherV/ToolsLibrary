@@ -1,9 +1,10 @@
 package com.bvtech.toolslibrary.Layouts;
 
 import android.content.Context;
-import android.support.design.widget.CoordinatorLayout;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
+
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
 
 /**
  * Created by Mohsen on 9/10/2018.

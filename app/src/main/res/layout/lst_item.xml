@@ -40,8 +40,8 @@
                   android:textSize="18sp"
                   android:layout_centerVertical="true"
                   android:text="Test"
-                  app:ltrTypeFace="times"
-                  app:rtlTypeFace="traffic"/>
+                  app:tl_ltrTypeFace="times"
+                  app:tl_rtlTypeFace="traffic"/>
 
     </RelativeLayout>
 

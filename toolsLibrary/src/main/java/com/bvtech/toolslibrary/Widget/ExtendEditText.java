@@ -16,7 +16,9 @@ import com.bvtech.toolslibrary.R;
 import com.bvtech.toolslibrary.Utility.Utilities;
 import com.bvtech.toolslibrary.Utility.ViewUtility;
 
-public class ExtendEditText extends android.support.v7.widget.AppCompatEditText {
+import androidx.appcompat.widget.AppCompatEditText;
+
+public class ExtendEditText extends AppCompatEditText {
 
     public interface OnKeyboardEventListener {
         void onKeyDown(View v);
@@ -67,93 +69,76 @@ public class ExtendEditText extends android.support.v7.widget.AppCompatEditText 
 		theme.resolveAttribute(R.attr.colorPrimary, typedValue, true);
 
 		if(attrs != null){
-			ta = context.obtainStyledAttributes(attrs, R.styleable.ExtendSpinner);
+			ta = context.obtainStyledAttributes(attrs, R.styleable.WidgetAttributes);
 		}else {
-			ta = context.obtainStyledAttributes(R.styleable.ExtendSpinner);
+			ta = context.obtainStyledAttributes(R.styleable.WidgetAttributes);
 		}
 
-		int backgroundColorResId = ta.getResourceId(R.styleable.ExtendSpinner_tl_backgroundColor, 0);
+		int backgroundColorResId = ta.getResourceId(R.styleable.WidgetAttributes_tl_backgroundColor, 0);
 		if (backgroundColorResId != 0) {
 			mBackgroundColor = context.getResources().getColor(backgroundColorResId);
 		}else{
 			mBackgroundColor = Color.TRANSPARENT;
 		}
 
-		int strokeColorResId = ta.getResourceId(R.styleable.ExtendSpinner_tl_strokeColor, 0);
+		int strokeColorResId = ta.getResourceId(R.styleable.WidgetAttributes_tl_strokeColor, 0);
 		if (strokeColorResId != 0) {
 			mStrokeColor = context.getResources().getColor(strokeColorResId);
 		}else{
 			mStrokeColor = typedValue.data;
 		}
 
-		float strokeSize = ta.getDimension(R.styleable.ExtendSpinner_tl_strokeSize, 0);
+		float strokeSize = ta.getDimension(R.styleable.WidgetAttributes_tl_strokeSize, 0);
 		if (strokeSize != 0) {
 			mStrokeSize = strokeSize;
 		}else{
 			mStrokeSize = Utilities.dpToPx(2);
 		}
 
-		float cornerRadius = ta.getDimension(R.styleable.ExtendSpinner_tl_cornerRadius, -1);
+		float cornerRadius = ta.getDimension(R.styleable.WidgetAttributes_tl_cornerRadius, -1);
 		if (cornerRadius != -1) {
 			mCornerRadius = cornerRadius;
 		}else{
 			mCornerRadius = Utilities.dpToPx(2);
 		}
 
-		int shapeType = ta.getInt(R.styleable.ExtendSpinner_tl_shapeType, 0);
+		int shapeType = ta.getInt(R.styleable.WidgetAttributes_tl_shapeType, 0);
 		if (shapeType != 0) {
 			mShapeType = shapeType;
 		}
 
-		int layoutDirection = ta.getInt(R.styleable.ExtendSpinner_tl_layoutDirection, 0);
+		int layoutDirection = ta.getInt(R.styleable.WidgetAttributes_tl_layoutDirection, 0);
 		if (layoutDirection == LTR) {
 			isRtl = false;
 		}else if (layoutDirection == RTL){
 			isRtl = true;
 		}
 
-		int fontResId = ta.getResourceId(R.styleable.ExtendSpinner_tl_fontType, 0);
+		int fontResId = ta.getResourceId(R.styleable.WidgetAttributes_tl_fontType, 0);
 		if(fontResId != 0 && Utilities.hasOreoApi()){
 			setTypeface(context.getResources().getFont(fontResId));
 		}else{
-			String ltrFont = ta.getString(R.styleable.ExtendSpinner_tl_ltrTypeFace);
-			String rtlFont = ta.getString(R.styleable.ExtendSpinner_tl_rtlTypeFace);
+			String ltrFont = ta.getString(R.styleable.WidgetAttributes_tl_ltrTypeFace);
+			String rtlFont = ta.getString(R.styleable.WidgetAttributes_tl_rtlTypeFace);
 
 			if(ltrFont != null && !isRtl){
 				try {
-					String fileDir = Utilities.isFileExistInAsset(context, "" ,ltrFont + ".ttf");
-					if(fileDir != null){
-						setTypeface(Typeface.createFromAsset(context.getAssets(), fileDir));
-					}else{
-						try {
-							setTypeface(Typeface.createFromAsset(context.getAssets(), ltrFont));
-						}catch (Exception e){
-							setTypeface(Typeface.DEFAULT);
-							e.printStackTrace();
-						}
-					}
+					setTypeface(Typeface.createFromAsset(context.getAssets(), ltrFont));
 				}catch (Exception e){
 					setTypeface(Typeface.DEFAULT);
 					e.printStackTrace();
 				}
 			}else if(rtlFont != null && isRtl){
 				try {
-					String fileDir = Utilities.isFileExistInAsset(context, "" ,rtlFont + ".ttf");
-					if(fileDir != null){
-						setTypeface(Typeface.createFromAsset(context.getAssets(), fileDir));
-					}else{
-						try {
-							setTypeface(Typeface.createFromAsset(context.getAssets(), rtlFont));
-						}catch (Exception e){
-							setTypeface(Typeface.DEFAULT);
-							e.printStackTrace();
-						}
-					}
+					setTypeface(Typeface.createFromAsset(context.getAssets(), rtlFont));
 				}catch (Exception e){
 					setTypeface(Typeface.DEFAULT);
 					e.printStackTrace();
 				}
 			}
+
+			//String fileDir = Utilities.isFileExistInAsset(context, "" ,ltrFont + ".ttf");
+			//String fileDir = Utilities.isFileExistInAsset(context, "" ,rtlFont + ".ttf");
 		}
 
 		if(mShapeType != 0){

@@ -8,7 +8,6 @@ import android.content.Context;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Build;
 import android.os.Handler;
-import android.support.v4.content.ContextCompat;
 import android.view.View;
 import android.view.ViewAnimationUtils;
 import android.view.animation.AccelerateDecelerateInterpolator;
@@ -20,6 +19,8 @@ import android.view.animation.Interpolator;
 import android.view.animation.RotateAnimation;
 import android.view.animation.ScaleAnimation;
 import android.view.animation.TranslateAnimation;
+
+import androidx.annotation.RequiresApi;
 
 public class ViewUtility {
 
@@ -177,6 +178,7 @@ public class ViewUtility {
 	 *
 	 * @param myView
 	 */
+	@RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
 	public  static void exitReveal(final View myView) {
 		if(myView != null){
 			// get the center for the clipping circle
@@ -209,6 +211,7 @@ public class ViewUtility {
 	 *
 	 * @param myView
 	 */
+	@RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
 	public static void enterReveal(View myView) {
 		if(myView != null){
 			// get the center for the clipping circle
@@ -242,6 +245,7 @@ public class ViewUtility {
 	 *
 	 * @param myView
 	 */
+	@RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
 	public  static void exitReveal(final View myView, int point) {
 		if(myView != null){
 			int[] c = getPoint(myView, point) ;
@@ -271,6 +275,7 @@ public class ViewUtility {
 	 *
 	 * @param myView
 	 */
+	@RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
 	public static void enterReveal(View myView, int point) {
 		if(myView != null){
 			int[] c = getPoint(myView, point) ;
@@ -292,6 +297,7 @@ public class ViewUtility {
 	 *
 	 * @param myView
 	 */
+	@RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
 	public static void enterReveal(View myView, int cx, int cy) {
 		if(myView != null){
 
@@ -308,6 +314,7 @@ public class ViewUtility {
 		}
 	}
 
+	@RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
 	public  static void exitReveal(final View myView, int cx, int cy, final Animator.AnimatorListener listener) {
 		if(myView != null){
 
