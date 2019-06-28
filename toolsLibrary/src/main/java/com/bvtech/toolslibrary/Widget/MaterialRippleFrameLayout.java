@@ -51,6 +51,7 @@ public class MaterialRippleFrameLayout extends FrameLayout {
     private static final boolean DEFAULT_SEARCH_ADAPTER  = false;
     private static final boolean DEFAULT_RIPPLE_OVERLAY  = false;
     private static final int     DEFAULT_ROUNDED_CORNERS = 0;
+    private static final int     RADIUS_OFFSET = 5;
 
     private static final int  FADE_EXTRA_DELAY = 50;
     private static final long HOVER_DURATION   = 2500;
@@ -69,6 +70,10 @@ public class MaterialRippleFrameLayout extends FrameLayout {
     private boolean  ripplePersistent;
     private Drawable rippleBackground;
     private boolean  rippleInAdapter;
+    private boolean  rippleFixCircleRadius;
+    private boolean  rippleEnableMove;
+    private boolean  rippleStartFromCenter;
+    private boolean  isFirstPointSet;
     private float    rippleRoundedCorners;
 
     private float radius;
@@ -125,8 +130,15 @@ public class MaterialRippleFrameLayout extends FrameLayout {
         rippleBackground = new ColorDrawable(a.getColor(R.styleable.WidgetAttributes_tl_rippleBackground, DEFAULT_BACKGROUND));
         ripplePersistent = a.getBoolean(R.styleable.WidgetAttributes_tl_ripplePersistent, DEFAULT_PERSISTENT);
         rippleInAdapter = a.getBoolean(R.styleable.WidgetAttributes_tl_rippleInAdapter, DEFAULT_SEARCH_ADAPTER);
+        rippleFixCircleRadius = a.getBoolean(R.styleable.WidgetAttributes_tl_rippleFixCircleRadius, false);
+        rippleEnableMove = a.getBoolean(R.styleable.WidgetAttributes_tl_rippleEnableMove, true);
+        rippleStartFromCenter = a.getBoolean(R.styleable.WidgetAttributes_tl_rippleStartFromCenter, false);
         rippleRoundedCorners = a.getDimensionPixelSize(R.styleable.WidgetAttributes_tl_rippleRoundedCorners, DEFAULT_ROUNDED_CORNERS);
 
+        if(rippleStartFromCenter){
+            rippleEnableMove = false;
+            rippleFixCircleRadius = true;
+        }
         a.recycle();
 
         paint.setColor(rippleColor);
@@ -180,8 +192,15 @@ public class MaterialRippleFrameLayout extends FrameLayout {
 
         boolean isEventInBounds = bounds.contains((int) event.getX(), (int) event.getY());
 
-        if (isEventInBounds) {
+        if(isEventInBounds && rippleStartFromCenter){
+            previousCoords.set(getWidth() / 2, getHeight() / 2);
+            currentCoords.set(getWidth() / 2, getHeight() / 2);
+        }else if (isEventInBounds && rippleEnableMove) {
             previousCoords.set(currentCoords.x, currentCoords.y);
+            currentCoords.set((int) event.getX(), (int) event.getY());
+        }else if (isEventInBounds && !rippleEnableMove && !isFirstPointSet) {
+            isFirstPointSet = true;
+            previousCoords.set((int) event.getX(), (int) event.getY());
             currentCoords.set((int) event.getX(), (int) event.getY());
         }
 
@@ -297,7 +316,10 @@ public class MaterialRippleFrameLayout extends FrameLayout {
         if (hoverAnimator != null) {
             hoverAnimator.cancel();
         }
-        final float radius = (float) (Math.sqrt(Math.pow(getWidth(), 2) + Math.pow(getHeight(), 2)) * 1.2f);
+        float radius = (float) (Math.sqrt(Math.pow(getWidth(), 2) + Math.pow(getHeight(), 2)) * 1.2f);
+        if(rippleFixCircleRadius){
+            radius = (Math.max(getWidth(), getHeight()) /2f) - RADIUS_OFFSET;
+        }
         hoverAnimator = ObjectAnimator.ofFloat(this, radiusProperty, rippleDiameter, radius)
             .setDuration(HOVER_DURATION);
         hoverAnimator.setInterpolator(new LinearInterpolator());
@@ -308,6 +330,9 @@ public class MaterialRippleFrameLayout extends FrameLayout {
         if (eventCancelled) return;
 
         float endRadius = getEndRadius();
+        if(rippleFixCircleRadius){
+            endRadius = (Math.max(getWidth(), getHeight()) /2f) - RADIUS_OFFSET;
+        }
 
         cancelAnimations();
 

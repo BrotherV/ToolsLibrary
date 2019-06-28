@@ -51,6 +51,7 @@ public class MaterialRippleLinearLayout extends LinearLayout {
     private static final boolean DEFAULT_SEARCH_ADAPTER  = false;
     private static final boolean DEFAULT_RIPPLE_OVERLAY  = false;
     private static final int     DEFAULT_ROUNDED_CORNERS = 0;
+    private static final int     RADIUS_OFFSET = 5;
 
     private static final int  FADE_EXTRA_DELAY = 50;
     private static final long HOVER_DURATION   = 2500;
@@ -69,6 +70,10 @@ public class MaterialRippleLinearLayout extends LinearLayout {
     private boolean  ripplePersistent;
     private Drawable rippleBackground;
     private boolean  rippleInAdapter;
+    private boolean  rippleFixCircleRadius;
+    private boolean  rippleEnableMove;
+    private boolean  rippleStartFromCenter;
+    private boolean  isFirstPointSet;
     private float    rippleRoundedCorners;
 
     private float radius;
@@ -125,7 +130,15 @@ public class MaterialRippleLinearLayout extends LinearLayout {
         rippleBackground = new ColorDrawable(a.getColor(R.styleable.WidgetAttributes_tl_rippleBackground, DEFAULT_BACKGROUND));
         ripplePersistent = a.getBoolean(R.styleable.WidgetAttributes_tl_ripplePersistent, DEFAULT_PERSISTENT);
         rippleInAdapter = a.getBoolean(R.styleable.WidgetAttributes_tl_rippleInAdapter, DEFAULT_SEARCH_ADAPTER);
+        rippleFixCircleRadius = a.getBoolean(R.styleable.WidgetAttributes_tl_rippleFixCircleRadius, false);
+        rippleEnableMove = a.getBoolean(R.styleable.WidgetAttributes_tl_rippleEnableMove, true);
+        rippleStartFromCenter = a.getBoolean(R.styleable.WidgetAttributes_tl_rippleStartFromCenter, false);
         rippleRoundedCorners = a.getDimensionPixelSize(R.styleable.WidgetAttributes_tl_rippleRoundedCorners, DEFAULT_ROUNDED_CORNERS);
+
+        if(rippleStartFromCenter){
+            rippleEnableMove = false;
+            rippleFixCircleRadius = true;
+        }
 
         a.recycle();
 
@@ -134,7 +147,6 @@ public class MaterialRippleLinearLayout extends LinearLayout {
 
         enableClipPathSupportIfNecessary();
     }
-
 
     @SuppressWarnings("unchecked")
     public <T extends View> T getChildView() {
@@ -180,8 +192,15 @@ public class MaterialRippleLinearLayout extends LinearLayout {
 
         boolean isEventInBounds = bounds.contains((int) event.getX(), (int) event.getY());
 
-        if (isEventInBounds) {
+        if(isEventInBounds && rippleStartFromCenter){
+            previousCoords.set(getWidth() / 2, getHeight() / 2);
+            currentCoords.set(getWidth() / 2, getHeight() / 2);
+        }else if (isEventInBounds && rippleEnableMove) {
             previousCoords.set(currentCoords.x, currentCoords.y);
+            currentCoords.set((int) event.getX(), (int) event.getY());
+        }else if (isEventInBounds && !rippleEnableMove && !isFirstPointSet) {
+            isFirstPointSet = true;
+            previousCoords.set((int) event.getX(), (int) event.getY());
             currentCoords.set((int) event.getX(), (int) event.getY());
         }
 
@@ -192,16 +211,16 @@ public class MaterialRippleLinearLayout extends LinearLayout {
             int action = event.getActionMasked();
             switch (action) {
                 case MotionEvent.ACTION_UP:
+                    isFirstPointSet = false;
                     pendingClickEvent = new PerformClickEvent();
-
                     if (prepressed) {
                         childView.setPressed(true);
                         postDelayed(
-                            new Runnable() {
-                                @Override public void run() {
-                                    childView.setPressed(false);
-                                }
-                            }, ViewConfiguration.getPressedStateDuration());
+                                new Runnable() {
+                                    @Override public void run() {
+                                        childView.setPressed(false);
+                                    }
+                                }, ViewConfiguration.getPressedStateDuration());
                     }
 
                     if (isEventInBounds) {
@@ -297,9 +316,12 @@ public class MaterialRippleLinearLayout extends LinearLayout {
         if (hoverAnimator != null) {
             hoverAnimator.cancel();
         }
-        final float radius = (float) (Math.sqrt(Math.pow(getWidth(), 2) + Math.pow(getHeight(), 2)) * 1.2f);
+        float radius = (float) (Math.sqrt(Math.pow(getWidth(), 2) + Math.pow(getHeight(), 2)) * 1.2f);
+        if(rippleFixCircleRadius){
+            radius = (Math.max(getWidth(), getHeight()) /2f) - RADIUS_OFFSET;
+        }
         hoverAnimator = ObjectAnimator.ofFloat(this, radiusProperty, rippleDiameter, radius)
-            .setDuration(HOVER_DURATION);
+                .setDuration(HOVER_DURATION);
         hoverAnimator.setInterpolator(new LinearInterpolator());
         hoverAnimator.start();
     }
@@ -308,7 +330,9 @@ public class MaterialRippleLinearLayout extends LinearLayout {
         if (eventCancelled) return;
 
         float endRadius = getEndRadius();
-
+        if(rippleFixCircleRadius){
+            endRadius = (Math.max(getWidth(), getHeight()) /2f) - RADIUS_OFFSET;
+        }
         cancelAnimations();
 
         rippleAnimator = new AnimatorSet();
@@ -485,7 +509,7 @@ public class MaterialRippleLinearLayout extends LinearLayout {
      * Animations
      */
     private Property<MaterialRippleLinearLayout, Float> radiusProperty
-        = new Property<MaterialRippleLinearLayout, Float>(Float.class, "radius") {
+            = new Property<MaterialRippleLinearLayout, Float>(Float.class, "radius") {
         @Override
         public Float get(MaterialRippleLinearLayout object) {
             return object.getRadius();
@@ -508,7 +532,7 @@ public class MaterialRippleLinearLayout extends LinearLayout {
     }
 
     private Property<MaterialRippleLinearLayout, Integer> circleAlphaProperty
-        = new Property<MaterialRippleLinearLayout, Integer>(Integer.class, "rippleAlpha") {
+            = new Property<MaterialRippleLinearLayout, Integer>(Integer.class, "rippleAlpha") {
         @Override
         public Integer get(MaterialRippleLinearLayout object) {
             return object.getRippleAlpha();
@@ -530,7 +554,7 @@ public class MaterialRippleLinearLayout extends LinearLayout {
     }
 
     /*
-    * Accessor
+     * Accessor
      */
     public void setRippleColor(int rippleColor) {
         this.rippleColor = rippleColor;
@@ -641,8 +665,8 @@ public class MaterialRippleLinearLayout extends LinearLayout {
         private void clickAdapterView(AdapterView parent) {
             final int position = parent.getPositionForView(MaterialRippleLinearLayout.this);
             final long itemId = parent.getAdapter() != null
-                ? parent.getAdapter().getItemId(position)
-                : 0;
+                    ? parent.getAdapter().getItemId(position)
+                    : 0;
             if (position != AdapterView.INVALID_POSITION) {
                 parent.performItemClick(MaterialRippleLinearLayout.this, position, itemId);
             }

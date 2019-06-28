@@ -16,7 +16,7 @@
         android:background="@color/colorPrimary"
         android:padding="8dp">
 
-        <android.support.v7.widget.SwitchCompat
+        <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/switchTest"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

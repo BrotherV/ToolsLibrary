@@ -39,6 +39,9 @@
         <attr name="tl_rippleDelayClick" format="boolean" localization="suggested" />
         <attr name="tl_ripplePersistent" format="boolean" localization="suggested" />
         <attr name="tl_rippleInAdapter" format="boolean" localization="suggested" />
+        <attr name="tl_rippleStartFromCenter" format="boolean" localization="suggested" />
+        <attr name="tl_rippleFixCircleRadius" format="boolean" localization="suggested" />
+        <attr name="tl_rippleEnableMove" format="boolean" localization="suggested" />
         <attr name="tl_rippleRoundedCorners" format="dimension" localization="suggested" />
     </declare-styleable>
 

@@ -18,6 +18,8 @@ import androidx.coordinatorlayout.widget.CoordinatorLayout;
 public class ExtendFrameLayout extends FrameLayout{
 
 	private int xPoint, yPoint;
+	private boolean isTouched;
+	private boolean isMoving;
 
 	public ExtendFrameLayout(@NonNull Context context) {
 		super(context);
@@ -39,6 +41,14 @@ public class ExtendFrameLayout extends FrameLayout{
 		return yPoint;
 	}
 
+	public boolean isTouched() {
+		return isTouched;
+	}
+
+	public boolean isMoving() {
+		return isMoving;
+	}
+
 	@Override
 	public boolean onInterceptTouchEvent(MotionEvent ev) {
 		/*
@@ -50,11 +60,14 @@ public class ExtendFrameLayout extends FrameLayout{
 			case MotionEvent.ACTION_DOWN:
 				xPoint = (int) ev.getX();
 				yPoint = (int) ev.getY();
-
+				isTouched = true;
 				break;
 			case MotionEvent.ACTION_MOVE:
+				isMoving = true;
 				break;
 			case MotionEvent.ACTION_UP:
+				isTouched = false;
+				isMoving = false;
 				break;
 		}
 

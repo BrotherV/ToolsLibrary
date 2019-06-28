@@ -13,6 +13,8 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 public class ExtendConstraintLayout extends ConstraintLayout {
 
     private int xPoint, yPoint;
+    private boolean isTouched;
+    private boolean isMoving;
 
     public ExtendConstraintLayout(Context context) {
         super(context);
@@ -34,6 +36,14 @@ public class ExtendConstraintLayout extends ConstraintLayout {
         return yPoint;
     }
 
+    public boolean isTouched() {
+        return isTouched;
+    }
+
+    public boolean isMoving() {
+        return isMoving;
+    }
+
     @Override
     public boolean onInterceptTouchEvent(MotionEvent ev) {
         /*
@@ -45,11 +55,14 @@ public class ExtendConstraintLayout extends ConstraintLayout {
             case MotionEvent.ACTION_DOWN:
                 xPoint = (int) ev.getX();
                 yPoint = (int) ev.getY();
-
+                isTouched = true;
                 break;
             case MotionEvent.ACTION_MOVE:
+                isMoving = true;
                 break;
             case MotionEvent.ACTION_UP:
+                isTouched = false;
+                isMoving = false;
                 break;
         }
 

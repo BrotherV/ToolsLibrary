@@ -15,6 +15,8 @@ import androidx.coordinatorlayout.widget.CoordinatorLayout;
 public class ExtendLinearLayout extends LinearLayout {
 
 	private int xPoint, yPoint;
+	private boolean isTouched;
+	private boolean isMoving;
 
 	public ExtendLinearLayout(Context context) {
 		super(context);
@@ -36,6 +38,14 @@ public class ExtendLinearLayout extends LinearLayout {
 		return yPoint;
 	}
 
+	public boolean isTouched() {
+		return isTouched;
+	}
+
+	public boolean isMoving() {
+		return isMoving;
+	}
+
 	@Override
 	public boolean onInterceptTouchEvent(MotionEvent ev) {
 		/*
@@ -47,11 +57,14 @@ public class ExtendLinearLayout extends LinearLayout {
 			case MotionEvent.ACTION_DOWN:
 				xPoint = (int) ev.getX();
 				yPoint = (int) ev.getY();
-
+				isTouched = true;
 				break;
 			case MotionEvent.ACTION_MOVE:
+				isMoving = true;
 				break;
 			case MotionEvent.ACTION_UP:
+				isTouched = false;
+				isMoving = false;
 				break;
 		}
 

@@ -73,35 +73,7 @@
             app:layout_constraintVertical_bias="0.01" />
 
         <com.bvtech.toolslibrary.Widget.MaterialRippleFrameLayout
-            android:id="@+id/materialRippleLayout2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#ffff00"
-            android:visibility="gone"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btnFloatLayouts"
-            app:layout_constraintVertical_bias="0.01"
-            app:tl_rippleAlpha="0.2"
-            app:tl_rippleColor="#585858"
-            app:tl_rippleDelayClick="true"
-            app:tl_rippleDuration="350"
-            app:tl_rippleFadeDuration="75"
-            app:tl_rippleHover="true"
-            app:tl_rippleOverlay="true">
-
-            <Button
-                android:id="@+id/ripple_layout_1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="Overlay with hover" />
-
-        </com.bvtech.toolslibrary.Widget.MaterialRippleFrameLayout>
-
-        <com.bvtech.toolslibrary.Widget.MaterialRippleLinearLayout
+            android:id="@+id/materialRippleLinearLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#ffff00"
@@ -118,32 +90,27 @@
             app:tl_rippleDuration="350"
             app:tl_rippleFadeDuration="75"
             app:tl_rippleHover="true"
-            app:tl_rippleOverlay="true">
+            app:tl_rippleOverlay="true"
+            app:tl_rippleStartFromCenter="true">
 
-            <Button
+            <TextView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
+                android:layout_height="56dp"
+                android:gravity="center"
                 android:text="Overlay with hover" />
 
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="Overlay with hover" />
-
-        </com.bvtech.toolslibrary.Widget.MaterialRippleLinearLayout>
+        </com.bvtech.toolslibrary.Widget.MaterialRippleFrameLayout>
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/imgTest"
             android:layout_width="56dp"
             android:layout_height="56dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="8dp"
             android:scaleType="fitCenter"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/materialRippleLayout2"
+            app:layout_constraintTop_toBottomOf="@+id/materialRippleLinearLayout"
             app:layout_constraintVertical_bias="0.0" />
 
         <androidx.appcompat.widget.AppCompatImageView
