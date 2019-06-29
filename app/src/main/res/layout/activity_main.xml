@@ -101,6 +101,37 @@
 
         </com.bvtech.toolslibrary.Widget.MaterialRippleFrameLayout>
 
+        <com.bvtech.toolslibrary.Widget.MaterialRippleFrameLayout
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginBottom="8dp"
+            android:background="#ffff00"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toTopOf="@+id/btnExtendSpinner"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintVertical_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tl_rippleAlpha="0.2"
+            app:tl_rippleColor="#585858"
+            app:tl_rippleDelayClick="true"
+            app:tl_rippleDuration="350"
+            app:tl_rippleFadeDuration="75"
+            app:tl_rippleDimension="4dp"
+            app:tl_rippleHover="true"
+            app:tl_hoverDuration="800"
+            app:tl_rippleOverlay="true"
+            app:tl_rippleStartFromCenter="true">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="O" />
+
+        </com.bvtech.toolslibrary.Widget.MaterialRippleFrameLayout>
+
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/imgTest"
             android:layout_width="56dp"

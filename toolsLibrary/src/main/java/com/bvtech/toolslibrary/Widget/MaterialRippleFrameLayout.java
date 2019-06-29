@@ -54,11 +54,12 @@ public class MaterialRippleFrameLayout extends FrameLayout {
     private static final int     RADIUS_OFFSET = 5;
 
     private static final int  FADE_EXTRA_DELAY = 50;
-    private static final long HOVER_DURATION   = 2500;
+    private static final int HOVER_DURATION   = 2500;
 
     private final Paint paint  = new Paint(Paint.ANTI_ALIAS_FLAG);
     private final Rect  bounds = new Rect();
 
+    private int      hoverDuration;
     private int      rippleColor;
     private boolean  rippleOverlay;
     private boolean  rippleHover;
@@ -127,6 +128,7 @@ public class MaterialRippleFrameLayout extends FrameLayout {
         rippleAlpha = (int) (255 * a.getFloat(R.styleable.WidgetAttributes_tl_rippleAlpha, DEFAULT_ALPHA));
         rippleDelayClick = a.getBoolean(R.styleable.WidgetAttributes_tl_rippleDelayClick, DEFAULT_DELAY_CLICK);
         rippleFadeDuration = a.getInteger(R.styleable.WidgetAttributes_tl_rippleFadeDuration, DEFAULT_FADE_DURATION);
+        hoverDuration = a.getInteger(R.styleable.WidgetAttributes_tl_hoverDuration, HOVER_DURATION);
         rippleBackground = new ColorDrawable(a.getColor(R.styleable.WidgetAttributes_tl_rippleBackground, DEFAULT_BACKGROUND));
         ripplePersistent = a.getBoolean(R.styleable.WidgetAttributes_tl_ripplePersistent, DEFAULT_PERSISTENT);
         rippleInAdapter = a.getBoolean(R.styleable.WidgetAttributes_tl_rippleInAdapter, DEFAULT_SEARCH_ADAPTER);
@@ -321,7 +323,7 @@ public class MaterialRippleFrameLayout extends FrameLayout {
             radius = (Math.max(getWidth(), getHeight()) /2f) - RADIUS_OFFSET;
         }
         hoverAnimator = ObjectAnimator.ofFloat(this, radiusProperty, rippleDiameter, radius)
-            .setDuration(HOVER_DURATION);
+            .setDuration(hoverDuration);
         hoverAnimator.setInterpolator(new LinearInterpolator());
         hoverAnimator.start();
     }

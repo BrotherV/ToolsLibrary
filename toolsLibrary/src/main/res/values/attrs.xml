@@ -33,6 +33,7 @@
         <attr name="tl_rippleOverlay" format="boolean" localization="suggested" />
         <attr name="tl_rippleAlpha" format="float" localization="suggested" />
         <attr name="tl_rippleDuration" format="integer" localization="suggested" />
+        <attr name="tl_hoverDuration" format="integer" localization="suggested" />
         <attr name="tl_rippleFadeDuration" format="integer" localization="suggested" />
         <attr name="tl_rippleHover" format="boolean" localization="suggested" />
         <attr name="tl_rippleBackground" format="color" localization="suggested" />
