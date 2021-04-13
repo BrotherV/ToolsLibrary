@@ -21,9 +21,9 @@
         <attr name="tl_textColor" format="reference"/>
         <attr name="tl_textSize" format="dimension"/>
         <attr name="tl_imageSize" format="dimension"/>
-        <attr name="tl_entries" />
-        <attr name="tl_entryValues" />
-        <attr name="tl_imageEntries" />
+        <attr name="tl_entries" format="reference" />
+        <attr name="tl_entryValues" format="reference" />
+        <attr name="tl_imageEntries" format="reference" />
         <attr name="tl_rtlTypeFace" format="string"/>
         <attr name="tl_ltrTypeFace" format="string"/>
         <attr name="tl_fontType" format="reference"/>
