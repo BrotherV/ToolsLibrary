@@ -1,4 +1,4 @@
-package com.bvtech.toolslibrary.Adapters;
+package com.bvtech.toolslibrary.adapters;
 
 import android.content.Context;
 import android.graphics.Typeface;
@@ -10,9 +10,9 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.bvtech.toolslibrary.Structures.StructSpinner;
+import com.bvtech.toolslibrary.model.SpinnerItem;
 import com.bvtech.toolslibrary.R;
-import com.bvtech.toolslibrary.Utility.Utilities;
+import com.bvtech.toolslibrary.utility.Utilities;
 
 import java.util.ArrayList;
 
@@ -20,14 +20,14 @@ import java.util.ArrayList;
  * Created by Mohsen on 9/6/2017.
  */
 
-public class SpinnerAdapter extends ArrayAdapter<StructSpinner> {
+public class SpinnerAdapter extends ArrayAdapter<SpinnerItem> {
 
     // (In reality I used a manager which caches the Typeface objects)
     // Typeface farsiFont = FontManager.getInstance().getFont(getContext(), BLAMBOT);
     private Typeface font = Typeface.DEFAULT;
     private Context mContext;
-    private ArrayList<StructSpinner> mItems;
-    private StructSpinner tempValues=null;
+    private ArrayList<SpinnerItem> mItems;
+    private SpinnerItem tempValues=null;
     private LayoutInflater inflater;
     private int resLayout;
     private int mTextColor;
@@ -36,7 +36,7 @@ public class SpinnerAdapter extends ArrayAdapter<StructSpinner> {
     private float mImageSize;
     private float mTextSize;
 
-    public SpinnerAdapter(Context context, int resource, ArrayList<StructSpinner> items, Typeface font, int tColor, int bColor, float tSize, float imgSize) {
+    public SpinnerAdapter(Context context, int resource, ArrayList<SpinnerItem> items, Typeface font, int tColor, int bColor, float tSize, float imgSize) {
         super(context, resource, items);
         mItems = items;
         resLayout = resource;

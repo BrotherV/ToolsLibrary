@@ -1,4 +1,4 @@
-package com.bvtech.toolslibrary.Layouts;
+package com.bvtech.toolslibrary.layouts;
 
 import android.content.Context;
 import android.util.AttributeSet;

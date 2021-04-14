@@ -44,6 +44,13 @@
         <attr name="tl_rippleFixCircleRadius" format="boolean" localization="suggested" />
         <attr name="tl_rippleEnableMove" format="boolean" localization="suggested" />
         <attr name="tl_rippleRoundedCorners" format="dimension" localization="suggested" />
+
+        <attr name="tl_cardCollapsedHeight" format="dimension"/>
+        <attr name="tl_labelColor" format="color"/>
+        <attr name="tl_image" format="reference"/>
+        <attr name="tl_hasFocus" format="boolean"/>
+        <attr name="tl_animationDuration" format="integer"/>
+        <attr name="tl_openKeyboardOnFocus" format="boolean"/>
     </declare-styleable>
 
 </resources>

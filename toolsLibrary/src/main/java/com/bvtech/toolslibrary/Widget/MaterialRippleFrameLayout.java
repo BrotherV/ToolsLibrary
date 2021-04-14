@@ -1,4 +1,4 @@
-package com.bvtech.toolslibrary.Widget;
+package com.bvtech.toolslibrary.widget;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;

@@ -1,4 +1,4 @@
-package com.bvtech.toolslibrary.Utility;
+package com.bvtech.toolslibrary.utility;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -12,7 +12,6 @@ import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
-import java.util.UnknownFormatConversionException;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
@@ -31,7 +30,6 @@ import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Typeface;
-import android.icu.text.DecimalFormat;
 import android.net.Uri;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
@@ -46,9 +44,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 

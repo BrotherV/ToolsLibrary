@@ -1,4 +1,4 @@
-package com.bvtech.toolslibrary.Locale;
+package com.bvtech.toolslibrary.locale;
 
 import android.annotation.SuppressLint;
 import android.content.Context;

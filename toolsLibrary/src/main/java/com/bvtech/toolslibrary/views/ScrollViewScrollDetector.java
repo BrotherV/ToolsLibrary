@@ -1,4 +1,4 @@
-package com.bvtech.toolslibrary.FloatViews;
+package com.bvtech.toolslibrary.views;
 
 import android.widget.ScrollView;
 

@@ -1,4 +1,4 @@
-package com.bvtech.toolslibrary.Utility;
+package com.bvtech.toolslibrary.utility;
 
 import android.os.Environment;
 import android.util.Log;

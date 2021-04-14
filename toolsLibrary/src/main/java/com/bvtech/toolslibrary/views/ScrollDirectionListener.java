@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.bvtech.toolslibrary.FloatViews;
+package com.bvtech.toolslibrary.views;
 
 public interface ScrollDirectionListener {
 	void onScrollDown();

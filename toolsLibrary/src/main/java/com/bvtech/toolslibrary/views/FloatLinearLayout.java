@@ -1,27 +1,26 @@
-package com.bvtech.toolslibrary.FloatViews;
+package com.bvtech.toolslibrary.views;
 
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.Resources;
 import android.os.Build;
 import android.util.AttributeSet;
-import android.view.MotionEvent;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
 import android.widget.AbsListView;
-import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+
 /**
  * Created by Mohsen on 2/21/2017.
  */
 
-public class FloatFrameLayout extends FrameLayout {
+public class FloatLinearLayout extends LinearLayout{
 	public static final int UP = 1;
 	public static final int DOWN = 2;
 
@@ -29,6 +28,7 @@ public class FloatFrameLayout extends FrameLayout {
 	public static final float TM = 0.5f;
 	public static final float TL = 0.15f;
 
+	protected int mStyleId;
 	protected boolean clickable;
 	private boolean isViewIn = true;
 	private boolean isViewOut;
@@ -36,23 +36,23 @@ public class FloatFrameLayout extends FrameLayout {
 	private Animation translateAnimOut;
 	private int mScrollThreshold = (int) (4 * Resources.getSystem().getDisplayMetrics().density);
 
-	public FloatFrameLayout(Context context) {
+	public FloatLinearLayout(Context context) {
 		super(context);
 		init(context, null, 0, 0);
 	}
 
-	public FloatFrameLayout(Context context, AttributeSet attrs) {
+	public FloatLinearLayout(Context context, AttributeSet attrs) {
 		super(context, attrs);
 		init(context, attrs, 0, 0);
 	}
 
-	public FloatFrameLayout(Context context, AttributeSet attrs, int defStyleAttr) {
+	public FloatLinearLayout(Context context, AttributeSet attrs, int defStyleAttr) {
 		super(context, attrs, defStyleAttr);
 		init(context, attrs, defStyleAttr, 0);
 	}
 
 	@TargetApi(Build.VERSION_CODES.LOLLIPOP)
-	public FloatFrameLayout(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+	public FloatLinearLayout(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
 		super(context, attrs, defStyleAttr, defStyleRes);
 		init(context, attrs, defStyleAttr, defStyleRes);
 	}
@@ -86,6 +86,14 @@ public class FloatFrameLayout extends FrameLayout {
 			isViewIn = true;
 			this.startAnimation(translateAnimIn);
 		}
+	}
+
+	public boolean isLayoutShow() {
+		return isViewIn;
+	}
+
+	public boolean isLayoutHide() {
+		return isViewOut;
 	}
 
 	/**

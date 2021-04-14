@@ -1,4 +1,4 @@
-package com.bvtech.toolslibrary.Widget;
+package com.bvtech.toolslibrary.widget;
 
 import android.content.Context;
 import android.content.res.Resources;
@@ -10,8 +10,8 @@ import android.util.AttributeSet;
 import android.util.TypedValue;
 
 import com.bvtech.toolslibrary.R;
-import com.bvtech.toolslibrary.Utility.Utilities;
-import com.bvtech.toolslibrary.Utility.ViewUtility;
+import com.bvtech.toolslibrary.utility.Utilities;
+import com.bvtech.toolslibrary.utility.ViewUtility;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatTextView;

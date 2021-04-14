@@ -1,4 +1,4 @@
-package com.bvtech.toolslibrary.Utility;
+package com.bvtech.toolslibrary.utility;
 
 import android.util.Log;
 
@@ -9,7 +9,6 @@ import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
-import java.util.UUID;
 
 public class ByteUtil {
 

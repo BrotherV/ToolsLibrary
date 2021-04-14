@@ -1,4 +1,4 @@
-package com.bvtech.toolslibrary.Locale;
+package com.bvtech.toolslibrary.locale;
 
 import android.content.res.Resources;
 

@@ -1,4 +1,4 @@
-package com.bvtech.toolslibrary.Widget;
+package com.bvtech.toolslibrary.widget;
 
 import android.content.Context;
 import android.content.res.Resources;
@@ -18,10 +18,10 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 
-import com.bvtech.toolslibrary.Adapters.SpinnerAdapter;
+import com.bvtech.toolslibrary.adapters.SpinnerAdapter;
 import com.bvtech.toolslibrary.R;
-import com.bvtech.toolslibrary.Utility.Utilities;
-import com.bvtech.toolslibrary.Utility.ViewUtility;
+import com.bvtech.toolslibrary.utility.Utilities;
+import com.bvtech.toolslibrary.utility.ViewUtility;
 
 /**
  * Created by Mohsen on 9/10/2018.

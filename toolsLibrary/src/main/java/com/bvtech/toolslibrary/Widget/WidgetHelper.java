@@ -1,11 +1,11 @@
-package com.bvtech.toolslibrary.Widget;
+package com.bvtech.toolslibrary.widget;
 
 import android.content.Context;
 import android.graphics.Typeface;
 
-import com.bvtech.toolslibrary.Adapters.SpinnerAdapter;
+import com.bvtech.toolslibrary.adapters.SpinnerAdapter;
 import com.bvtech.toolslibrary.R;
-import com.bvtech.toolslibrary.Structures.StructSpinner;
+import com.bvtech.toolslibrary.model.SpinnerItem;
 
 import java.util.ArrayList;
 
@@ -15,7 +15,7 @@ import java.util.ArrayList;
 
 public class WidgetHelper {
 
-	public static SpinnerAdapter getAdapter(Context mContext, ArrayList<StructSpinner> array, int tColor, int bColor, float tSize, float imgSize,  Typeface tf){
+	public static SpinnerAdapter getAdapter(Context mContext, ArrayList<SpinnerItem> array, int tColor, int bColor, float tSize, float imgSize, Typeface tf){
 		SpinnerAdapter dataAdapter = new SpinnerAdapter(mContext, R.layout.tools_library_layout_spinner_items, array,
 				tf,
 				tColor, bColor, tSize, imgSize);
@@ -43,10 +43,10 @@ public class WidgetHelper {
 		return dataAdapter;
 	}
 
-	public static ArrayList<StructSpinner> getArray(String[] array, String[] entryValues, int[] imgArray){
-		ArrayList<StructSpinner> list = new ArrayList<>();
+	public static ArrayList<SpinnerItem> getArray(String[] array, String[] entryValues, int[] imgArray){
+		ArrayList<SpinnerItem> list = new ArrayList<>();
 		for(int i = 0; i < array.length; i++){
-			StructSpinner item = new StructSpinner();
+			SpinnerItem item = new SpinnerItem();
 			item.name = array[i];
 			if(imgArray != null && imgArray.length == array.length){
 				item.imgRes = imgArray[i];

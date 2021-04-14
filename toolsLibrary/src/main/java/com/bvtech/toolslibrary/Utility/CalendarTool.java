@@ -1,4 +1,4 @@
-package com.bvtech.toolslibrary.Utility;
+package com.bvtech.toolslibrary.utility;
 
 import java.util.Calendar;
 import java.util.GregorianCalendar;

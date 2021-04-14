@@ -1,0 +1,5 @@
+<resources>
+
+    <!-- Font size for different type of screen. -->
+    <dimen name="font_size_default">22sp</dimen>
+</resources>
