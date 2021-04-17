@@ -1,4 +1,4 @@
-package com.bagi.drawpath
+package com.bvtech.toolslibrary.widget;
 
 import android.animation.ObjectAnimator
 import android.content.Context
@@ -6,8 +6,8 @@ import android.content.res.Resources
 import android.graphics.*
 import android.util.AttributeSet
 import android.view.View
-import com.bagi.drawpath.DrawerPathView.UiUtils.px
 import com.bvtech.toolslibrary.R
+import com.bvtech.toolslibrary.widget.DrawerPathView.UiUtils.px
 import kotlin.math.max
 
 class DrawerPathView : View {
