@@ -86,7 +86,8 @@
         <attr name="paddingRectangleFromEdge" format="integer" />
         <attr name="widthRec" format="integer" />
         <attr name="heightRec" format="integer" />
-        <attr name="roundCornerInPx" format="integer" />
+        <attr name="roundCornerInDp" format="integer" />
+        <attr name="strokeWidthPath" format="float" />
         <attr name="colorPath" format="color"/>
     </declare-styleable>
 

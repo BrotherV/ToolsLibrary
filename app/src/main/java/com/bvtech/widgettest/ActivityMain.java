@@ -10,6 +10,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 
+import com.bagi.drawpath.DrawerPathView;
+import com.bvtech.toolslibrary.layouts.ExtendConstraintLayout;
 import com.bvtech.toolslibrary.utility.Utilities;
 import com.bvtech.toolslibrary.widget.CircularProgressBar;
 import com.bvtech.toolslibrary.widget.ExtendEditText;
@@ -18,9 +20,11 @@ import androidx.appcompat.widget.AppCompatImageView;
 
 public class ActivityMain extends ActivityEnhanced implements View.OnClickListener{
 
+	ExtendConstraintLayout layMain;
 	AppCompatImageView imgTest;
 	AppCompatImageView imgTest2;
 	ExtendEditText edtTest;
+	DrawerPathView drawerPv;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +33,9 @@ public class ActivityMain extends ActivityEnhanced implements View.OnClickListen
 
 		initToolbar();
 		setSearchToolbar();
+
+		layMain = findViewById(R.id.layMain);
+		drawerPv = findViewById(R.id.drawerPv);
 
 		findViewById(R.id.btnExtendSpinner).setOnClickListener(this);
 		findViewById(R.id.btnExtendTextView).setOnClickListener(this);
@@ -75,6 +82,7 @@ public class ActivityMain extends ActivityEnhanced implements View.OnClickListen
 			@Override
 			public void run() {
 				circularProgressBar.setProgressWithAnimation(65f, (long) 1000); // =1s
+				drawerPv.init(layMain.getWidth(), layMain.getHeight());
 			}
 		}, 2000);
 	}

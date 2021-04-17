@@ -19,8 +19,10 @@
 
 
     <com.bvtech.toolslibrary.layouts.ExtendConstraintLayout
+        android:id="@+id/layMain"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        >
 
         <Button
             android:id="@+id/btnExtendSpinner"
@@ -110,17 +112,17 @@
             app:layout_constraintBottom_toTopOf="@+id/btnExtendSpinner"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintVertical_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0"
+            app:tl_hoverDuration="800"
             app:tl_rippleAlpha="0.2"
             app:tl_rippleColor="#585858"
             app:tl_rippleDelayClick="true"
+            app:tl_rippleDimension="4dp"
             app:tl_rippleDuration="350"
             app:tl_rippleFadeDuration="75"
-            app:tl_rippleDimension="4dp"
             app:tl_rippleHover="true"
-            app:tl_hoverDuration="800"
             app:tl_rippleOverlay="true"
             app:tl_rippleStartFromCenter="true">
 
@@ -182,6 +184,22 @@
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imgTest2" />
+
+        <com.bagi.drawpath.DrawerPathView
+            android:id="@+id/drawerPv"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:elevation="3dp"
+            app:colorPath="@color/colorRed"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:paddingRectangleFromEdge="10"
+            app:animatorDurationSec="4"
+            app:roundCornerInDp="30"
+            app:strokeWidthPath="24" />
 
     </com.bvtech.toolslibrary.layouts.ExtendConstraintLayout>
 

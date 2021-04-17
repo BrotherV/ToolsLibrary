@@ -15,6 +15,7 @@ class DrawerPathView : View {
     private var paint: Paint? = null
     private var length = 0f
     private var roundCorner = 28
+    private var pathWidth = 8f
     private var paddingRectangleFromEdge = 5f
     private var animatorDuration = 6000
     private var colorPath = 0xff000000.toInt()
@@ -38,7 +39,8 @@ class DrawerPathView : View {
             paddingRectangleFromEdge =
                 it.getFloat(R.styleable.WidgetAttributes_paddingRectangleFromEdge, 5f)
             animatorDuration = it.getInt(R.styleable.WidgetAttributes_animatorDurationSec, 6)
-            roundCorner = it.getInt(R.styleable.WidgetAttributes_roundCornerInPx, 28)
+            roundCorner = it.getInt(R.styleable.WidgetAttributes_roundCornerInDp, 28)
+            pathWidth = it.getFloat(R.styleable.WidgetAttributes_strokeWidthPath, 8f)
             colorPath = it.getColor(R.styleable.WidgetAttributes_colorPath, 0xff000000.toInt())
         }
         arr.recycle()
@@ -86,7 +88,7 @@ class DrawerPathView : View {
     private fun setPaint() {
         paint = Paint()
         paint?.color = colorPath
-        paint?.strokeWidth = 5f
+        paint?.strokeWidth = pathWidth
         paint?.style = Paint.Style.STROKE
         paint?.isAntiAlias = true
     }
