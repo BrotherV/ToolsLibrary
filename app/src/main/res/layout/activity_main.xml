@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.bvtech.toolslibrary.Layouts.ExtendCoordinatorLayout
+<com.bvtech.toolslibrary.layouts.ExtendCoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -18,7 +18,7 @@
         android:visibility="invisible"/>
 
 
-    <com.bvtech.toolslibrary.Layouts.ExtendConstraintLayout
+    <com.bvtech.toolslibrary.layouts.ExtendConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -72,7 +72,7 @@
             app:layout_constraintTop_toBottomOf="@+id/btnExtendLayouts"
             app:layout_constraintVertical_bias="0.01" />
 
-        <com.bvtech.toolslibrary.Widget.MaterialRippleFrameLayout
+        <com.bvtech.toolslibrary.widget.MaterialRippleFrameLayout
             android:id="@+id/materialRippleLinearLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -99,9 +99,9 @@
                 android:gravity="center"
                 android:text="Overlay with hover" />
 
-        </com.bvtech.toolslibrary.Widget.MaterialRippleFrameLayout>
+        </com.bvtech.toolslibrary.widget.MaterialRippleFrameLayout>
 
-        <com.bvtech.toolslibrary.Widget.MaterialRippleFrameLayout
+        <com.bvtech.toolslibrary.widget.MaterialRippleFrameLayout
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:layout_marginBottom="8dp"
@@ -130,7 +130,7 @@
                 android:gravity="center"
                 android:text="O" />
 
-        </com.bvtech.toolslibrary.Widget.MaterialRippleFrameLayout>
+        </com.bvtech.toolslibrary.widget.MaterialRippleFrameLayout>
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/imgTest"
@@ -156,7 +156,7 @@
             app:layout_constraintTop_toBottomOf="@+id/imgTest"
             app:layout_constraintVertical_bias="0.0" />
 
-        <com.bvtech.toolslibrary.Widget.ExtendEditText
+        <com.bvtech.toolslibrary.widget.ExtendEditText
             android:id="@+id/edtTest"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -167,18 +167,22 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.758" />
 
-        <com.bvtech.toolslibrary.Widget.ExtendEditText
-            android:id="@+id/edtTest1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
+        <com.bvtech.toolslibrary.widget.CircularProgressBar
+            android:id="@+id/circularProgressBar"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:layout_marginTop="24dp"
+            app:cpb_background_progressbar_color="@color/colorYellowLight"
+            app:cpb_background_progressbar_width="10dp"
+            app:cpb_progress_direction="to_right"
+            app:cpb_progressbar_color="@color/colorOrange"
+            app:cpb_progressbar_width="10dp"
+            app:cpb_round_border="false"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imgTest"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.896" />
+            app:layout_constraintTop_toBottomOf="@+id/imgTest2" />
 
-    </com.bvtech.toolslibrary.Layouts.ExtendConstraintLayout>
+    </com.bvtech.toolslibrary.layouts.ExtendConstraintLayout>
 
-</com.bvtech.toolslibrary.Layouts.ExtendCoordinatorLayout>
+</com.bvtech.toolslibrary.layouts.ExtendCoordinatorLayout>

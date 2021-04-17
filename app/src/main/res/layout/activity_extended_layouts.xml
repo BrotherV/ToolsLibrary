@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.bvtech.toolslibrary.Layouts.ExtendCoordinatorLayout
+<com.bvtech.toolslibrary.layouts.ExtendCoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -9,7 +9,7 @@
     android:layoutDirection="ltr"
     tools:ignore="RtlHardcoded">
 
-    <com.bvtech.toolslibrary.FloatViews.FloatLinearLayout
+    <com.bvtech.toolslibrary.views.FloatLinearLayout
         android:id="@+id/laySwitch"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -23,9 +23,9 @@
             android:text="Off"
             />
 
-    </com.bvtech.toolslibrary.FloatViews.FloatLinearLayout>
+    </com.bvtech.toolslibrary.views.FloatLinearLayout>
 
-    <com.bvtech.toolslibrary.Layouts.ExtendFrameLayout
+    <com.bvtech.toolslibrary.layouts.ExtendFrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
@@ -40,7 +40,7 @@
             android:clickable="true"
             app:srcCompat="@drawable/ic_launcher_foreground"/>
 
-        <com.bvtech.toolslibrary.Widget.ExtendTextView
+        <com.bvtech.toolslibrary.widget.ExtendTextView
             android:id="@+id/txtTouch"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -48,15 +48,15 @@
             app:tl_ltrTypeFace="font_en"
             app:tl_rtlTypeFace="traffic"/>
 
-    </com.bvtech.toolslibrary.Layouts.ExtendFrameLayout>
+    </com.bvtech.toolslibrary.layouts.ExtendFrameLayout>
 
-    <com.bvtech.toolslibrary.Layouts.ExtendLinearLayout
+    <com.bvtech.toolslibrary.layouts.ExtendLinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
         android:orientation="vertical">
 
-        <com.bvtech.toolslibrary.Widget.ExtendTextView
+        <com.bvtech.toolslibrary.widget.ExtendTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="12dp"
@@ -90,6 +90,6 @@
             app:srcCompat="@drawable/ic_launcher_foreground"/>
 
 
-    </com.bvtech.toolslibrary.Layouts.ExtendLinearLayout>
+    </com.bvtech.toolslibrary.layouts.ExtendLinearLayout>
 
-</com.bvtech.toolslibrary.Layouts.ExtendCoordinatorLayout>
+</com.bvtech.toolslibrary.layouts.ExtendCoordinatorLayout>

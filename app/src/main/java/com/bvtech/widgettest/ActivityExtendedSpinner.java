@@ -1,17 +1,15 @@
 package com.bvtech.widgettest;
 
 import android.content.Intent;
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.Toast;
 
-import com.bvtech.toolslibrary.Layouts.ExtendCoordinatorLayout;
-import com.bvtech.toolslibrary.Locale.LocaleManager;
-import com.bvtech.toolslibrary.Widget.ExtendSpinner;
-import com.bvtech.toolslibrary.Widget.ExtendToast;
+import com.bvtech.toolslibrary.layouts.ExtendCoordinatorLayout;
+import com.bvtech.toolslibrary.locale.LocaleManager;
+import com.bvtech.toolslibrary.widget.ExtendSpinner;
+import com.bvtech.toolslibrary.widget.ExtendToast;
 import com.google.android.material.snackbar.Snackbar;
 
 public class ActivityExtendedSpinner extends ActivityEnhanced{

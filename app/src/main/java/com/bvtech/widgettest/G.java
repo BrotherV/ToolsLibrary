@@ -4,7 +4,7 @@ import android.app.Application;
 import android.content.res.Configuration;
 import android.util.Log;
 
-import com.bvtech.toolslibrary.Locale.LocaleManager;
+import com.bvtech.toolslibrary.locale.LocaleManager;
 
 public class G extends Application {
 

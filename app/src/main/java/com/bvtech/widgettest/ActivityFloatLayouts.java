@@ -1,9 +1,8 @@
 package com.bvtech.widgettest;
 
-import android.content.Intent;
 import android.os.Bundle;
 
-import com.bvtech.toolslibrary.FloatViews.FloatLinearLayout;
+import com.bvtech.toolslibrary.views.FloatLinearLayout;
 
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.DividerItemDecoration;

@@ -4,13 +4,15 @@ import android.content.Intent;
 import android.graphics.drawable.Animatable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 
-import com.bvtech.toolslibrary.Utility.Utilities;
-import com.bvtech.toolslibrary.Widget.ExtendEditText;
+import com.bvtech.toolslibrary.utility.Utilities;
+import com.bvtech.toolslibrary.widget.CircularProgressBar;
+import com.bvtech.toolslibrary.widget.ExtendEditText;
 
 import androidx.appcompat.widget.AppCompatImageView;
 
@@ -64,6 +66,17 @@ public class ActivityMain extends ActivityEnhanced implements View.OnClickListen
 				int z = 2;
 			}
 		});
+
+		CircularProgressBar circularProgressBar = findViewById(R.id.circularProgressBar);
+		// Set Progress
+		//circularProgressBar.setProgress(65f);
+		// or with animation
+		new Handler().postDelayed(new Runnable() {
+			@Override
+			public void run() {
+				circularProgressBar.setProgressWithAnimation(65f, (long) 1000); // =1s
+			}
+		}, 2000);
 	}
 
 	@Override

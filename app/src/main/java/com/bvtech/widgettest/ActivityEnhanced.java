@@ -16,10 +16,9 @@ import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.bvtech.toolslibrary.Layouts.ExtendCoordinatorLayout;
-import com.bvtech.toolslibrary.Layouts.ExtendFrameLayout;
-import com.bvtech.toolslibrary.Locale.LocaleManager;
-import com.bvtech.toolslibrary.Utility.Utilities;
+import com.bvtech.toolslibrary.layouts.ExtendCoordinatorLayout;
+import com.bvtech.toolslibrary.locale.LocaleManager;
+import com.bvtech.toolslibrary.utility.Utilities;
 
 import java.lang.reflect.Field;
 

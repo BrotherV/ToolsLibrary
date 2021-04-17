@@ -1,14 +1,12 @@
 package com.bvtech.widgettest;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.bvtech.toolslibrary.FloatViews.FloatLinearLayout;
-import com.bvtech.toolslibrary.Layouts.ExtendCoordinatorLayout;
+import com.bvtech.toolslibrary.views.FloatLinearLayout;
+import com.bvtech.toolslibrary.layouts.ExtendCoordinatorLayout;
 import com.google.android.material.snackbar.Snackbar;
 
 import androidx.appcompat.widget.SwitchCompat;

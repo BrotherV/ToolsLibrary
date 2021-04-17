@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.bvtech.toolslibrary.Utility.Utilities;
+import com.bvtech.toolslibrary.utility.Utilities;
 
 import androidx.recyclerview.widget.RecyclerView;
 
