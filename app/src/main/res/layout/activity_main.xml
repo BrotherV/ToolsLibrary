@@ -185,7 +185,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imgTest2" />
 
-        <com.bagi.drawpath.DrawerPathView
+        <com.bvtech.toolslibrary.widget.DrawerPathView
             android:id="@+id/drawerPv"
             android:layout_width="0dp"
             android:layout_height="0dp"
