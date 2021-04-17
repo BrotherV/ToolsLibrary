@@ -82,13 +82,18 @@
             <flag name="to_left" value="2" />
         </attr>
 
-        <attr name="animatorDurationSec" format="integer" />
-        <attr name="paddingRectangleFromEdge" format="integer" />
-        <attr name="widthRec" format="integer" />
-        <attr name="heightRec" format="integer" />
-        <attr name="roundCornerInDp" format="integer" />
-        <attr name="strokeWidthPath" format="float" />
-        <attr name="colorPath" format="color"/>
+        <attr name="tl_animatorDurationSec" format="integer" />
+        <attr name="tl_paddingRectangleFromEdge" format="integer" />
+        <attr name="tl_widthRec" format="integer" />
+        <attr name="tl_heightRec" format="integer" />
+        <attr name="tl_roundCornerInDp" format="integer" />
+        <attr name="tl_strokeWidthPath" format="float" />
+        <attr name="tl_pathDirection" format="integer" />
+        <attr name="tl_colorPath" format="color"/>
+        <attr name="tl_pathDirectionType">
+            <flag name="up_to_down" value="1" />
+            <flag name="down_to_up" value="0" />
+        </attr>
     </declare-styleable>
 
 </resources>

@@ -14,6 +14,8 @@ class DrawerPathView : View {
     private var path: Path? = null
     private var paint: Paint? = null
     private var length = 0f
+    private var pathDirection = Path.Direction.CCW
+    private var pathDirectionType = 1
     private var roundCorner = 28
     private var pathWidth = 8f
     private var paddingRectangleFromEdge = 5f
@@ -36,12 +38,12 @@ class DrawerPathView : View {
     private fun initAttrs(attrs: AttributeSet?) {
         val arr = context.obtainStyledAttributes(attrs, R.styleable.WidgetAttributes)
         arr.let {
-            paddingRectangleFromEdge =
-                it.getFloat(R.styleable.WidgetAttributes_paddingRectangleFromEdge, 5f)
-            animatorDuration = it.getInt(R.styleable.WidgetAttributes_animatorDurationSec, 6)
-            roundCorner = it.getInt(R.styleable.WidgetAttributes_roundCornerInDp, 28)
-            pathWidth = it.getFloat(R.styleable.WidgetAttributes_strokeWidthPath, 8f)
-            colorPath = it.getColor(R.styleable.WidgetAttributes_colorPath, 0xff000000.toInt())
+            paddingRectangleFromEdge = it.getFloat(R.styleable.WidgetAttributes_tl_paddingRectangleFromEdge, 5f)
+            animatorDuration = it.getInt(R.styleable.WidgetAttributes_tl_animatorDurationSec, 6)
+            pathDirectionType = it.getInt(R.styleable.WidgetAttributes_tl_pathDirectionType, 1)
+            roundCorner = it.getInt(R.styleable.WidgetAttributes_tl_roundCornerInDp, 28)
+            pathWidth = it.getFloat(R.styleable.WidgetAttributes_tl_strokeWidthPath, 8f)
+            colorPath = it.getColor(R.styleable.WidgetAttributes_tl_colorPath, 0xff000000.toInt())
         }
         arr.recycle()
     }
@@ -82,7 +84,12 @@ class DrawerPathView : View {
             (widthRec - paddingRectangleFromEdge),
             (heightRec - paddingRectangleFromEdge)
         )
-        path?.addRoundRect(rectF, roundCorner.toFloat().px.toFloat(), roundCorner.toFloat().px.toFloat(), Path.Direction.CW)
+        if(pathDirectionType == 1){
+            pathDirection = Path.Direction.CCW
+        }else if(pathDirectionType == 0){
+            pathDirection = Path.Direction.CW
+        }
+        path?.addRoundRect(rectF, roundCorner.toFloat().px.toFloat(), roundCorner.toFloat().px.toFloat(), pathDirection)
     }
 
     private fun setPaint() {

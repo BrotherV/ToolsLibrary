@@ -190,16 +190,17 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:elevation="3dp"
-            app:colorPath="@color/colorRed"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:paddingRectangleFromEdge="10"
-            app:animatorDurationSec="4"
-            app:roundCornerInDp="30"
-            app:strokeWidthPath="24" />
+            app:tl_paddingRectangleFromEdge="10"
+            app:tl_colorPath="@color/colorRed"
+            app:tl_animatorDurationSec="4"
+            app:tl_roundCornerInDp="30"
+            app:tl_strokeWidthPath="24"
+            app:tl_pathDirectionType="up_to_down"/>
 
     </com.bvtech.toolslibrary.layouts.ExtendConstraintLayout>
 
