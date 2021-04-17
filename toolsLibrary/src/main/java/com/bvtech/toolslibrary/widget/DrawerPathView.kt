@@ -2,12 +2,10 @@ package com.bvtech.toolslibrary.widget;
 
 import android.animation.ObjectAnimator
 import android.content.Context
-import android.content.res.Resources
 import android.graphics.*
 import android.util.AttributeSet
 import android.view.View
 import com.bvtech.toolslibrary.R
-import com.bvtech.toolslibrary.widget.DrawerPathView.UiUtils.px
 import kotlin.math.max
 
 class DrawerPathView : View {
@@ -16,7 +14,7 @@ class DrawerPathView : View {
     private var length = 0f
     private var pathDirection = Path.Direction.CCW
     private var pathDirectionType = 1
-    private var roundCorner = 28
+    private var roundCorner = 28f
     private var pathWidth = 8f
     private var paddingRectangleFromEdge = 5f
     private var animatorDuration = 6000
@@ -38,11 +36,11 @@ class DrawerPathView : View {
     private fun initAttrs(attrs: AttributeSet?) {
         val arr = context.obtainStyledAttributes(attrs, R.styleable.WidgetAttributes)
         arr.let {
-            paddingRectangleFromEdge = it.getFloat(R.styleable.WidgetAttributes_tl_paddingRectangleFromEdge, 5f)
+            paddingRectangleFromEdge = it.getDimension(R.styleable.WidgetAttributes_tl_paddingRectangleFromEdge, 5f)
             animatorDuration = it.getInt(R.styleable.WidgetAttributes_tl_animatorDurationSec, 6)
             pathDirectionType = it.getInt(R.styleable.WidgetAttributes_tl_pathDirectionType, 1)
-            roundCorner = it.getInt(R.styleable.WidgetAttributes_tl_roundCornerInDp, 28)
-            pathWidth = it.getFloat(R.styleable.WidgetAttributes_tl_strokeWidthPath, 8f)
+            roundCorner = it.getDimension(R.styleable.WidgetAttributes_tl_roundCornerInDp, 28f)
+            pathWidth = it.getDimension(R.styleable.WidgetAttributes_tl_strokeWidthPath, 8f)
             colorPath = it.getColor(R.styleable.WidgetAttributes_tl_colorPath, 0xff000000.toInt())
         }
         arr.recycle()
@@ -89,7 +87,7 @@ class DrawerPathView : View {
         }else if(pathDirectionType == 0){
             pathDirection = Path.Direction.CW
         }
-        path?.addRoundRect(rectF, roundCorner.toFloat().px.toFloat(), roundCorner.toFloat().px.toFloat(), pathDirection)
+        path?.addRoundRect(rectF, roundCorner, roundCorner, pathDirection)
     }
 
     private fun setPaint() {
@@ -105,11 +103,5 @@ class DrawerPathView : View {
         path?.let { pathT ->
             paint?.let { paintT -> c.drawPath(pathT, paintT) }
         }
-    }
-
-    object UiUtils {
-        val Float.dp: Int get() = (this / Resources.getSystem().displayMetrics.density).toInt()
-        val Float.px: Int get() = (this * Resources.getSystem().displayMetrics.density).toInt()
-        fun getWidthDisplayScreenSize() = Resources.getSystem().displayMetrics.widthPixels
     }
 }

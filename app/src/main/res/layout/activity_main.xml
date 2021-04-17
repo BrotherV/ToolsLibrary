@@ -195,11 +195,11 @@
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:tl_paddingRectangleFromEdge="10"
+            app:tl_paddingRectangleFromEdge="12dp"
             app:tl_colorPath="@color/colorRed"
             app:tl_animatorDurationSec="4"
-            app:tl_roundCornerInDp="30"
-            app:tl_strokeWidthPath="24"
+            app:tl_roundCornerInDp="24dp"
+            app:tl_strokeWidthPath="8dp"
             app:tl_pathDirectionType="up_to_down"/>
 
     </com.bvtech.toolslibrary.layouts.ExtendConstraintLayout>
