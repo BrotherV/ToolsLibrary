@@ -81,6 +81,13 @@
             <flag name="to_right" value="1" />
             <flag name="to_left" value="2" />
         </attr>
+
+        <attr name="animatorDurationSec" format="integer" />
+        <attr name="paddingRectangleFromEdge" format="integer" />
+        <attr name="widthRec" format="integer" />
+        <attr name="heightRec" format="integer" />
+        <attr name="roundCornerInPx" format="integer" />
+        <attr name="colorPath" format="color"/>
     </declare-styleable>
 
 </resources>

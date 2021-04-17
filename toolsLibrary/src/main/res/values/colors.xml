@@ -61,4 +61,9 @@
     <color name="colorPurpleDark">#700070</color>
     <color name="colorPurpleHalfTrans">#55800080</color>
 
+    <color name="colorRedLight">#f89186</color>
+    <color name="colorBlueLight2">#9ab5d9</color>
+    <color name="colorGreyLight2">#bababa</color>
+    <color name="colorGreenLight2">#88b480</color>
+
 </resources>
