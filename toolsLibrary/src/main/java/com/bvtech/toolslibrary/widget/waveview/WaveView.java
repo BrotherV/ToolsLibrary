@@ -22,6 +22,7 @@ public class WaveView extends LinearLayout {
     private int mAboveWaveColor;
     private int mBlowWaveColor;
     private int mProgress;
+    private float mProgressMax;
     private int mWaveHeight;
     private int mWaveMultiple;
     private int mWaveHz;
@@ -33,7 +34,8 @@ public class WaveView extends LinearLayout {
 
     private final int DEFAULT_ABOVE_WAVE_COLOR = Color.WHITE;
     private final int DEFAULT_BLOW_WAVE_COLOR = Color.WHITE;
-    private final int DEFAULT_PROGRESS = 80;
+    private final int DEFAULT_PROGRESS = 0;
+    private final int DEFAULT_MAX_PROGRESS = 100;
 
     public WaveView(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -43,6 +45,7 @@ public class WaveView extends LinearLayout {
         mAboveWaveColor = attributes.getColor(R.styleable.WidgetAttributes_tl_above_wave_color, DEFAULT_ABOVE_WAVE_COLOR);
         mBlowWaveColor = attributes.getColor(R.styleable.WidgetAttributes_tl_blow_wave_color, DEFAULT_BLOW_WAVE_COLOR);
         mProgress = attributes.getInt(R.styleable.WidgetAttributes_tl_progress, DEFAULT_PROGRESS);
+        mProgressMax = attributes.getInt(R.styleable.WidgetAttributes_tl_progress_max, DEFAULT_MAX_PROGRESS);
         mWaveHeight = attributes.getInt(R.styleable.WidgetAttributes_tl_wave_height, MIDDLE);
         mWaveMultiple = attributes.getInt(R.styleable.WidgetAttributes_tl_wave_length, LARGE);
         mWaveHz = attributes.getInt(R.styleable.WidgetAttributes_tl_wave_hz, MIDDLE);
@@ -65,8 +68,12 @@ public class WaveView extends LinearLayout {
     }
 
     public void setProgress(int progress) {
-        this.mProgress = progress > 100 ? 100 : progress;
+        this.mProgress = progress > mProgressMax ? (int) mProgressMax : progress;
         computeWaveToTop();
+    }
+
+    public void setProgressMax(float progressMax) {
+        this.mProgressMax = progressMax;
     }
 
     @Override
@@ -78,7 +85,7 @@ public class WaveView extends LinearLayout {
     }
 
     private void computeWaveToTop() {
-        mWaveToTop = (int) (getHeight() * (1f - mProgress / 100f));
+        mWaveToTop = (int) (getHeight() * (1f - mProgress / mProgressMax));
         ViewGroup.LayoutParams params = mWave.getLayoutParams();
         if (params != null) {
             ((LayoutParams) params).topMargin = mWaveToTop;

@@ -98,6 +98,7 @@
         <attr name="tl_above_wave_color" format="color"/>
         <attr name="tl_blow_wave_color" format="color"/>
         <attr name="tl_progress" format="integer"/>
+        <attr name="tl_progress_max" format="integer"/>
         <attr name="tl_wave_length" format="enum">
             <enum name="large" value="1"/>
             <enum name="middle" value="2"/>
