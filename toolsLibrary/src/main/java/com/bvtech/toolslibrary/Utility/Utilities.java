@@ -289,6 +289,8 @@ public class Utilities {
 
 	}
 
+	////////////////////////////////////////////////////////////////////////////////////////////////////
+
 	/*
 	 *
 	 */
@@ -301,6 +303,8 @@ public class Utilities {
 				+ String.format(loc, "%02d", SolarCalendar.day);
 	}
 
+	////////////////////////////////////////////////////////////////////////////////////////////////////
+
 	/*
 	 *
 	 */
@@ -311,6 +315,8 @@ public class Utilities {
 				+ toPersianNumber("" + SolarCalendar.month) + "/"
 				+ toPersianNumber("" + SolarCalendar.day);
 	}
+
+	////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	/*
 	 *
@@ -325,6 +331,8 @@ public class Utilities {
 				+ toPersianNumber("" + date.getTime().getMinutes());
 	}
 
+	////////////////////////////////////////////////////////////////////////////////////////////////////
+
 	/*
 	 *
 	 */
@@ -332,6 +340,8 @@ public class Utilities {
 		SolarCalendar.calcSolarCalendar();
 		return SolarCalendar.year;
 	}
+
+	////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	/*
 	 *
@@ -341,6 +351,8 @@ public class Utilities {
 		return calendar.get(Calendar.YEAR);
 	}
 
+	////////////////////////////////////////////////////////////////////////////////////////////////////
+
 	/*
 	 *
 	 */
@@ -348,6 +360,8 @@ public class Utilities {
 		SolarCalendar.calcSolarCalendar();
 		return SolarCalendar.month;
 	}
+
+	////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	/*
 	 *
@@ -357,16 +371,21 @@ public class Utilities {
 		return calendar.get(Calendar.MONTH) + 1;
 	}
 
+	////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	public static int getCurrentShamsiDay() {
 		SolarCalendar.calcSolarCalendar();
 		return SolarCalendar.day;
 	}
 
+	////////////////////////////////////////////////////////////////////////////////////////////////////
+
 	public static int getCurrentDay() {
 		Calendar calendar = Calendar.getInstance();
 		return calendar.get(Calendar.DAY_OF_MONTH);
 	}
+
+	////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	/*
 	 *
@@ -380,6 +399,8 @@ public class Utilities {
 				+ toPersianNumber("" + SolarCalendar.day);
 	}
 
+	////////////////////////////////////////////////////////////////////////////////////////////////////
+
 	public static String getDate() {
 		Calendar MiladiDate = Calendar.getInstance();
 		int miladiYear = MiladiDate.get(Calendar.YEAR);
@@ -392,6 +413,8 @@ public class Utilities {
 				+ MiladiDate.getTime().getSeconds();
 	}
 
+	////////////////////////////////////////////////////////////////////////////////////////////////////
+
 	public static String getDateWithTime() {
 		Calendar MiladiDate = Calendar.getInstance();
 		int miladiYear = MiladiDate.get(Calendar.YEAR);
@@ -403,6 +426,8 @@ public class Utilities {
 				+ MiladiDate.getTime().getMinutes();
 	}
 
+	////////////////////////////////////////////////////////////////////////////////////////////////////
+
 	public static String getCurrentDate() {
 		Calendar MiladiDate = Calendar.getInstance();
 		int miladiYear = MiladiDate.get(Calendar.YEAR);
@@ -412,11 +437,16 @@ public class Utilities {
 		return miladiYear + "/" + miladiMonth + "/" + weekDay;
 	}
 
+	////////////////////////////////////////////////////////////////////////////////////////////////////
+
 	public static Calendar toCalendar(Date date){
 		Calendar cal = Calendar.getInstance();
 		cal.setTimeInMillis(date.getTime());
 		return cal;
 	}
+
+	////////////////////////////////////////////////////////////////////////////////////////////////////
+
 	/*
 	 *
 	 */
@@ -428,6 +458,8 @@ public class Utilities {
 		}
 		return bytes;
 	}
+
+	////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	/*
 	 *
@@ -451,6 +483,8 @@ public class Utilities {
 		}
 	}
 
+	////////////////////////////////////////////////////////////////////////////////////////////////////
+
 	/*
 	 *
 	 */
@@ -472,6 +506,9 @@ public class Utilities {
 			}
 		}
 	}
+
+	////////////////////////////////////////////////////////////////////////////////////////////////////
+
 	/*
 	 *
 	 */
@@ -495,6 +532,8 @@ public class Utilities {
 			}
 		}
 	}
+
+	////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	/**
 	 *
@@ -528,6 +567,7 @@ public class Utilities {
 		return null;
 	}
 
+	////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	public static void viewTextChanger(ViewGroup viewGroup) {
 		int childCount = viewGroup.getChildCount();
@@ -546,6 +586,8 @@ public class Utilities {
 			}
 		}
 	}
+
+	////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	/**
 	 *
@@ -572,6 +614,7 @@ public class Utilities {
 		return out;
 	}
 
+	////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	/*
 	 *
@@ -582,6 +625,8 @@ public class Utilities {
 		int px = (int) (dp * (metrics.densityDpi / 160f));
 		return px;
 	}
+
+	////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	/**
 	 *
@@ -603,6 +648,8 @@ public class Utilities {
 		return tManager.getDeviceId();
 	}
 
+	////////////////////////////////////////////////////////////////////////////////////////////////////
+
 	/**
 	 *
 	 * @param context
@@ -613,6 +660,7 @@ public class Utilities {
 		return requestAddressMAC(wifiManager);
 	}
 
+	////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	/**
 	 *
@@ -627,6 +675,9 @@ public class Utilities {
 			return capitalize(manufacturer) + " " + model;
 		}
 	}
+
+	////////////////////////////////////////////////////////////////////////////////////////////////////
+
 	/**
 	 *
 	 * @return system android version
@@ -676,11 +727,18 @@ public class Utilities {
 			case Build.VERSION_CODES.P:
 				s = "9";
 				break;
+			case Build.VERSION_CODES.Q:
+				s = "10";
+			case Build.VERSION_CODES.R:
+				s = "11";
+				break;
 			default:
 				s = "Unknown";
 		}
 		return "Android v" + s;
 	}
+
+	////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	/**
 	 *
@@ -699,13 +757,12 @@ public class Utilities {
 		}
 	}
 
-	/**
-	 *
-	 */
+	////////////////////////////////////////////////////////////////////////////////////////////////////
+
 	/*
 	 *
 	 */
-	public static String stringSeparetor(String str, int order,char ser) {
+	public static String stringSeparator(String str, int order,char ser) {
 		float ret = 0;
 		String val = "";
 		char[] buf = str.toCharArray();
@@ -737,6 +794,8 @@ public class Utilities {
 		return val;
 	}
 
+	////////////////////////////////////////////////////////////////////////////////////////////////////
+
 	/**
 	 *
 	 * @param dp
@@ -746,6 +805,8 @@ public class Utilities {
 		return dp * Resources.getSystem().getDisplayMetrics().density;
 	}
 
+
+	////////////////////////////////////////////////////////////////////////////////////////////////////
 	/**
 	 *
 	 * @param px
@@ -754,6 +815,8 @@ public class Utilities {
 	public static float pxToDp(float px) {
 		return px / Resources.getSystem().getDisplayMetrics().density;
 	}
+
+	////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	/**
 	 *
@@ -772,6 +835,8 @@ public class Utilities {
 		return dr;
 	}
 
+	////////////////////////////////////////////////////////////////////////////////////////////////////
+
 	/**
 	 *
 	 * @param context
@@ -786,6 +851,8 @@ public class Utilities {
 		dr.setCornerRadius(size/4.0f);
 		return dr;
 	}
+
+	////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	/**
 	 *
@@ -804,6 +871,8 @@ public class Utilities {
 		return dr;
 	}
 
+	////////////////////////////////////////////////////////////////////////////////////////////////////
+
 	/**
 	 *
 	 * @param context
@@ -819,6 +888,8 @@ public class Utilities {
 		return dr;
 	}
 
+	////////////////////////////////////////////////////////////////////////////////////////////////////
+
 	/**
 	 *
 	 */
@@ -833,6 +904,8 @@ public class Utilities {
 		Bitmap newBitmap = Bitmap.createScaledBitmap(bitmap, size, size, filter);
 		return newBitmap;
 	}
+
+	////////////////////////////////////////////////////////////////////////////////////////////////////
 
     /**
      *
@@ -852,6 +925,8 @@ public class Utilities {
 		return newBitmap;
 	}
 
+	////////////////////////////////////////////////////////////////////////////////////////////////////
+
 	/**
 	 *
 	 * @param context
@@ -864,6 +939,9 @@ public class Utilities {
 		display.getMetrics(metrics);
 		return metrics.heightPixels;
 	}
+
+	////////////////////////////////////////////////////////////////////////////////////////////////////
+
 	/**
 	 *
 	 * @param context
@@ -877,21 +955,31 @@ public class Utilities {
 		return metrics.widthPixels;
 	}
 
+	////////////////////////////////////////////////////////////////////////////////////////////////////
+
 	public static int getScreenHeigth(){
 		return Resources.getSystem().getDisplayMetrics().heightPixels;
 	}
+
+	////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	public static int getScreenWidth(){
 		return Resources.getSystem().getDisplayMetrics().widthPixels;
 	}
 
+	////////////////////////////////////////////////////////////////////////////////////////////////////
+
 	public static float getScreenHeigthDpi(){
 		return Resources.getSystem().getDisplayMetrics().ydpi;
 	}
 
+	////////////////////////////////////////////////////////////////////////////////////////////////////
+
 	public static float getScreenWidthDpi(){
 		return Resources.getSystem().getDisplayMetrics().xdpi;
 	}
+
+	////////////////////////////////////////////////////////////////////////////////////////////////////
 	/**
 	 *
 	 * @param context
@@ -904,6 +992,9 @@ public class Utilities {
 		display.getMetrics(metrics);
 		return (int) pxToDp(metrics.heightPixels);
 	}
+
+	////////////////////////////////////////////////////////////////////////////////////////////////////
+
 	/**
 	 *
 	 * @param context
@@ -917,29 +1008,43 @@ public class Utilities {
 		return (int) pxToDp(metrics.widthPixels);
 	}
 
+	////////////////////////////////////////////////////////////////////////////////////////////////////
+
 	public static boolean hasHoneyCombApi() {
 		return Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB;
 	}
+
+	////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	public static boolean hasLollipopApi() {
 		return Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP;
 	}
 
+	////////////////////////////////////////////////////////////////////////////////////////////////////
+
 	public static boolean hasLollipopMr1Api() {
 		return Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP_MR1;
 	}
+
+	////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	public static boolean hasMarshmallowApi() {
 		return Build.VERSION.SDK_INT >= Build.VERSION_CODES.M;
 	}
 
+	////////////////////////////////////////////////////////////////////////////////////////////////////
+
 	public static boolean hasOreoApi() {
 		return Build.VERSION.SDK_INT >= Build.VERSION_CODES.O;
 	}
 
+	////////////////////////////////////////////////////////////////////////////////////////////////////
+
 	public static boolean hasJellyBean() {
 		return Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1;
 	}
+
+	////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	//Android 6.0 : Access to mac address from WifiManager forbidden
 	private static final String marshmallowMacAddress = "02:00:00:00:00:00";
@@ -969,6 +1074,8 @@ public class Utilities {
 		return marshmallowMacAddress;
 	}
 
+	////////////////////////////////////////////////////////////////////////////////////////////////////
+
 	private static String getAdressMacByInterface(){
 		try {
 			List<NetworkInterface> all = Collections.list(NetworkInterface.getNetworkInterfaces());
@@ -997,6 +1104,8 @@ public class Utilities {
 		return null;
 	}
 
+	////////////////////////////////////////////////////////////////////////////////////////////////////
+
 	private static String getAddressMacByFile(WifiManager wifiMan) throws Exception {
 		String ret;
 		int wifiState = wifiMan.getWifiState();
@@ -1018,6 +1127,8 @@ public class Utilities {
 		return ret;
 	}
 
+	////////////////////////////////////////////////////////////////////////////////////////////////////
+
 	public static int getSoftwareVersion(Context context) {
 		PackageInfo pInfo;
 		int version = 0;
@@ -1032,6 +1143,8 @@ public class Utilities {
 		return version;
 	}
 
+	////////////////////////////////////////////////////////////////////////////////////////////////////
+
 	public static boolean isServiceRunning(Context context, Class<?> serviceClass) {
 		ActivityManager manager = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
 		for (ActivityManager.RunningServiceInfo service : manager.getRunningServices(Integer.MAX_VALUE)) {
@@ -1042,12 +1155,16 @@ public class Utilities {
 		return false;
 	}
 
+	////////////////////////////////////////////////////////////////////////////////////////////////////
+
 	public static String getDefaultSmsApp(Context context){
 		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
 			return Telephony.Sms.getDefaultSmsPackage(context);
 		}
 		return "0";
 	}
+
+	////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	public static void setDefaultSmsApp(Context context, Activity activity, String app){
 		Intent intent = null;
@@ -1061,6 +1178,8 @@ public class Utilities {
 			}
 		}
 	}
+
+	////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	/**
 	 *
@@ -1077,6 +1196,8 @@ public class Utilities {
 		return false;
 	}
 
+	////////////////////////////////////////////////////////////////////////////////////////////////////
+
 	/**
 	 *
 	 */
@@ -1092,6 +1213,8 @@ public class Utilities {
 		return  Bitmap.createScaledBitmap(bitmap, min, min, true);
 	}
 
+	////////////////////////////////////////////////////////////////////////////////////////////////////
+
 	/**
 	 *
 	 */
@@ -1103,6 +1226,8 @@ public class Utilities {
 		}
 		return  Bitmap.createScaledBitmap(bitmap, min, min, true);
 	}
+
+	////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	/**
 	 *
@@ -1116,6 +1241,8 @@ public class Utilities {
 		return bytes;
 	}
 
+	////////////////////////////////////////////////////////////////////////////////////////////////////
+
 	/**
 	 *
 	 */
@@ -1125,6 +1252,8 @@ public class Utilities {
 		}
 	}
 
+	////////////////////////////////////////////////////////////////////////////////////////////////////
+
 	/**
 	 *
 	 */
@@ -1132,12 +1261,16 @@ public class Utilities {
 		return (byte) ((id >> position) & 1);
 	}
 
+	////////////////////////////////////////////////////////////////////////////////////////////////////
+
 	/**
 	 *
 	 */
 	public static boolean isBitVluable(byte id, int position){
 		return ((id >> position) & 1) != 0;
 	}
+
+	////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	/**
 	 *
@@ -1158,6 +1291,8 @@ public class Utilities {
 		}
 		edt.commit();
 	}
+
+	////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	public static final int OBJECT_INTEGER = 0;
 	public static final int OBJECT_LONG = 1;
@@ -1181,6 +1316,7 @@ public class Utilities {
 		return null;
 	}
 
+	////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	/**
 	 *
@@ -1195,6 +1331,8 @@ public class Utilities {
 		}
 	}
 
+	////////////////////////////////////////////////////////////////////////////////////////////////////
+
 	/**
 	 *
 	 */
@@ -1206,6 +1344,8 @@ public class Utilities {
 			return -1;
 		}
 	}
+
+	////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	/**
 	 *
@@ -1224,6 +1364,8 @@ public class Utilities {
 		}
 	}
 
+	////////////////////////////////////////////////////////////////////////////////////////////////////
+
 	/**
 	 *
 	 */
@@ -1241,6 +1383,8 @@ public class Utilities {
 			window.setStatusBarColor(color);
 		}
 	}
+
+	////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	/**
 	 *
@@ -1276,6 +1420,8 @@ public class Utilities {
 
 		return true;
 	}
+
+	////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	public static String isFileExistInAsset(Context context, String path, String fileName) {
 		String [] list;
@@ -1321,6 +1467,8 @@ public class Utilities {
 		return null;
 	}
 
+	////////////////////////////////////////////////////////////////////////////////////////////////////
+
 	public static String readTextFromClipboard(Context context) {
 		ClipboardManager clipboard = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
 		if (clipboard.hasPrimaryClip()) {
@@ -1332,11 +1480,15 @@ public class Utilities {
 		return null;
 	}
 
+	////////////////////////////////////////////////////////////////////////////////////////////////////
+
 	public static void copyTextToClipboard(Context context, String text, String label) {
 		ClipboardManager clipboard = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
 		ClipData clip = ClipData.newPlainText(label, text);
 		clipboard.setPrimaryClip(clip);
 	}
+
+	////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	public void copyFromView(View v, String label) {
 		if(v != null && v instanceof TextView){
@@ -1347,6 +1499,28 @@ public class Utilities {
 				String selectedText = txtNotes.getText().toString().substring(startSelection, endSelection);
 				copyTextToClipboard(v.getContext(), selectedText, label);
 			}
+		}
+	}
+
+	////////////////////////////////////////////////////////////////////////////////////////////////////
+
+	public static String hexString(Resources res) {
+		Object resImpl = getPrivateField("android.content.res.Resources", "mResourcesImpl", res);
+		Object o = resImpl != null ? resImpl : res;
+		return "@" + Integer.toHexString(o.hashCode());
+	}
+
+	////////////////////////////////////////////////////////////////////////////////////////////////////
+
+	public static Object getPrivateField(String className, String fieldName, Object object) {
+		try {
+			Class c = Class.forName(className);
+			Field f = c.getDeclaredField(fieldName);
+			f.setAccessible(true);
+			return f.get(object);
+		} catch (Throwable e) {
+			e.printStackTrace();
+			return null;
 		}
 	}
 }
