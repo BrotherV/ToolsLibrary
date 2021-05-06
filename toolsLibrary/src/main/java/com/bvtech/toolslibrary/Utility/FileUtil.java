@@ -1,9 +1,15 @@
 package com.bvtech.toolslibrary.utility;
 
+import android.content.Context;
+import android.content.res.AssetManager;
 import android.os.Environment;
 import android.util.Log;
 
 import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -97,8 +103,11 @@ public class FileUtil {
 
 	public static File createOutputDocumentFile(String directoryName) {
 		// External sdcard location
-		File documentStorageDir = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS),
-				directoryName);
+		File documentStorageDir = null;
+		if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.KITKAT) {
+			documentStorageDir = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS),
+					directoryName);
+		}
 
 		// Create the storage directory if it does not exist
 		if (!documentStorageDir.exists()) {
@@ -224,5 +233,77 @@ public class FileUtil {
 			return path.substring(path.lastIndexOf("/") + 1);
 		}
 		return null;
+	}
+
+	public static boolean copyFileFromAssetManagerToApplicationDirectory(Context context, String argAssetDir, String argDestinationDir) {
+		boolean ret = true;
+		try {
+			AssetManager assetManager = context.getAssets();
+
+			String sdPath = context.getApplicationInfo().dataDir;
+			String destDirPath = sdPath + addLeadingSlash(argDestinationDir);
+			File destDir = new File(destDirPath);
+
+			createDir(destDir);
+
+			String[] files = assetManager.list(argAssetDir);
+
+			for (int i = 0; i < files.length; i++) {
+				String absAssetFilePath = addTrailingSlash(argAssetDir) + files[i];
+				String subFiles[] = assetManager.list(absAssetFilePath);
+
+				if (subFiles.length == 0) {
+					// It is a file
+					String destFilePath = addTrailingSlash(destDirPath) + files[i];
+					copyAssetFile(context, absAssetFilePath, destFilePath);
+				} else {
+					// It is a sub directory
+					copyFileFromAssetManagerToApplicationDirectory(context, absAssetFilePath, addTrailingSlash(argDestinationDir) + files[i]);
+				}
+			}
+		}catch (Exception e){
+			e.printStackTrace();
+			ret = false;
+		}
+		return ret;
+	}
+
+	public static void copyAssetFile(Context context, String assetFilePath, String destinationFilePath) throws IOException {
+		InputStream in = context.getAssets().open(assetFilePath);
+		OutputStream out = new FileOutputStream(destinationFilePath);
+
+		byte[] buf = new byte[1024];
+		int len;
+		while ((len = in.read(buf)) > 0)
+			out.write(buf, 0, len);
+		in.close();
+		out.close();
+	}
+
+	public static String addTrailingSlash(String path) {
+		if (path.charAt(path.length() - 1) != '/') {
+			path += "/";
+		}
+		return path;
+	}
+
+	public static String addLeadingSlash(String path) {
+		if (path.charAt(0) != '/') {
+			path = "/" + path;
+		}
+		return path;
+	}
+
+	public static void createDir(File dir) throws IOException {
+		if (dir.exists()) {
+			if (!dir.isDirectory()){
+				throw new IOException("Can't create directory, a file is in the way");
+			}
+		} else {
+			dir.mkdirs();
+			if (!dir.isDirectory()){
+				throw new IOException("Unable to create directory");
+			}
+		}
 	}
 }
