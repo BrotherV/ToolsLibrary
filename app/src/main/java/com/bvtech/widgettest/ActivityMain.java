@@ -1,6 +1,7 @@
 package com.bvtech.widgettest;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.drawable.Animatable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -103,6 +104,7 @@ public class ActivityMain extends ActivityEnhanced implements View.OnClickListen
 				openActivity(ActivityFloatLayouts.class);
 				break;
 			case R.id.imgTest:
+				drawerPv.setPathColor(Color.BLUE);
 				Drawable drawable = imgTest.getDrawable();
 				if (drawable instanceof Animatable) {
 					((Animatable) drawable).start();

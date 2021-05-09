@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.bvtech.widgettest">
 
+    <permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+
     <application
         android:name=".G"
         android:allowBackup="true"
@@ -21,6 +24,9 @@
         <activity android:name=".ActivityThird"></activity>
         <activity android:name=".ActivityExtendedLayouts"></activity>
         <activity android:name=".ActivityFloatLayouts"></activity>
+        <activity android:name=".ActivityMain2">
+
+        </activity>
     </application>
 
 </manifest>

@@ -98,6 +98,11 @@ class DrawerPathView : View {
         paint?.isAntiAlias = true
     }
 
+    fun setPathColor(c: Int){
+        paint?.color = c
+        invalidate()
+    }
+
     public override fun onDraw(c: Canvas) {
         super.onDraw(c)
         path?.let { pathT ->
