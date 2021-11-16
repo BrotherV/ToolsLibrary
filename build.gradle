@@ -41,7 +41,7 @@ ext {
     //Version
     compileSdkVersion = 31
     buildToolsVersion = "30.0.0"
-    minSdkVersion = 14
+    minSdkVersion = 15
     targetSdkVersion = 31
     supportLibraryVersion = "30.0.0"
     projectVersionCode = 86
