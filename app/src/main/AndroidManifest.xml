@@ -13,17 +13,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ActivityMain">
+        <activity android:name=".ActivityMain" android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
+
         </activity>
-        <activity android:name=".ActivityExtendedSpinner"></activity>
-        <activity android:name=".ActivityThird"></activity>
-        <activity android:name=".ActivityExtendedLayouts"></activity>
-        <activity android:name=".ActivityFloatLayouts"></activity>
+        <activity android:name=".ActivityExtendedSpinner" android:exported="true"></activity>
+        <activity android:name=".ActivityThird" android:exported="true"></activity>
+        <activity android:name=".ActivityExtendedLayouts" android:exported="true"></activity>
+        <activity android:name=".ActivityFloatLayouts" android:exported="true"></activity>
         <activity android:name=".ActivityMain2">
 
         </activity>
