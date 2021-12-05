@@ -28,7 +28,6 @@ import androidx.annotation.Nullable;
 
 import com.bvtech.toolslibrary.R;
 import com.bvtech.toolslibrary.utility.Utilities;
-import com.bvtech.toolslibrary.widget.waveview.WaveView;
 
 import java.lang.ref.WeakReference;
 

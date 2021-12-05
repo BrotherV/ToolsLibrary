@@ -23,8 +23,8 @@ import com.bvtech.toolslibrary.R;
 import java.lang.ref.WeakReference;
 import java.util.Locale;
 
-
 public class WaveView extends View {
+
     public enum Shape {
         CIRCLE(1), SQUARE(2), HEART(3), STAR(4);
         int value;
