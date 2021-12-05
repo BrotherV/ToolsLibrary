@@ -5,6 +5,7 @@ import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
@@ -17,6 +18,7 @@ import com.bvtech.toolslibrary.utility.FileUtil;
 import com.bvtech.toolslibrary.utility.ViewUtility;
 import com.bvtech.toolslibrary.widget.ExtendSnackBar;
 import com.bvtech.toolslibrary.widget.ExtendToast;
+import com.bvtech.toolslibrary.widget.progressbar.BatteryProgressbar;
 import com.bvtech.toolslibrary.widget.waveview.WaveView;
 
 import java.util.Calendar;
@@ -25,6 +27,9 @@ import java.util.Date;
 public class ActivityMain2 extends ActivityEnhanced{
 
     private WaveView wave;
+    private BatteryProgressbar bp, bp2;
+    private int prg = 0;
+
     @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -32,9 +37,10 @@ public class ActivityMain2 extends ActivityEnhanced{
         setContentView(R.layout.activity_main2);
 
         wave = findViewById(R.id.wave);
-        wave.setProgressMax(300);
-        wave.setProgress(50);
-        wave.setWaveColor(Color.RED);
+
+        bp = findViewById(R.id.batteryProgress);
+        bp2 = findViewById(R.id.batteryProgress2);
+        //bp.setCharging(true);
 
         ViewUtility.shrinkExpandAnimation(findViewById(R.id.btn1), 0.95f, new View.OnClickListener() {
             @Override
@@ -69,6 +75,37 @@ public class ActivityMain2 extends ActivityEnhanced{
             Log.i("COPY", "Success");
             ExtendToast.toastDone(this, "Copy success").show();
         }
+
+        Thread t = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                while (true){
+                    bp.setCharging(true);
+                    bp2.setCharging(true);
+                    try {
+                        Thread.sleep(100);
+                        if(prg < bp.getMaxProgress()){
+                            prg++;
+                            bp.setProgress(prg);
+                            bp2.setProgress(prg);
+                        }else{
+                            prg = 0;
+                        }
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        });
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                t.start();
+            }
+        }, 2000);
+
+
 
     }
 

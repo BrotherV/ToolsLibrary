@@ -12,7 +12,7 @@ buildscript {
         //jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:4.2.0'
+        classpath 'com.android.tools.build:gradle:7.0.3'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
 
         // NOTE: Do not place your application dependencies here; they belong
@@ -41,11 +41,11 @@ ext {
     //Version
     compileSdkVersion = 31
     buildToolsVersion = "30.0.0"
-    minSdkVersion = 14
+    minSdkVersion = 15
     targetSdkVersion = 31
     supportLibraryVersion = "30.0.0"
-    projectVersionCode = 86
-    projectVersionName = "0.86"
+    projectVersionCode = 90
+    projectVersionName = "0.90"
 
     //Support Libraries dependencies
     supportDependencies = [

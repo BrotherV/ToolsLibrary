@@ -29,7 +29,10 @@ import android.content.pm.PackageManager;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
 import android.graphics.Typeface;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
@@ -1522,5 +1525,26 @@ public class Utilities {
 			e.printStackTrace();
 			return null;
 		}
+	}
+
+	/////////////////////////////////////////////////////////////////////////////////////////////////////
+
+	public static Bitmap drawableToBitmap (Drawable drawable) {
+
+		if (drawable instanceof BitmapDrawable) {
+			return ((BitmapDrawable)drawable).getBitmap();
+		}
+
+		Bitmap bitmap = Bitmap.createBitmap(drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight(), Bitmap.Config.ARGB_8888);
+		Canvas canvas = new Canvas(bitmap);
+		drawable.setBounds(0, 0, canvas.getWidth(), canvas.getHeight());
+		drawable.draw(canvas);
+
+		return bitmap;
+	}
+
+	public static Bitmap drawableToBitmap(Context context, int drawableId){
+		Drawable d = context.getResources().getDrawable(drawableId);
+		return drawableToBitmap(d);
 	}
 }

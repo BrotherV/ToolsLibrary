@@ -94,28 +94,30 @@
             <flag name="up_to_down" value="1" />
             <flag name="down_to_up" value="0" />
         </attr>
-
-        <attr name="tl_above_wave_color" format="color"/>
-        <attr name="tl_blow_wave_color" format="color"/>
-        <attr name="tl_progress" format="integer"/>
-        <attr name="tl_progress_max" format="integer"/>
-        <attr name="tl_wave_length" format="enum">
-            <enum name="large" value="1"/>
-            <enum name="middle" value="2"/>
-            <enum name="little" value="3"/>
-        </attr>
-        <attr name="tl_wave_height" format="enum">
-            <enum name="large" value="1"/>
-            <enum name="middle" value="2"/>
-            <enum name="little" value="3"/>
-        </attr>
-        <attr name="tl_wave_hz" format="enum">
-            <enum name="fast" value="1"/>
-            <enum name="normal" value="2"/>
-            <enum name="slow" value="3"/>
-        </attr>
-
         <attr name="tl_waveViewStyle" format="reference"/>
+
+        <attr name="wv_shapeType" format="enum">
+            <enum name="circle" value="1" />
+            <enum name="square" value="2" />
+            <enum name="heart" value="3" />
+        </attr>
+        <attr name="wv_progress" format="integer" />
+        <attr name="wv_max" format="integer" />
+        <attr name="wv_borderWidthSize" format="dimension" />
+        <attr name="wv_frontColor" format="color" />
+        <attr name="wv_backColor" format="color" />
+        <attr name="wv_borderColor" format="color" />
+        <attr name="wv_strong" format="integer" />
+        <attr name="wv_textColor" format="color" />
+        <attr name="wv_animatorEnable" format="boolean" />
+        <attr name="wv_textHidden" format="boolean" />
+        <attr name="wv_shapePadding" format="dimension" />
+
+        <attr name="pb_progress" format="integer" />
+        <attr name="pb_max" format="integer" />
+        <attr name="pb_frontColor" format="color" />
+        <attr name="pb_backColor" format="color" />
+
     </declare-styleable>
 
     <declare-styleable name="FillableLoader">

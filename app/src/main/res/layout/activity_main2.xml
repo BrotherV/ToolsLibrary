@@ -16,11 +16,46 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:tl_above_wave_color="@color/colorPencilD"
-        app:tl_blow_wave_color="@color/colorPencilB"
-        app:tl_wave_height="middle"
-        app:tl_wave_hz="normal"
-        app:tl_wave_length="middle" />
+        app:wv_frontColor="@color/colorPencilD"
+        app:wv_backColor="@color/colorPencilB"
+        app:wv_borderColor="@color/colorOrange"
+        app:wv_animatorEnable="true"
+        app:wv_textHidden="true"
+        app:wv_shapeType="circle"
+        app:wv_borderWidthSize="4dp"
+        app:wv_max="100"
+        app:wv_progress="50" />
+
+    <com.bvtech.toolslibrary.widget.progressbar.BatteryProgressbar
+        android:id="@+id/batteryProgress"
+        android:layout_width="32dp"
+        android:layout_height="64dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+
+        android:layout_marginTop="40dp"
+        app:layout_constraintStart_toStartOf="@+id/wave"
+        app:layout_constraintTop_toBottomOf="@+id/wave"
+        app:pb_frontColor="@color/colorOrange"
+        app:pb_backColor="@color/colorOrange"
+        app:pb_max="100"
+        app:pb_progress="0" />
+
+    <com.bvtech.toolslibrary.widget.progressbar.BatteryProgressbar
+        android:id="@+id/batteryProgress2"
+        android:layout_width="64dp"
+        android:layout_height="32dp"
+
+        android:layout_marginStart="28dp"
+        android:layout_marginLeft="28dp"
+        android:layout_marginTop="40dp"
+        app:layout_constraintBottom_toBottomOf="@+id/batteryProgress"
+        app:layout_constraintStart_toEndOf="@+id/batteryProgress"
+        app:layout_constraintTop_toBottomOf="@+id/wave"
+        app:pb_backColor="@color/colorGreenDark"
+        app:pb_frontColor="@color/colorGreenDark"
+        app:pb_max="100"
+        app:pb_progress="0" />
 
     <Button
         android:id="@+id/btn1"
