@@ -187,30 +187,6 @@ public class BatteryProgressbar extends View {
         canvas.drawRect(rectCharge,  shaderPaint);
     }
 
-    private Path getPathFromBitmap(Bitmap mask) {
-        Path path = new Path();
-        int bWidth = mask.getWidth();
-        int bHeight = mask.getHeight();
-        int[] origin = new int[bWidth];
-        int lastA;
-        for (int i = 0; i < bHeight; i++) {
-            mask.getPixels(origin, 0, bWidth, 0, i, bWidth, 1);
-            lastA = 0;
-            for (int j = 0; j < bWidth; j++) {
-                int a = Color.alpha(origin[j]);
-                if (a != 0 && lastA == 0) {
-                    path.moveTo(j, i);
-                } else if (a == 0 && lastA !=0 ) {
-                    path.lineTo(j - 1, i);
-                } else if (a != 0 && j == bWidth - 1) {
-                    path.lineTo(j, i);
-                }
-                lastA = a;
-            }
-        }
-        return path;
-    }
-
     public void setCharging(boolean charging) {
         isCharging = charging;
 
