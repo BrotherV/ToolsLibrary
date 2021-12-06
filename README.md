@@ -30,7 +30,7 @@ allprojects{
 Step 2. Add the dependency
 ```Groovy
 dependencies{
-	     implementation 'com.github.BrotherV:ToolsLibrary:0.48'
+	     implementation 'com.github.BrotherV:ToolsLibrary:0.90.3'
 }
 ```
 
